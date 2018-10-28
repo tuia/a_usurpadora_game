@@ -96,7 +96,7 @@ const characters = {
 		"Name": "Osvaldo",
 		"Color": "#5bcaff",
 		"Images":{
-			"praia": "osvaldo/osvaldo.png",
+			"praia": "osvaldo/Osvaldo.png",
 		}
 	},
 	"char__paola": {
