@@ -3,7 +3,7 @@ A personal, nonprofit project, of a visual novel game based on the soap opera La
 
 ## Summary
 Paulina Martins is a good, honest and poor woman who was separated at birth from her twin sister, Paola Bracho, who is married to a wealthy man.
-Without knowing her sister, she eventually has to take her place. Depending on your actions, you wether live a happy life or face the consequencias of committing a crime of usurpation.
+Without knowing her sister, she eventually has to take her place. Depending on your actions, you wether live a happy life or face the consequences of committing a crime of usurpation.
 
 ## Engine
 https://monogatari.io/
