@@ -142,6 +142,17 @@ button:hover {
 
 }
 
+/*Update Stats message*/
+.update-stats {
+	position: "absolute";
+	left: 50;
+	top: 50;
+	z-index: 99999;
+	font-size: 48;
+	color: "#FFFFFF";
+}
+
+
 /**
  * ===========================
  * Quick Menu Styling
