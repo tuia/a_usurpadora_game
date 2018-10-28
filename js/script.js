@@ -247,7 +247,7 @@ let script = {
 		"play sound risadaPaola01",
 		"char__paola Eu me divirto tanto com você, Luciano.",
 		"show char__luciano clube at left with fadeIn",
-		"char__luciano Eu também passo você momentos deliciosos. Inesquecíveis, Paola.",
+		"char__luciano Eu também passo com você momentos deliciosos. Inesquecíveis, Paola.",
 		"play sound kiss",
 		"char__paola ",
 		"char__paola Eu vou ao Toalete.",
