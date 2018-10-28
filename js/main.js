@@ -11,6 +11,6 @@ function displayUpdateStats() {
     element.text("Updating stats...");
     $("body").append(element);
     setTimeout(function(){
-        $(".modal-test").remove();
+        $(".update-stats").remove();
     }, 1000);
 }

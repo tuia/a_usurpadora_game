@@ -122,7 +122,7 @@ let script = {
 	"Start": [
 		"play music Piano loop",
 		"scene Cancun with fadeIn",
-		"centered Cancun, Quintana Roo",
+		"centered Cancun, Quintana Roo - 1998",
 		"scene BeachCabin with fadeIn",
 
 		"show char__paulina praia_default at left with fadeIn",

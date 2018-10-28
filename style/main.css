@@ -129,7 +129,9 @@ button:hover {
 
 /* Style for Centered Text */
 [data-ui="centered"] {
+	background: rgba(0,0,0,.75);
 	color: #FFFFFF;
+	padding: 5px;
 }
 
 /* Character Images Styles */
@@ -144,12 +146,12 @@ button:hover {
 
 /*Update Stats message*/
 .update-stats {
-	position: "absolute";
-	left: 50;
-	top: 50;
+	position: absolute;
+	left: 50px;
+	top: 50px;
 	z-index: 99999;
-	font-size: 48;
-	color: "#FFFFFF";
+	font-size: 36px;
+	color: #FFFFFF;
 }
 
 
