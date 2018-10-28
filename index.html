@@ -203,6 +203,7 @@
 		<div class="vertical align-right bottom animated bounceIn" data-ui="inner-menu">
 			<button data-action="start" data-string="Start">Start</button>
 			<button data-action="open-menu" data-open="load" data-string="Load">Load</button>
+			<button data-action="open-menu" data-open="wardrobe" data-string="Wardrobe">Wardrobe</button>
 			<button data-action="open-menu" data-open="settings" data-string="Settings">Settings</button>
 			<button data-action="open-menu" data-open="help" data-string="Help">Help</button>
 		</div>
@@ -229,6 +230,15 @@
 		<div data-ui="autoSaveSlots">
 			<h3 data-string="LoadAutoSaveSlots">Auto Saved Games</h3>
 			<div data-ui="slots" class="row spaced align-center"></div>
+		</div>
+	</section>
+
+	<!--Wardrobe Screen -->
+	<section data-menu="wardrobe" data-background="" class="wardrobe">
+		<button class="fa fa-arrow-left top left" data-action="back"></button>
+		<h2 data-string="Wardrobe">Wardrobe</h2>
+		<div class="align-left padded-1">
+			<iframe src="wardrobe/wardrobe.html"></iframe>
 		</div>
 	</section>
 
