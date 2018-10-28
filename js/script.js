@@ -81,7 +81,7 @@ const characters = {
 		"Color": "#f99dad",
 		"Images":{
 			"praia": "paulina/paulina-02.png",
-			"clube": "paulina/paulina-03.png",
+			// "clube": "paulina/paulina-03.png",
 		}
 	},
 	"char__mae": {
