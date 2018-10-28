@@ -138,12 +138,12 @@ button:hover {
 	-webkit-text-stroke: 1px black;
 }
 
-/* Character Images Styles 
+/*Character Images Styles */
 #game [data-character] {
 	max-height: 90vh;
 }
 
-/* Other Images Styles */
+/* Other Images Styles 
 #game [data-image] {
 
 }
