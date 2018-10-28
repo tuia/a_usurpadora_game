@@ -129,12 +129,16 @@ button:hover {
 
 /* Style for Centered Text */
 [data-ui="centered"] {
-	background: rgba(0,0,0,.75);
+	font-family: sans-serif;
 	color: #FFFFFF;
-	padding: 5px;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 0 black;
+	font-weight: bold;
+	font-size: 36px;
+	-webkit-text-stroke: 1px black;
 }
 
-/* Character Images Styles */
+/* Character Images Styles 
 #game [data-character] {
 	max-height: 90vh;
 }

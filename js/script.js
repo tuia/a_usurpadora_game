@@ -66,7 +66,7 @@ const images = {
 
 // Define the backgrounds for each scene.
 const scenes = {
-	"Cancun": "cancun.jpg",
+	"Cancun": "cancun1.jpg",
 	"BeachCabin": "beachCabin.jpg",
 	"BeachCabinOut": "beachCabinOut.jpg",
 	// "BusStop": "busStop.jpg",
