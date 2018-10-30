@@ -35,7 +35,8 @@ let particles = {
 // Define the music used in the game.
 const music = {
 	"Piano": "Piano.mp3",
-	"Leda": "Leda.mp3"
+	"Leda": "Leda.mp3",
+	"PaolaTheme": "PaolaTheme.mp3"
 };
 
 // Define the voice files used in the game.
@@ -52,6 +53,7 @@ const sound = {
 	"risadaPaola01": "risada-paola-01.mp3",
 	"kiss": "kiss.mp3",
 	// "choice": "choice.mp3",
+	"Panananam": "Panananam.mp3",
 };
 
 // Define the videos used in the game.
@@ -71,7 +73,7 @@ const scenes = {
 	"BeachCabinOut": "beachCabinOut.jpg",
 	// "BusStop": "busStop.jpg",
 	"Club": "club.jpg",
-	// "Toalete": "toalete.jpg"
+	"Toalete": "toalete.jpg",
 };
 
 // Define the Characters
@@ -221,8 +223,8 @@ let script = {
 		"char__paulina Tá.",
 		// "char__osvaldo Ricardo. Ricardo! Me dá uma moeda para eu ligar para a capital.",
 
-		"play sound saxofone",
-		"jump Club",
+		// "play sound saxofone",
+		"jump club",
 	],
     "on_the_way_to_club__wrong_choice": [
 	    {
@@ -242,14 +244,14 @@ let script = {
 		"char__paulina Tá.",
 		// "char__osvaldo Ricardo. Ricardo! Me dá uma moeda para eu ligar para a capital.",
 
-		"play sound saxofone",
+		// "play sound saxofone",
 		"scene black with fadeIn",
-		"jump Club",
+		"jump club",
 	],
 
 	// Dressing game to change to working clothes
 
-	"Club": [
+	"club": [
 		"clear",
 		"play music Leda loop",
 		"scene Club with fadeIn",
@@ -263,10 +265,66 @@ let script = {
 		"char__paola ",
 		"char__paola Eu vou ao Toalete.",
 
-		"scene Toalete",
+		"scene Toalete with fadeIn",
+		"show char__paulina clube at left with fadeIn",
+		"show char__paola clube at right with fadeIn",
+		"char__paola ...",
+		"char__paulina Se sente mal, senhora?",
+
+		"play music PaolaTheme",
+		"char__paola Não... Não tem problema. eu acho que bebi demais.",
+		"char__paulina Qual o problema, senhora? Não estou percebendo.",
+		"char__paola Ainda não percebeu? Você parece a minha irmã gêmea.",
+		"char__paola Somos exatamente iguais.",
+		"char__paulina Não nos acho tão parecida, senhora.",
+		"char__paola Eu acho.",
+		"char__paulina Entre a senhora e eu há uma diferença muito grande. A senhora é fina, elegante, com classe. A senhora é muito rica, enquanto eu não passo de uma moça humilde do interior.",
+		"char__paola Não seja modesta, menina. Do jeito que está, quase sem maquiagem, com esse uniforme sem graça. De qualquer maneira, sua semelhança comigo é extraordinária.",
+		"char__paola Se você se arrumasse, se você se vestisse como eu... Garanto que confundiriam você comigo.",
+		"char__paulina Não senhora. Eu não saberia usar esta roupa ou me marquiar como a senhora. Não esotu acostumada.",
+
+		"play sound risadaPaola01",
+		"char__paola A gente se acostuma a tudo na vida, queridinha. Ainda mais ao que é muito bom!",
+		"char__paola Você me deixou impressionada, Paulina. Nunca imaginei que na face da Terra existiria uma mulher igual a mim.",
+		"char__paola Sabe, talvez algum dia eu possa precisar de você para alguma das loucuras da cabeça de Paola Bracho.",
+
+		"char__paola Eu tenho um plano em mente. Sabe o que me ocorreu? O que aconteceria se nós duas trocássemos de personalidade por uns momentos?",
+		"char__paulina Eu não entendi, senhora.",
+		"char__paola Então vou ser mais clara. Eu gostaria que você usasse a minha roupa para comprovar o tanto que nos parecemos.",
+
+		"char__paulina É uma loucura o que você quer!",
+		"char__paola Eu chamaria de capricho.",
+		"char__paulina Eu estou trabalhando, sernhora!",
+		"char__paulina Exatamente. Eu sou uma cliente e você deve me agradar. Venha comigo ao vestiário.",
+		"char__paulina Senhora, por favor...",
+		"char__paulina Vai tirar a sua roupa e colocar a minha.",
+		"char__paulina Mas, senhora...",
+		"char__paola Ah, não custa nada fazer isso. Eu já disse: só quero comprovar o tanto que nos parecemos.",
+	    {
+	        "Choice": {
+	            "right_choice": {
+	                "Text": "roupa 01",
+	                "Do": "jump club__right_choice"
+	            },
+	            "wrong_choice": {
+	                "Text": "roupa 02",
+	                "Do": "jump club__wrong_choice"
+	            }
+	        }
+	    }
+    ],
+
+	"club__right_choice": [
+		"char__paola Ppoderia se apresentar ao amigo que está comigo, assim como está?. Podemos fazer um teste. Saia e tente se passar por mim.",
 		"centered Your score: Osvaldo: {{player.respect_osvaldo}}",
 		"end"
-	]
+	],
+
+	"club__wrong_choice": [
+		"char__paola Ppoderia se apresentar ao amigo que está comigo, assim como está?. Podemos fazer um teste. Saia e tente se passar por mim.",
+		"centered Your score: Osvaldo: {{player.respect_osvaldo}}",
+		"end"
+	],
 
 
 	// First "mission": act like Paola Bracho in the club, introducing the dressing min-game concept.
