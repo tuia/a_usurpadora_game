@@ -315,14 +315,37 @@ let script = {
     ],
 
 	"club__right_choice": [
-		"char__paola Ppoderia se apresentar ao amigo que está comigo, assim como está?. Podemos fazer um teste. Saia e tente se passar por mim.",
-		"centered Your score: Osvaldo: {{player.respect_osvaldo}}",
+	    {
+	        "Function": {
+	            "Apply": function () {
+	                storage.player.respect_paola += 5;
+	                displayUpdateStats();
+	                return true;
+	            }
+	        }
+	    },
+
+		"char__paola Poderia se apresentar ao amigo que está comigo, assim como está? Podemos fazer um teste. Saia e tente se passar por mim.",
+		"show char__luciano clube at center with fadeIn",
+		"char__luciano Nossa amei, achei tudo.",
+		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
 		"end"
 	],
 
 	"club__wrong_choice": [
-		"char__paola Ppoderia se apresentar ao amigo que está comigo, assim como está?. Podemos fazer um teste. Saia e tente se passar por mim.",
-		"centered Your score: Osvaldo: {{player.respect_osvaldo}}",
+	    {
+	        "Function": {
+	            "Apply": function () {
+	                storage.player.respect_paola -= 5;
+	                displayUpdateStats();
+	                return true;
+	            }
+	        }
+	    },
+		"char__paola Poderia se apresentar ao amigo que está comigo, assim como está? Podemos fazer um teste. Saia e tente se passar por mim.",
+		"show char__luciano clube at center with fadeIn",
+		"char__luciano Nossa achei horrível.",
+		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
 		"end"
 	],
 
