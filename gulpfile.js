@@ -78,9 +78,6 @@ gulp.task("download-deps", () => {
 		url: "https://code.jquery.com/jquery-3.2.1.min.js"
 	}).pipe(gulp.dest("js/"));
 
-	// Particles JS
-	download("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/particles.min.js").pipe(gulp.dest("js/"));
-
 	// Animate CSS
 	download({
 		file: "animate.min.css",
@@ -172,7 +169,6 @@ gulp.task("package:js", () => {
 	return gulp.src([
 		"js/pollyfill.min.js",
 		"js/jquery.min.js",
-		"js/particles.min.js",
 		"js/typed.min.js",
 		"js/artemis.min.js",
 		"js/strings.js",

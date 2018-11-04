@@ -38,9 +38,7 @@
 /* global messages */
 /* global music */
 /* global notifications */
-/* global particles */
 /* global require */
-/* global particlesJS */
 /* global pJSDom */
 /* global Typed */
 /* global scenes */
@@ -764,12 +762,6 @@ $_ready(function () {
 				}
 
 				soundPlayer.play();
-			}
-		}
-
-		if (engine.Particles != "" && typeof engine.Particles == "string") {
-			if (typeof particles[engine.Particles] !== "undefined") {
-				particlesJS (particles[engine.Particles]);
 			}
 		}
 
@@ -1600,26 +1592,6 @@ $_ready(function () {
 		analyseStatement(label[engine.Step]);
 	}
 
-	function stopParticles () {
-		try {
-			if (typeof pJSDom === "object") {
-				if (pJSDom.length > 0) {
-					for (let i = 0; i < pJSDom.length; i++) {
-						if (typeof pJSDom[i].pJS !== "undefined") {
-							cancelAnimationFrame(pJSDom[i].pJS.fn.drawAnimFrame);
-							pJSDom.shift ();
-						}
-					}
-				}
-			}
-		} catch (e) {
-			console.error ("An error ocurred while trying to stop particle system.");
-		}
-
-		engine.Particles = "";
-		$_("#particles-js").html("");
-	}
-
 	// Function to execute the previous statement in the script.
 	function previous () {
 
@@ -1627,7 +1599,7 @@ $_ready(function () {
 		shutUp();
 		if (engine.Step >= 1) {
 			engine.Step -= 1;
-			const back = ["show", "play", "display", "hide", "stop", "particles", "wait", "scene", "clear", "vibrate", "notify", "next"];
+			const back = ["show", "play", "display", "hide", "stop", "wait", "scene", "clear", "vibrate", "notify", "next"];
 			let flag = true;
 			try {
 				while (engine.Step > 0 && flag) {
@@ -1715,16 +1687,6 @@ $_ready(function () {
 
 										soundPlayer.play();
 										engine.Sound = last.join(" ");
-									} else if (parts[1] == "particles") {
-										if (typeof engine.ParticlesHistory === "object") {
-											if (engine.ParticlesHistory.length > 0) {
-												var last_particles = engine.ParticlesHistory.pop ();
-												if (typeof particles[last_particles] !== "undefined") {
-													particlesJS (particles[last_particles]);
-													engine.Particles = last_particles;
-												}
-											}
-										}
 									}
 									break;
 
@@ -1782,9 +1744,6 @@ $_ready(function () {
 									}
 									break;
 
-								case "particles":
-									stopParticles ();
-									break;
 								default:
 									flag = false;
 									break;
@@ -2090,8 +2049,6 @@ $_ready(function () {
 								engine.Sound = "";
 								soundPlayer.pause();
 								soundPlayer.currentTime = 0;
-							} else if (parts[1] == "particles") {
-								stopParticles ();
 							}
 							if (advance) {
 								next ();
@@ -2250,30 +2207,6 @@ $_ready(function () {
 							}
 							if (advance) {
 								next ();
-							}
-							break;
-
-						case "particles":
-							if (typeof particles == "object") {
-								if (particles[parts[1]]) {
-									if (typeof particlesJS != "undefined") {
-										particlesJS(particles[parts[1]]);
-										if (typeof engine.ParticlesHistory !== "object") {
-											engine.ParticlesHistory = [];
-										}
-										engine.ParticlesHistory.push (parts[1]);
-										engine.Particles = parts[1];
-										if (advance) {
-											next ();
-										}
-									} else {
-										console.error("particlesJS is not loaded, are you sure you added it?");
-									}
-								} else {
-									console.error("There is no definition of the '" + parts[1] + "' particle configuration.");
-								}
-							} else {
-								console.error("The particles object is not defined.");
 							}
 							break;
 

@@ -2,7 +2,6 @@
 
 /* exported messages */
 /* exported notifications */
-/* exported particles */
 /* exported music */
 /* exported voice */
 /* exported sound */
@@ -27,10 +26,6 @@ let messages = {
 let notifications = {
 };
 
-// Define the Particles JS Configurations used in the game
-let particles = {
-
-};
 
 // Define the music used in the game.
 const music = {
