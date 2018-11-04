@@ -108,8 +108,20 @@ const characters = {
 		"Name": "Osvaldo",
 		"Color": "#5bcaff",
 		"Directory": "osvaldo",
-		"Images":{
-			"praia": "Osvaldo.png",
+		"Outfit": {
+			"Body": {
+			  "Directory": "body",
+			  "Images": {
+				"default": "default.png",
+				"smiling": "smiling.png"
+			  }
+			},
+			"Clothes": {
+			  "Directory": "clothing",
+			  "Images": {
+				"praia": "praia.png"
+			  }
+			}
 		}
 	},
 	"char__paola": {
@@ -172,7 +184,7 @@ let script = {
 
 		"scene BusStop",
 
-		"show char__osvaldo praia at right with fadeIn",
+		"show char__osvaldo smiling:praia at right with fadeIn",
 		"char__osvaldo Paulina?",
 		"show char__paulina smiling:praia at left with fadeIn",
 		"char__paulina:Smiling Osvaldo, meu amor!",
@@ -182,6 +194,7 @@ let script = {
 		// "char__paulina Eu deixei recado com a dona Filó. Hoje eu entro mais cedo no clube porque a Margarida está doente.",
 		"char__paulina:Smiling  Hoje eu entro mais cedo para trabalhar no clube porque a Margarida está doente.",
 
+		"show char__osvaldo default:praia at right",
 		"char__osvaldo Então... só nos veremos amanhã?",
 		"show char__paulina :praia at left",
 		"char__paulina Não tem jeito, meu amor. É o meu trabalho, e você sabe que eu preciso dele!",
