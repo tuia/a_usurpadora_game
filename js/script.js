@@ -76,13 +76,19 @@ const characters = {
 	"char__paulina": {
 		"Name": "Paulina Martins",
 		"Color": "#f99dad",
+		"Directory": "paulina",
 		"Images":{
-			"praia": "paulina/praia.png",
-			"praia_default": "paulina/paulina_praia_default.png",
-			"praia_smile": "paulina/paulina_praia_smile.png",
-			"praia_worried": "paulina/paulina_praia_worried.png",
-			"clube": "paulina/paulina_clube.png"
-		}
+			"praia": "praia.png",
+			"praia_default": "paulina_praia_default.png",
+			"praia_smile": "paulina_praia_smile.png",
+			"praia_worried": "paulina_praia_worried.png",
+			"clube": "paulina_clube.png"
+		},
+		"Face": "faces/default.png",
+		"Side": { // Side images identifiers to show on dialogs
+			"Smiling": "faces/smiling.png",
+			"Worried": "faces/worried.png"
+	   }
 	},
 	"char__mae": {
 		"Name": "Paula Martins",
@@ -95,22 +101,25 @@ const characters = {
 	"char__osvaldo": {
 		"Name": "Osvaldo",
 		"Color": "#5bcaff",
+		"Directory": "osvaldo",
 		"Images":{
-			"praia": "osvaldo/Osvaldo.png",
+			"praia": "Osvaldo.png",
 		}
 	},
 	"char__paola": {
 		"Name": "Paola Bracho",
 		"Color": "#5bcaff",
+		"Directory": "paola",
 		"Images":{
-			"clube": "paola/paola-01.png",
+			"clube": "paola-01.png",
 		}
 	},
 	"char__luciano": {
 		"Name": "Luciano Alcântara",
 		"Color": "#5bcaff",
+		"Directory": "luciano",
 		"Images":{
-			"clube": "luciano/luciano.png",
+			"clube": "luciano.png",
 		}
 	}
 };
@@ -131,7 +140,7 @@ let script = {
 		"char__mae Também tem o seu namorado, o Osvaldo, e com certeza gosta mais dele do que de mim.",
 
 		"show char__paulina praia_smile at left",
-		"char__paulina Não diga isso, mamãe. Não gosto mais do Osvaldo do que de você.",
+		"char__paulina:Smiling Não diga isso, mamãe. Não gosto mais do Osvaldo do que de você.",
 		"char__mae Paulina...",
 
 		"show char__paulina praia_default at left",
@@ -140,7 +149,7 @@ let script = {
 		"char__mae Além de deixar você com alguém para quando eu morrer...",
 		"char__mae Só assim eu vou morrer tranquila, filha.",
 		"show char__paulina praia_worried at left",
-		"char__paulina Pára, mamãe. Não fala de morte porque eu não gosto. Você vai se curar.",
+		"char__paulina:Worried Pára, mamãe. Não fala de morte porque eu não gosto. Você vai se curar.",
 		"jump on_the_way_to_club"
 	],
 
@@ -160,12 +169,12 @@ let script = {
 		"show char__osvaldo praia at right with fadeIn",
 		"char__osvaldo Paulina?",
 		"show char__paulina praia_smile at left with fadeIn",
-		"char__paulina Osvaldo, meu amor!",
+		"char__paulina:Smiling Osvaldo, meu amor!",
 
 		"char__osvaldo Aonde vai, com tanta pressa?",
 
 		// "char__paulina Eu deixei recado com a dona Filó. Hoje eu entro mais cedo no clube porque a Margarida está doente.",
-		"char__paulina  Hoje eu entro mais cedo para trabalhar no clube porque a Margarida está doente.",
+		"char__paulina:Smiling  Hoje eu entro mais cedo para trabalhar no clube porque a Margarida está doente.",
 
 		"char__osvaldo Então... só nos veremos amanhã?",
 		"show char__paulina praia_default at left",
@@ -176,11 +185,11 @@ let script = {
 
 		"char__osvaldo Tem que se acostumar com a idea de que ela vai morrer, Paulina.",
 		"show char__paulina praia_worried at left",
-		"char__paulina Eu não posso, Osvaldo. Não é fácil. É triste vê-la assim como está, destruída, quase... quase sem forças.",
+		"char__paulina:Worried Eu não posso, Osvaldo. Não é fácil. É triste vê-la assim como está, destruída, quase... quase sem forças.",
 		"show char__paulina praia_default at left",
 		"char__paulina As vezes eu penso que o que a mantém viva é o medo de me deixar sozinha.",
 		"show char__paulina praia_worried at left",
-		"char__paulina Sabe o que ela disse? Que só poderá morrer tranquila no dia em que me ver casada com você.",
+		"char__paulina:Worried Sabe o que ela disse? Que só poderá morrer tranquila no dia em que me ver casada com você.",
 
 		"play sound choice",
 	    {
