@@ -140,7 +140,18 @@ button:hover {
 
 /*Character Images Styles */
 #game [data-character] {
-	max-height: 90vh;
+	max-height: none;
+	max-width: 65vw;
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+@media screen and (min-width: 767px) {
+	#game [data-character] {
+		max-width: 300px;
+	}
+} 
+#game [data-character] img {
+	position: static;
 }
 
 /* Other Images Styles 

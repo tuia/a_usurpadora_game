@@ -1987,9 +1987,8 @@ $_ready(function () {
 
 								classes = parts.join(" ").replace("show " + parts[1] +" "+ parts[2], "").replace(" at ", "").replace(" with ", " ");
 
-
-								$_("#game").append("<img src='img/characters/" + directory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
-								engine.CharacterHistory.push("<img src='img/characters/" + directory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
+								$_("#game").append("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "' style='background-image: url(img/characters/" + directory + parts[1] + ".png)'><img src='img/characters/" + directory + image + "'></div>");
+								engine.CharacterHistory.push("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "' style='background-image: url(img/characters/" + directory + parts[1] + "'><img src='img/characters/" + directory + image + "'></div>");
 
 							} else {
 								// show [image] at [position] with [animation]
