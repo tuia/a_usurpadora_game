@@ -1958,6 +1958,9 @@ $_ready(function () {
 							break;
 
 						case "show":
+							// show [character] [expression]:[clothes] at [position] with [animation] [infinite]
+							//	0		1			  		2		  	3     4       5        6           7
+
 							// show [character] [expression] at [position] with [animation] [infinite]
 							//   0      1             2       3     4        5       6         7
 
@@ -1966,6 +1969,7 @@ $_ready(function () {
 
 							// show [character] [expression]
 							//   0      1             2
+
 							var classes = "";
 							if (typeof characters[parts[1]] != "undefined") {
 								let directory = characters[parts[1]].Directory;
@@ -1974,7 +1978,36 @@ $_ready(function () {
 								} else {
 									directory += "/";
 								}
-								const image = characters[parts[1]].Images[parts[2]];
+								let image = "";
+								let imageDirectory = directory;
+
+								let overlay;
+
+								if (typeof(characters[parts[1]]["Outfit"]) != "undefined" ) {
+									let splitPart = parts[2].split(":");
+
+									const bodyType = splitPart[0] != ""
+											?	splitPart[0]
+											:	"default";
+									const wearType = splitPart[1]!= ""
+											?	splitPart[1]
+											:	"default";
+
+									let bodySubDirectory = characters[parts[1]]["Outfit"]["Body"]["Directory"];
+									if (typeof(bodySubDirectory) == "undefined")
+										bodySubDirectory = "body";
+
+									let wearSubDirectory = characters[parts[1]]["Outfit"]["Clothes"]["Directory"];
+									if (typeof(wearSubDirectory) == "undefined")
+										wearSubDirectory = "clothes";
+
+									imageDirectory = imageDirectory + bodySubDirectory + "/";
+									
+									image = characters[parts[1]]["Outfit"]["Body"].Images[bodyType];
+									overlay = directory + wearSubDirectory + "/" + characters[parts[1]]["Outfit"]["Clothes"].Images[wearType]
+								} else {
+									image = characters[parts[1]].Images[parts[2]];
+								}
 								$_("[data-character='" + parts[1] + "']").remove();
 
 								if (parts[3] == "at") {
@@ -1986,9 +2019,15 @@ $_ready(function () {
 								}
 
 								classes = parts.join(" ").replace("show " + parts[1] +" "+ parts[2], "").replace(" at ", "").replace(" with ", " ");
-
-								$_("#game").append("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "' style='background-image: url(img/characters/" + directory + parts[1] + ".png)'><img src='img/characters/" + directory + image + "'></div>");
-								engine.CharacterHistory.push("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "' style='background-image: url(img/characters/" + directory + parts[1] + "'><img src='img/characters/" + directory + image + "'></div>");
+									
+								if (typeof(overlay) != "undefined") {
+									$_("#game").append("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
+									engine.CharacterHistory.push("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
+								}
+								else {
+									$_("#game").append("<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
+									engine.CharacterHistory.push("<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
+								}
 
 							} else {
 								// show [image] at [position] with [animation]

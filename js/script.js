@@ -77,18 +77,24 @@ const characters = {
 		"Name": "Paulina Martins",
 		"Color": "#f99dad",
 		"Directory": "paulina",
-		"Images":{
-			"praia": "praia.png",
-			"praia_default": "paulina_praia_default.png",
-			"praia_smile": "paulina_praia_smile.png",
-			"praia_worried": "paulina_praia_worried.png",
-			"clube": "paulina_clube.png"
-		},
-		"Face": "faces/default.png",
-		"Side": { // Side images identifiers to show on dialogs
-			"Smiling": "faces/smiling.png",
-			"Worried": "faces/worried.png"
-	   }
+		"Outfit": {
+			"Body": {
+			  "Directory": "body",
+			  "Images": {
+				"default": "default.png",
+				"smiling": "smiling.png",
+				"worried": "worried.png"
+			  }
+			},
+			"Clothes": {
+			  "Directory": "clothing",
+			  "Images": {
+				"default": "praia.png",
+				"praia": "praia.png",
+				"clube": "clube.png"
+			  }
+			}
+		}
 	},
 	"char__mae": {
 		"Name": "Paula Martins",
@@ -132,23 +138,23 @@ let script = {
 		"centered Cancun, Quintana Roo - 1998",
 		"scene BeachCabin with fadeIn",
 
-		"show char__paulina praia at left with fadeIn",
+		"show char__paulina :praia at left with fadeIn",
 		"play sound cough",
 		"char__paulina Vê se não esquece de tomar o seu remédio na hora, mamãe.",
 		"char__mae Tá, filha, tá. Paulina. Vai depressa. Vai chegar atrasada ao trabalho. Não se preocupe comigo.",
 		"char__paulina Claro que eu me preocupo com você. Você é quem eu mais amo e é tudo que eu tenho.",
 		"char__mae Também tem o seu namorado, o Osvaldo, e com certeza gosta mais dele do que de mim.",
 
-		"show char__paulina praia_smile at left",
+		"show char__paulina smiling:praia at left",
 		"char__paulina:Smiling Não diga isso, mamãe. Não gosto mais do Osvaldo do que de você.",
 		"char__mae Paulina...",
 
-		"show char__paulina praia_default at left",
+		"show char__paulina :praia at left",
 		"char__paulina Eu sei, eu já sei, mamãe. Que o Osvaldo não é muito do seu agrado.",
 		"char__mae Não, filha. É verdade, não é. Mas se ele é o homem com quem pretende se casar, o que mais posso pedir?",
 		"char__mae Além de deixar você com alguém para quando eu morrer...",
 		"char__mae Só assim eu vou morrer tranquila, filha.",
-		"show char__paulina praia_worried at left",
+		"show char__paulina worried:praia at left",
 		"char__paulina:Worried Pára, mamãe. Não fala de morte porque eu não gosto. Você vai se curar.",
 		"jump on_the_way_to_club"
 	],
@@ -168,7 +174,7 @@ let script = {
 
 		"show char__osvaldo praia at right with fadeIn",
 		"char__osvaldo Paulina?",
-		"show char__paulina praia_smile at left with fadeIn",
+		"show char__paulina smiling:praia at left with fadeIn",
 		"char__paulina:Smiling Osvaldo, meu amor!",
 
 		"char__osvaldo Aonde vai, com tanta pressa?",
@@ -177,18 +183,18 @@ let script = {
 		"char__paulina:Smiling  Hoje eu entro mais cedo para trabalhar no clube porque a Margarida está doente.",
 
 		"char__osvaldo Então... só nos veremos amanhã?",
-		"show char__paulina praia_default at left",
+		"show char__paulina :praia at left",
 		"char__paulina Não tem jeito, meu amor. É o meu trabalho, e você sabe que eu preciso dele!",
 
 		"char__osvaldo Como está a Dona Paula?",
 		"char__paulina A cada dia pior, Osvaldo. E só sabe falar de morte...",
 
 		"char__osvaldo Tem que se acostumar com a idea de que ela vai morrer, Paulina.",
-		"show char__paulina praia_worried at left",
+		"show char__paulina worried:praia at left",
 		"char__paulina:Worried Eu não posso, Osvaldo. Não é fácil. É triste vê-la assim como está, destruída, quase... quase sem forças.",
-		"show char__paulina praia_default at left",
+		"show char__paulina :praia at left",
 		"char__paulina As vezes eu penso que o que a mantém viva é o medo de me deixar sozinha.",
-		"show char__paulina praia_worried at left",
+		"show char__paulina worried:praia at left",
 		"char__paulina:Worried Sabe o que ela disse? Que só poderá morrer tranquila no dia em que me ver casada com você.",
 
 		"play sound choice",
@@ -216,7 +222,7 @@ let script = {
 	        }
 	    },
 
-		"show char__paulina praia_default at left",
+		"show char__paulina :praia at left",
 		"char__paulina Eu gostaria que nos casássemos antes de... Chegar o momento.",
 		"char__paulina Podemos nos casar para dar esta alegria à minha mãe, Osvaldo? Diz pra mim que sim.",
 		"char__osvaldo Sim, sim, claro que sim, amor.",
@@ -243,7 +249,7 @@ let script = {
 	    },
 
 		"play sound busArriving",
-		"show char__paulina praia_default at left",
+		"show char__paulina :praia at left",
 		"char__paulina Tenho que ir. Me leva até o clube?",
 		"char__osvaldo Não, não... Eu não posso. Eu tenho que fazer algumas coisas, mas eu apareço mais tarde no clube.",
 		"char__paulina Tá.",
@@ -271,7 +277,7 @@ let script = {
 		"char__paola Eu vou ao Toalete.",
 
 		"scene Toalete with fadeIn",
-		"show char__paulina clube at left with fadeIn",
+		"show char__paulina :clube at left with fadeIn",
 		"show char__paola clube at right with fadeIn",
 		"char__paola ...",
 		"char__paulina Se sente mal, senhora?",
@@ -323,13 +329,14 @@ let script = {
 	    {
 	        "Function": {
 	            "Apply": function () {
-	                storage.player.respect_paola += 5;
+					storage.player.respect_paola += 5;
+					storage.player.outfit = "clube";
 	                displayUpdateStats();
 	                return true;
 	            }
 	        }
 	    },
-
+		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola Poderia se apresentar ao amigo que está comigo, assim como está? Podemos fazer um teste. Saia e tente se passar por mim.",
 		"show char__luciano clube at center with fadeIn",
 		"char__luciano Nossa amei, achei tudo.",
@@ -341,12 +348,14 @@ let script = {
 	    {
 	        "Function": {
 	            "Apply": function () {
-	                storage.player.respect_paola -= 5;
+					storage.player.respect_paola -= 5;
+					storage.player.outfit = "praia";
 	                displayUpdateStats();
 	                return true;
 	            }
 	        }
-	    },
+		},
+		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola Poderia se apresentar ao amigo que está comigo, assim como está? Podemos fazer um teste. Saia e tente se passar por mim.",
 		"show char__luciano clube at center with fadeIn",
 		"char__luciano Nossa achei horrível.",
