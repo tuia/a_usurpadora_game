@@ -2043,8 +2043,9 @@ $_ready(function () {
 								classes = parts.join(" ").replace("show " + parts[1] +" "+ parts[2], "").replace(" at ", "").replace(" with ", " ");
 									
 								if (typeof(overlay) != "undefined") {
-									$_("#game").append("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
-									engine.CharacterHistory.push("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
+									let antiFlickeringStyle = "transition: background-image 1s ease-in-out;";
+									$_("#game").append("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
+									engine.CharacterHistory.push("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
 								}
 								else {
 									$_("#game").append("<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
