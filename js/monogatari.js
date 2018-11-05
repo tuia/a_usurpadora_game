@@ -2004,6 +2004,7 @@ $_ready(function () {
 								let imageDirectory = directory;
 
 								let overlay;
+								let hasAnimation = parts.indexOf("with") != -1;
 
 								if (typeof(characters[parts[1]]["Outfit"]) != "undefined" ) {
 									let splitPart = parts[2].split(":");
@@ -2043,13 +2044,19 @@ $_ready(function () {
 								classes = parts.join(" ").replace("show " + parts[1] +" "+ parts[2], "").replace(" at ", "").replace(" with ", " ");
 									
 								if (typeof(overlay) != "undefined") {
-									let antiFlickeringStyle = "transition: background-image 1s ease-in-out;";
-									$_("#game").append("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
-									engine.CharacterHistory.push("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
+									let antiFlickeringStyle =	hasAnimation
+										? ""
+										: "transition: background-image 1s ease-in-out;";
+									let characterHtml = "<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>";
+									
+									$_("#game").append(characterHtml);
+									engine.CharacterHistory.push(characterHtml);
 								}
 								else {
-									$_("#game").append("<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
-									engine.CharacterHistory.push("<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
+									let characterHtml = "<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>";
+									
+									$_("#game").append(characterHtml);
+									engine.CharacterHistory.push(characterHtml);
 								}
 
 							} else {
