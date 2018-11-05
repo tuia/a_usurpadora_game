@@ -1015,6 +1015,28 @@ $_ready(function () {
 					directory = characters[i].Directory + "/";
 				}
 
+				if (typeof characters[i].Outfit != "undefined") {
+					if (typeof characters[i].Outfit.Body != "undefined") {
+						let bodyDir = typeof characters[i].Outfit.Body.Directory != "undefined"
+							?  characters[i].Outfit.Body.Directory + "/"
+							: "body/";
+
+						for (const t in characters[i].Outfit.Body.Images) {
+							preloadPromises.push(preloadImage("img/characters/" + directory + bodyDir + characters[i].Outfit.Body.Images[t]));
+						}
+					}
+
+					if (typeof characters[i].Outfit.Clothes != "undefined") {
+						let clothingDir = typeof characters[i].Outfit.Clothes.Directory != "undefined"
+							?  characters[i].Outfit.Clothes.Directory + "/"
+							: "clothing/";
+
+						for (const u in characters[i].Outfit.Clothes.Images) {
+							preloadPromises.push(preloadImage("img/characters/" + directory + clothingDir + characters[i].Outfit.Clothes.Images[u]));
+						}
+					}
+				}
+
 				if (typeof characters[i].Images != "undefined") {
 					assetCount += Object.keys(characters[i].Images).length;
 					for (const j in characters[i].Images) {
