@@ -1015,6 +1015,28 @@ $_ready(function () {
 					directory = characters[i].Directory + "/";
 				}
 
+				if (typeof characters[i].Outfit != "undefined") {
+					if (typeof characters[i].Outfit.Body != "undefined") {
+						let bodyDir = typeof characters[i].Outfit.Body.Directory != "undefined"
+							?  characters[i].Outfit.Body.Directory + "/"
+							: "body/";
+
+						for (const t in characters[i].Outfit.Body.Images) {
+							preloadPromises.push(preloadImage("img/characters/" + directory + bodyDir + characters[i].Outfit.Body.Images[t]));
+						}
+					}
+
+					if (typeof characters[i].Outfit.Clothes != "undefined") {
+						let clothingDir = typeof characters[i].Outfit.Clothes.Directory != "undefined"
+							?  characters[i].Outfit.Clothes.Directory + "/"
+							: "clothing/";
+
+						for (const u in characters[i].Outfit.Clothes.Images) {
+							preloadPromises.push(preloadImage("img/characters/" + directory + clothingDir + characters[i].Outfit.Clothes.Images[u]));
+						}
+					}
+				}
+
 				if (typeof characters[i].Images != "undefined") {
 					assetCount += Object.keys(characters[i].Images).length;
 					for (const j in characters[i].Images) {
@@ -1982,6 +2004,7 @@ $_ready(function () {
 								let imageDirectory = directory;
 
 								let overlay;
+								let hasAnimation = parts.indexOf("with") != -1;
 
 								if (typeof(characters[parts[1]]["Outfit"]) != "undefined" ) {
 									let splitPart = parts[2].split(":");
@@ -2021,12 +2044,19 @@ $_ready(function () {
 								classes = parts.join(" ").replace("show " + parts[1] +" "+ parts[2], "").replace(" at ", "").replace(" with ", " ");
 									
 								if (typeof(overlay) != "undefined") {
-									$_("#game").append("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
-									engine.CharacterHistory.push("<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>");
+									let antiFlickeringStyle =	hasAnimation
+										? ""
+										: "transition: background-image 1s ease-in-out;";
+									let characterHtml = "<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>";
+									
+									$_("#game").append(characterHtml);
+									engine.CharacterHistory.push(characterHtml);
 								}
 								else {
-									$_("#game").append("<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
-									engine.CharacterHistory.push("<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>");
+									let characterHtml = "<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>";
+									
+									$_("#game").append(characterHtml);
+									engine.CharacterHistory.push(characterHtml);
 								}
 
 							} else {
