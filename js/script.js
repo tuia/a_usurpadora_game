@@ -96,7 +96,10 @@ const characters = {
 	},
 	"char__mae": {
 		"Name": "Paula Martins",
-		"Color": "#5bcaff"
+		"Color": "#5bcaff",
+		"Images":{
+			"default": "paula/default.png",
+		}
 	},
 	// "char__dona-filo": {
 	// 	"Name": "Dona Filó",
@@ -149,6 +152,7 @@ let script = {
 		"scene BeachCabin with fadeIn",
 
 		"show char__paulina :praia at left with fadeIn",
+		"show char__mae default at right with fadeIn",
 		"play sound cough",
 		"char__paulina Vê se não esquece de tomar o seu remédio na hora, mamãe.",
 		"char__mae Tá, filha, tá. Paulina. Vai depressa. Vai chegar atrasada ao trabalho. Não se preocupe comigo.",
