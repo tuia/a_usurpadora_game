@@ -339,18 +339,25 @@ let script = {
 		"char__paulina Mas, senhora...",
 		"char__paola Ah, não custa nada fazer isso. Eu já disse: só quero comprovar o tanto que nos parecemos.",
 
-	    {
-	        "Choice": {
-	            "right_choice": {
-	                "Text": "Vestido dourado de luxo",
-	                "Do": "jump club__right_choice"
-	            },
-	            "wrong_choice": {
-	                "Text": "Vestido branco básico",
-	                "Do": "jump club__wrong_choice"
-	            }
-	        }
-	    }
+		function() {
+			return new Promise((resolve, reject) => {
+				showWardrobeGame("char__paulina", ["praia", "golden" ],(clothes) => {
+					storage.player.outfit = clothes;
+					resolve("Success");
+				});
+			}).then(() => { 
+				return true; 
+			});
+		},
+		{
+			"Conditional": {
+				"Condition": function(){
+					return storage.player.outfit == "golden";
+				},
+				"True": "jump club__right_choice",
+				"False": "jump club__wrong_choice"
+			}
+		}
     ],
 
 	"club__wrong_choice": [
@@ -358,7 +365,6 @@ let script = {
 	        "Function": {
 	            "Apply": function () {
 					storage.player.respect_paola -= 5;
-					storage.player.outfit = "praia";
 	                displayUpdateStats();
 	                return true;
 	            }
@@ -411,7 +417,6 @@ let script = {
 	        "Function": {
 	            "Apply": function () {
 					storage.player.respect_paola += 5;
-					storage.player.outfit = "golden";
 	                displayUpdateStats();
 	                return true;
 	            }

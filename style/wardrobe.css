@@ -1,0 +1,34 @@
+.wardrobe-background {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width: 100%;
+    height:100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1337;
+}
+
+.wardrobe-background .container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    height:100%;
+}
+
+.wardrobe-background .container .wardrobe-character {
+    order: 2;
+    position: initial;
+    max-height: none;
+    background-size: cover !important;
+    height:100%;
+    background-repeat: no-repeat;
+}
+
+.wardrobe-background .container .wardrobe-character img {
+    position: initial !important;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    height: 100%;
+}
