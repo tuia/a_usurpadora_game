@@ -333,20 +333,20 @@ let script = {
 		"char__paola Eu chamaria de capricho.",
 		"char__paulina Eu estou trabalhando, senhora!",
 		"char__paulina Exatamente. Eu sou uma cliente e você deve me agradar. Venha comigo ao vestiário.",
-		// "char__paulina Senhora, por favor...",
+		"char__paulina Senhora, por favor...",
 		// "char__paulina Vai tirar a sua roupa e colocar a minha.",
+		"char__paulina Vai tirar a sua roupa e se vestir como a mim.",
 		"char__paulina Mas, senhora...",
 		"char__paola Ah, não custa nada fazer isso. Eu já disse: só quero comprovar o tanto que nos parecemos.",
-		"char__paulina Vai tirar a sua roupa e se vestir como a mim.",
 
 	    {
 	        "Choice": {
 	            "right_choice": {
-	                "Text": "Vestido dourado",
+	                "Text": "Vestido dourado de luxo",
 	                "Do": "jump club__right_choice"
 	            },
 	            "wrong_choice": {
-	                "Text": "Vestido branco",
+	                "Text": "Vestido branco básico",
 	                "Do": "jump club__wrong_choice"
 	            }
 	        }
@@ -380,9 +380,10 @@ let script = {
 		"char__luciano Que bom que voltou, heim? Eu não sabia que ia demorar tanto.",
 		"show char__paulina :{{player.outfit}} at right with fadeIn",
 		"char__paulina Me desculpe. Que bom que me esperou.",
+		"char__luciano Então esta era surpresa! Vestiu algo mais simples.",
 		"char__luciano Espere... Qual é o problema com você?",
 		"char__paulina Comigo? Eu não sei porque está dizendo isso.",
-		"char__luciano Tem alguma coisa errada com você...",
+		"char__luciano Tem alguma coisa errada. Você não gosta de roupas simples... E seu cabelo...",
 		"char__paulina Bem... eu...",
 		"play sound risadaPaola01",
 		"show char__paola clube at center with fadeIn",
@@ -390,15 +391,19 @@ let script = {
 		"char__luciano O que significa isso?",
 		"char__paola Eu sou a Paola.",
 		"char__luciano Me explica direitinho, vai?",
-		"char__paola Eu vou explicar. Você estava conversando com a minha sósia. Não achou a voz dela mais leve do que a minha?",
-		"char__luciano É... É, mas aí?",
-		"char__paola Eu quis fazer uma brincadeira para ver se você poderia descobrir... E percebi que ela não está perfeita.",
+		"char__paola Eu vou explicar. Você estava conversando com a minha sósia. Eu quis fazer uma brincadeira para ver se você poderia descobrir... E percebi que ela não está perfeita.",
 		"char__luciano Não estou certo se ela pode se passar por você... Isso é perigoso.",
 		"char__paulina Eu disse isso para a dona Paola, mas ela insistiu em continuar com a brincadeira...",
+		"play sound risadaPaola01",
 		"char__paola Isso não é nada, queridinha. Pretendo ir muito mais longe.",
+		
 
-		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
-		"end"
+		"scene Toalete with fadeIn",
+		"play music PaolaTheme loop",
+		"show char__paola clube at right with fadeIn",
+		"show char__paulina :{{player.outfit}} at left with fadeIn",
+		"char__paola Eu sabia! Apesar de você ter escolhido um vestido muito simples... Ele quase não notou a substituição.",
+		"jump proposal"
 	],
 
 	"club__right_choice": [
@@ -426,7 +431,8 @@ let script = {
 		"show char__paulina :{{player.outfit}} at right with fadeIn",
 		"char__luciano Que bom que voltou, heim? Eu não sabia que ia demorar tanto.",
 		"char__paulina Me desculpe. Que bom que me esperou.",
-		"char__luciano Qual é o problema com você?",
+		"char__luciano Então esta era surpresa! Está mais arrumada.",
+		"char__luciano Espere... Qual é o problema com você?",
 		"char__paulina Comigo? Eu não sei porque está dizendo isso.",
 		"char__luciano A voz. Ela está mais leve.",
 		"char__paulina Ah! É que eu acabei de chupar umas pastilhas pra garganta.",
@@ -461,12 +467,21 @@ let script = {
 		"char__paola Não acha isso fabuloso?",
 		"char__luciano E perigoso, também.",
 		"char__paulina Eu disse isso para a dona Paola, mas ela insistiu em continuar com a brincadeira...",
+		"play sound risadaPaola01",
 		"char__paola Isso não é nada, queridinha. Pretendo ir muito mais longe.",
+		
 
 		"scene Toalete with fadeIn",
+		"play music PaolaTheme loop",
 		"show char__paola clube at right with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola Eu sabia! Eu sabia. Ele não notou a substituição.",
+		"jump proposal"
+	],
+
+
+	"proposal": [
+
 		"char__paola Eu sei que vai se interessar pela minha proposta.",
 		"char__paola Tudo bem, Paulina. Me diga o quanto quer para ir até a minha casa e se passar por mim.",
 		"show char__paulina worried:{{player.outfit}} at left with fadeIn",
@@ -497,10 +512,9 @@ let script = {
 		"char__paola Não, é melhor não. É melhor quando se decidir. Pode me encontrar aqui... se decidir.",
 		"char__paola Eu sei que vai aceitar. Boa noite.",
 
-		
 		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
 		"end"
-	],
+	]
 
 
 	// First "mission": act like Paola Bracho in the club, introducing the dressing min-game concept.
