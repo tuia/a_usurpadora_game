@@ -23,6 +23,7 @@
     max-height: none;
     background-size: cover !important;
     height:100%;
+    width: fit-content;
     background-repeat: no-repeat;
 }
 
