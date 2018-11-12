@@ -45,6 +45,57 @@ button:hover {
 }
 
 
+/* Loading Screen */
+[data-menu="loading"] {
+	background-color: black;
+    color: white;
+	/*text-shadow: -1px 1px 8px rgba(255, 255, 255, 0.6), 1px -1px 8px rgba(255, 255, 235, 0.7);*/
+}
+[data-menu="loading"] .texture {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 0;
+  display: block;
+  opacity: .4;
+  background-image: url("../img/textures/bignoisebg.png");
+  -webkit-animation: animatedBackground 0.4s linear infinite;
+  -moz-animation: animatedBackground 0.4s linear infinite;
+  -o-animation: animatedBackground 0.4s linear infinite;
+  -ms-animation: animatedBackground 0.4s linear infinite;
+}
+@-webkit-keyframes animatedBackground {
+  from {background-position: 0 0}
+  to {background-position: 100% 0}
+}
+@-moz-keyframes animatedBackground {
+  from {background-position: 0 0}
+  to {background-position: 100% 0}
+}
+@-o-keyframes animatedBackground {
+  from {background-position: 0 0}
+  to {background-position: 100% 0}
+}
+@-ms-keyframes animatedBackground {
+  from {background-position: 0 0}
+  to {background-position: 100% 0}
+}
+[data-ui="load-progress"]::-webkit-progress-bar {
+	background: transparent;
+	border-radius: 3px;
+}
+
+[data-ui="load-progress"]::-webkit-progress-value {
+	background: #E8AF00;
+	border-radius: 3px;
+}
+
+[data-ui="load-progress"]::-moz-progress-bar {
+	background: #E8AF00;
+	border-radius: 3px;
+}
+
 
 
 /**
