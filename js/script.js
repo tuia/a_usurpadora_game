@@ -129,8 +129,21 @@ const characters = {
 		"Name": "Paola Bracho",
 		"Color": "#5bcaff",
 		"Directory": "paola",
-		"Images":{
-			"clube": "paola-01.png",
+		"Outfit": {
+			"Body": {
+			  "Directory": "body",
+			  "Images": {
+				"default": "default.png",
+				"evil-laugh": "evil-laugh.png"
+			  }
+			},
+			"Clothes": {
+			  "Directory": "clothing",
+			  "Images": {
+				"default": "red.png",
+				"clube": "clube.png"
+			  }
+			}
 		}
 	},
 	"char__luciano": {
@@ -273,10 +286,11 @@ let script = {
 		"play music Leda loop",
 		"scene Club with fadeIn",
 		"centered Yacht Club, Cancun",
-		"show char__paola clube at right with fadeIn",
+		"show char__paola evil-laugh:clube at right with fadeIn",
 		"play sound risadaPaola01",
 		"char__paola Eu me divirto tanto com você, Luciano.",
 		"show char__luciano clube at left with fadeIn",
+		"show char__paola :clube at right",
 		"char__luciano Eu também passo com você momentos deliciosos. Inesquecíveis, Paola.",
 		"play sound kiss",
 		"char__paola ",
@@ -285,7 +299,7 @@ let script = {
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme",
 		"show char__paulina :clube at left with fadeIn",
-		"show char__paola clube at right with fadeIn",
+		"show char__paola :clube at right with fadeIn",
 		"char__paola ...",
 		"char__paulina Se sente mal, senhora?",
 
@@ -310,7 +324,7 @@ let script = {
 		"clear",
 		"play music Leda loop",
 		"scene Club with fadeIn",
-		"show char__paola clube at right with fadeIn",
+		"show char__paola :clube at right with fadeIn",
 		"char__paola Luciano.",
 		"show char__luciano clube at left with fadeIn",
 		"char__luciano ...",
@@ -322,7 +336,7 @@ let script = {
 		"play music PaolaTheme",
 		"scene Toalete with fadeIn",
 		"show char__paulina :clube at left with fadeIn",
-		"show char__paola clube at right with fadeIn",
+		"show char__paola :clube at right with fadeIn",
 		"char__paulina Senhora?",
 		"char__paola Eu tenho um plano em mente. Sabe o que me ocorreu? O que aconteceria se nós duas trocássemos de personalidade por uns momentos?",
 		"char__paulina Eu não entendi, senhora.",
@@ -392,7 +406,7 @@ let script = {
 		"char__luciano Tem alguma coisa errada. Você não gosta de roupas simples... E seu cabelo...",
 		"char__paulina Bem... eu...",
 		"play sound risadaPaola01",
-		"show char__paola clube at center with fadeIn",
+		"show char__paola :clube at center with fadeIn",
 		"char__paola Oi, Luciano Alcântara.",
 		"char__luciano O que significa isso?",
 		"char__paola Eu sou a Paola.",
@@ -406,7 +420,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola clube at right with fadeIn",
+		"show char__paola :clube at right with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola Eu sabia! Apesar de você ter escolhido um vestido muito simples... Ele quase não notou a substituição.",
 		"jump proposal"
@@ -460,7 +474,7 @@ let script = {
 		"char__luciano Grandes coisas. Você é linda, e pelo mundo existem muitos milionários como o Alexandre Farina.",
 
 		"play sound risadaPaola01",
-		"show char__paola clube at center with fadeIn",
+		"show char__paola :clube at center with fadeIn",
 		"char__paola Oi, Luciano Alcântara.",
 		"char__luciano O que significa isso?",
 		"char__paola Eu sou a Paola.",
@@ -478,7 +492,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola clube at right with fadeIn",
+		"show char__paola :clube at right with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola Eu sabia! Eu sabia. Ele não notou a substituição.",
 		"jump proposal"
