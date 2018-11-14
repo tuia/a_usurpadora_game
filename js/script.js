@@ -539,4 +539,7 @@ let script = {
 
 
 	// First "mission": act like Paola Bracho in the club, introducing the dressing min-game concept.
+
+	// TO DO: Show charts with player's choices comparing to your choices through the game
+	// ex: 83% of the players chose not to marry Osvaldo
 };
