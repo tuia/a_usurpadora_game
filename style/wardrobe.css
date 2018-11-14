@@ -8,17 +8,51 @@
     z-index: 1337;
 }
 
+.wardrobe-background .header {
+    color: white;
+    padding: 20px 0px;
+}
+
 .wardrobe-background .container {
     display: flex;
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 auto;
-    height:100%;
+    height:80%;
+}
+
+.wardrobe-background  .footer {
+    color: white;
+    height: 50px;
+}
+
+.wardrobe-background  .footer .btn {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: #e7e7e7; 
+    color: black;
+}
+
+.wardrobe-background  .footer .btn:hover {
+    cursor: pointer;
+}
+
+.wardrobe-background .footer .btn-choose {    
+    background-color: #FCAF50;
+    color: white;
+}
+
+.wardrobe-background .footer .btn-choose:hover {    
+    background-color: #4CAF50;
+    color: white;
 }
 
 .wardrobe-background .container .wardrobe-character {
-    order: 2;
     position: initial;
     max-height: none;
     background-size: cover !important;
@@ -32,4 +66,37 @@
     max-height: 100% !important;
     max-width: 100% !important;
     height: 100%;
+}
+
+.wardrobe-background .container .arrow-container {
+    flex: 1;
+    height: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+i.left-arrow {
+    width: 200px;
+    height: 200px;
+    
+    margin-top:40%;
+
+    float: right;
+    background: url("../img/ui/arrow-left.png");
+}
+
+i.right-arrow {
+    width: 200px;
+    height: 200px;
+    
+    margin-top:40%;
+
+    float: left;
+    background: url("../img/ui/arrow-right.png");
+}
+
+.arrow-container:hover {
+    filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
 }

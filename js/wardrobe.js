@@ -1,74 +1,156 @@
-function showWardrobeGame(characterName, clothes, success) {
-    function displayBackground(){
-        let backgroundDiv = "<div id='wardrobe' class='wardrobe-background'><div id='wardrobe-container' class='container'></div></div>";
-        $_("#game").append(backgroundDiv);
+function showWardrobeMiniGame(characterName, clothes, success){
+    return function() {
+        return new Promise((resolve, reject) => {
+            debugger;
+            initWardrobeMinigame(characterName, clothes, (selectedClothing) => {
+                success(selectedClothing);
+                resolve("Success");
+            });
+        }).then(() => {
+            return true;
+        });
+    };
+};
+
+function initWardrobeMinigame(characterName, clothes, success) {
+    const antiFlickeringStyle = "transition: background-image 1s ease-in-out;";
+
+    let character = characters[characterName];
+    if (typeof(character["Outfit"]) == "undefined")
+        throw new Error("Outfit must be defined for character " + characterName);
+
+    if (typeof(character["Outfit"]["Body"]) == "undefined")
+        throw new Error("Outfit.Body must be defined for character " + characterName);
+
+    if (typeof(character["Outfit"]["Clothes"]) == "undefined")
+        throw new Error("Outfit.Clothes must be defined for character " + characterName);
+
+    if (typeof(clothes) == "undefined" || !clothes.length) {
+        throw new Error("clothes were not specified");
     }
 
-    function displayClothes(characterName, clothes, success) {
-        let character = characters[characterName];
-        if (typeof(character["Outfit"]) == "undefined" )
-            throw new Error("Outfit must be defined for character " + characterName);
+    if (typeof(success) != "function") {
+        throw new Error("success callback was not specified");
+    }
 
-        if (typeof(character["Outfit"]["Body"]) == "undefined" )
-            throw new Error("Outfit.Body must be defined for character " + characterName);
+    let directory = character.Directory;
+    if (typeof directory == "undefined") {
+        directory = "";
+    } else {
+        directory += "/";
+    }
 
-        if (typeof(character["Outfit"]["Clothes"]) == "undefined" )
-            throw new Error("Outfit.Clothes must be defined for character " + characterName);
+    let bodySubDirectory = character["Outfit"]["Body"]["Directory"];
+    if (typeof(bodySubDirectory) == "undefined")
+        bodySubDirectory = "body";
 
-        let directory = character.Directory;
+    let imageDirectory = directory + bodySubDirectory + "/";
 
-        if (typeof directory == "undefined") {
-            directory = "";
-        } else {
-            directory += "/";
-        }
+    let wearSubDirectory = character["Outfit"]["Clothes"]["Directory"];
+    if (typeof(wearSubDirectory) == "undefined")
+        wearSubDirectory = "clothes";
 
-        let image = "";
-        let imageDirectory = directory;
+    let selectedClothingIdx = 0;
 
-        const bodyType = "default";
-            
-        let bodySubDirectory = character["Outfit"]["Body"]["Directory"];
-        if (typeof(bodySubDirectory) == "undefined")
-            bodySubDirectory = "body";
-        imageDirectory = imageDirectory + bodySubDirectory + "/";
-        image = character["Outfit"]["Body"].Images[bodyType];
+    function displayBackground() {
+        let backgroundDiv = "<div id='wardrobe' class='wardrobe-background'></div>";
+        $_("#game").append(backgroundDiv);
 
-        clothes.forEach((clothing, idx) => {
-            const wearType = clothing;
-            
-            let overlay;
+        let header = "<div id='wardrobe-header' class='header'>Please select the clothes you want to wear.</div>";
+        let container = "<div id='wardrobe-container' class='container'></div>";
+        let footer = "<div id='wardrobe-footer' class='footer'><div class='btn btn-choose' id='select-button'>Select</div></div>";
 
-            let wearSubDirectory = character["Outfit"]["Clothes"]["Directory"];
-            if (typeof(wearSubDirectory) == "undefined")
-                wearSubDirectory = "clothes";
+        $_("#wardrobe").append(header);
+        $_("#wardrobe").append(container);
+        $_("#wardrobe").append(footer);
+    }
 
-            overlay = directory + wearSubDirectory + "/" + character["Outfit"]["Clothes"].Images[wearType];
-        
-            let antiFlickeringStyle = "transition: background-image 1s ease-in-out;";	
+    function triggerClothingUpdate(selectedClothingIdx) {
+        let clothing = clothes[selectedClothingIdx];
+        let overlay = directory + wearSubDirectory + "/" + character["Outfit"]["Clothes"].Images[clothing];
+        $_("#wardrobe-character-div img").attribute("src", "img/characters/" + overlay);
+    }
 
-            let id = characterName + '-' + clothing;
+    function hookEvents() {
+        $_("#wardrobe-left-arrow").on("click", () => {
+            if (selectedClothingIdx > 0) {
+                selectedClothingIdx -= 1;
+                triggerClothingUpdate(selectedClothingIdx);
+            }
+            if (selectedClothingIdx == 0)
+                hideLeftArrow();
 
-            let characterHtml = "<div id='" +
-            id + 
-            "' class='wardrobe-character" +
-            "'style='" + 
-            antiFlickeringStyle + 
-            "background-image: url(img/characters/" + 
-            imageDirectory + 
-            image + 
-            ")'><img src='img/characters/" + 
-            overlay + 
-            "'></div>";						
-            $_("#wardrobe-container").append(characterHtml);
-            
-            $_("#" + id).on("click", () => {
-                $_("#wardrobe").remove();
-                success(clothing);
-            });
+            showRightArrow();
+        });
+
+        $_("#wardrobe-right-arrow").on("click", () => {
+            if (selectedClothingIdx < clothes.length){
+                selectedClothingIdx += 1;
+                triggerClothingUpdate(selectedClothingIdx);
+            }
+            if (selectedClothingIdx == clothes.length - 1)
+                hideRightArrow();
+
+            showLeftArrow();
+        });
+
+        $_("#select-button").on("click", () => {
+            let clothing = clothes[selectedClothingIdx];
+            if (typeof(clothing) == "undefined") {
+                throw new Error("Something went wrong - there are not selected clothing, selectedClothingIdx = " + selectedClothingIdx + ", but array contains " + clothes.length + "elements.");
+            }
+
+            $_("#wardrobe").remove();
+            success(clothing);
         });
     }
 
+    function displayOverlay(defaultClothing) {
+        let leftArrowOverlay = "<div id='wardrobe-left-arrow' class='arrow-container hidden'><i class='left-arrow'/></div>";
+        let rightArrowOverlay = "<div id='wardrobe-right-arrow' class='arrow-container hidden'><i class='right-arrow'/></div>";
+        let characterOverlay = buildCharacterDisplay();
+
+        $_("#wardrobe-container").append(leftArrowOverlay);
+        $_("#wardrobe-container").append(characterOverlay);
+        $_("#wardrobe-container").append(rightArrowOverlay);
+
+        triggerClothingUpdate(0);
+    }
+
+    function buildCharacterDisplay() {
+        const bodyType = "default";
+
+        let image = character["Outfit"]["Body"].Images[bodyType];
+
+        let characterHtml = "<div id='wardrobe-character-div' class='wardrobe-character" +
+            "'style='" +
+            antiFlickeringStyle +
+            "background-image: url(img/characters/" +
+            imageDirectory +
+            image +
+            ")'><img src=''></div>";
+
+        return characterHtml;
+    }
+
+    function showRightArrow() {
+        $_("#wardrobe-right-arrow").removeClass("hidden");
+    }
+
+    function showLeftArrow() {
+        $_("#wardrobe-left-arrow").removeClass("hidden");
+    }
+
+    function hideRightArrow() {
+        $_("#wardrobe-right-arrow").addClass("hidden");
+    }
+
+    function hideLeftArrow() {
+        $_("#wardrobe-left-arrow").addClass("hidden");
+    }
+
     displayBackground();
-    displayClothes(characterName, clothes, success);
+    displayOverlay(clothes[0]);
+    hookEvents();
+    showRightArrow();
 };

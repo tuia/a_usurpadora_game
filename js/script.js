@@ -163,7 +163,6 @@ let script = {
 		"scene Cancun with fadeIn",
 		"centered Cancun, Quintana Roo - 1998",
 		"scene BeachCabin with fadeIn",
-
 		"show char__paulina :praia at left with fadeIn",
 		"show char__mae default at right with fadeIn",
 		"play sound cough",
@@ -171,7 +170,6 @@ let script = {
 		"char__mae Hurry up. You're late for work, do not worry about me.",
 		"char__paulina Of course I care about you. You are the one I love the most and all I have.",
 		"char__mae You've also got your boyfriend, Osvaldo, and you sure like him more than me.",
-
 		"show char__paulina smiling:praia at left",
 		"char__paulina:smiling Do not say that, Mom. I do not like Osvaldo more than you.",
 		"char__mae Paulina...",
@@ -354,17 +352,7 @@ let script = {
 		"char__paulina Go take off your clothes and dress like me.",
 		"char__paulina But, ma'am...",
 		"char__paola Come on, it costs nothing to do it. I told you already: I just want to prove how much alike we are.",
-
-		function() {
-			return new Promise((resolve, reject) => {
-				showWardrobeGame("char__paulina", ["praia", "golden" ],(clothes) => {
-					storage.player.outfit = clothes;
-					resolve("Success");
-				});
-			}).then(() => { 
-				return true; 
-			});
-		},
+		showWardrobeMiniGame("char__paulina", ["praia", "golden"], (clothes) => { storage.player.outfit = clothes }),
 		{
 			"Conditional": {
 				"Condition": function(){
