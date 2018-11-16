@@ -45,7 +45,6 @@ const sound = {
 	"stepsAndDoor": "stepsAndDoor.mp3",
 	"risadaPaola01": "risada-paola-01.mp3",
 	"kiss": "kiss.mp3",
-	// "choice": "choice.mp3",
 	"Panananam": "Panananam.mp3",
 };
 
@@ -208,9 +207,9 @@ let script = {
 		"char__paulina:smiling Today I come in early to work at the club because Margarida is sick.",
 
 		"show char__osvaldo default:praia at right",
-		"char__osvaldo So... Will I see you tomorrow?",
+		// "char__osvaldo So... Will I see you tomorrow?",
 		"show char__paulina :praia at left",
-		"char__paulina There's no way, my love, it's my job, and you know I need it!",
+		// "char__paulina There's no way, my love, it's my job, and you know I need it!",
 
 		"char__osvaldo How is Dona Paula?",
 		"char__paulina Every day worse, Osvaldo. She only talks about death now...",
@@ -223,7 +222,6 @@ let script = {
 		"show char__paulina worried:praia at left",
 		"char__paulina:worried Do you know what she said? That she can only die peacefully the day she sees me married to you.",
 
-		"play sound choice",
 	    {
 	        "Choice": {
 	            "right_choice": {
@@ -387,23 +385,23 @@ let script = {
 		"play music Leda loop",
 		"scene Club with fadeIn",
 		"show char__luciano clube at left with fadeIn",
-		"char__luciano How nice that you came back, huh? I did not know it was going to take so long.",
+		"char__luciano How nice that you came back, huh? I didn't know it was going to take so long.",
 		"show char__paulina :{{player.outfit}} at right with fadeIn",
-		"char__paulina I'm sorry. I'm glad you waited for me.",
-		"char__luciano Now this is a surprise! You put on something simpler.",
-		"char__luciano Wait, wait... what's the matter with you?",
-		"char__paulina With me? I do not know why you're saying this.",
-		"char__luciano There's something wrong. You do not like cheap clothes... And your hair...",
+		"char__paulina I'm sorry. Thanks for waiting for me.",
+		"char__luciano Now that's a surprise! You put on a simpler dress.",
+		"char__luciano Wait, wait... What's the matter with you?",
+		"char__paulina With me? I don't know what you're talking about.",
+		"char__luciano There's something wrong. You do not like cheap clothes... And your hair looks...",
 		"char__paulina Well... I...",
 		"play sound risadaPaola01",
 		"show char__paola :clube at center with fadeIn",
 		"char__paola Hi, Luciano Alcântara.",
-		"char__luciano What does this mean?",
+		"char__luciano What???",
 		"char__paola I'm Paola.",
 		"char__luciano Explain it to me, will you?",
-		"char__paola I'm going to explain. You were talking to my look-alike. I wanted to make a joke to see if you could find out... And I realized she's not perfect.",
+		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out... And I realized she's not perfect.",
 		"char__luciano I'm not sure if this will work... It's dangerous.",
-		"char__paulina I told this to Paola, but she insisted on continuing with this joke...",
+		"char__paulina I told this to Paola, but she insisted on continuing with the joke...",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 		
@@ -412,7 +410,7 @@ let script = {
 		"play music PaolaTheme loop",
 		"show char__paola :clube at right with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
-		"char__paola I knew it! Although you chose a very simple dress... He hardly noticed the replacement.",
+		"char__paola I knew it! Although you chose a cheap dress... He hardly noticed the replacement.",
 		"jump proposal"
 	],
 
@@ -438,44 +436,44 @@ let script = {
 		"scene Club with fadeIn",
 		"show char__luciano clube at left with fadeIn",
 		"show char__paulina :{{player.outfit}} at right with fadeIn",
-		"char__luciano How nice that you came back, huh? I did not know it was going to take so long.",
-		"char__paulina I'm sorry.I'm glad you waited for me.",
-		"char__luciano So this was a surprise! It's more tidy.",
-		"char__luciano Wait, wait ... what's the matter with you?",
-		"char__paulina With me? I do not know why you're saying this.",
-		"char__luciano The voice is more light.",
-		"char__paulina Ah, I just sucked some pills into the throat.",
-		"char__luciano If I did not smoke so much I would have the better voice.",
-		"char__paulina I'll try to drop the cigarette.",
+		"char__luciano How nice that you came back, huh? I didn't know it was going to take so long.",
+		"char__paulina I'm sorry. Thanks for waiting for me.",
+		"char__luciano Now that's a surprise! You changed your outfit. I liked it!",
+		"char__luciano Wait, wait... Is there something wrong with you?",
+		"char__paulina With me? I don't know what you're talking about.",
+		"char__luciano Your voice sounds lighter.",
+		"char__paulina It's because I took pills for the throat.",
+		"char__luciano If you didn't smoke so much you'd have a better voice.",
+		"char__paulina I'll try to quit smoking.",
 		"char__luciano Do you want a drink?",
-		"char__paulina I want, please.",
-		"char__luciano Did not you score tonight with Farina Millionaire?",
+		"char__paulina Yes, please.",
+		"char__luciano Did you schedule something tonight with Farina, the Millionaire?",
 		"char__paulina No, Luciano.",
 		"char__luciano Paola, how am I going to stay on this move?",
 		"char__paulina As always.",
 		"char__luciano And when will you go home?",
-		"char__paulina I do not know, probably soon.",
-		"char__luciano Why do not you go in with a divorce proceeding from your husband?",
-		"char__paulina Do not think it's so easy.",
-		"char__luciano You do this by choice, because you want to continue being Mrs. Bracho and dream of the inheritance.But you can be sure that your husband's children will get everything.",
+		"char__paulina I don't know, probably soon.",
+		"char__luciano Why don't you go in with a divorce proceeding?",
+		"char__paulina It's not that easy.",
+		"char__luciano You don't do it because you don't want to. You want to keep being Mrs. Bracho, dreaming of the inheritance. But you can be sure that your husband's children will get it all.",
 		"char__paulina It is possible.",
-		"char__luciano Do you know that I could do great things together, Paola?",
+		"char__luciano Do you know that we could do great things together, Paola?",
 		"char__paulina What things?",
-		"char__luciano Great things.You are beautiful, and around the world there are many millionaires like Alexandre Farina.",
+		"char__luciano Great things. You are beautiful, and there are many millionaires like Alexandre Farina around the world.",
 
 		"play sound risadaPaola01",
 		"show char__paola :clube at center with fadeIn",
 		"char__paola Hi, Luciano Alcântara.",
-		"char__luciano What does this mean?",
+		"char__luciano What???",
 		"char__paola I'm Paola.",
 		"char__luciano Explain it to me, will you?",
-		"char__paola I'm going to explain. You were talking to my look-alike. Did you not find her voice lighter than mine?",
-		"char__luciano It is ... Yes, but there?",
+		"char__paola You were talking to my look-alike. Did you not find her voice lighter than mine?",
+		"char__luciano It is... But still?",
 		"char__paola I wanted to make a joke to see if you could find out... And I found out she's perfect.",
-		"char__luciano She can get through you without problems... And you can get past her.",
-		"char__paola Do not you find this fabulous?",
+		"char__luciano She can get through you without problems... And you can get past as her.",
+		"char__paola Isn't it fabulous?",
 		"char__luciano And dangerous, too.",
-		"char__paulina I told this to Paola, but she insisted on continuing the joke...",
+		"char__paulina I told it to Paola, but she insisted on continuing the joke...",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 		
@@ -496,34 +494,77 @@ let script = {
 		"show char__paulina worried:{{player.outfit}} at left with fadeIn",
 		"char__paulina Are you proposing that I replace you in your own house?",
 		"char__paola Exactly. In exchange for a large sum of money. What do you think?",
-
 		"char__paulina Lady, you are delirious!",
 		"char__paola But it's a good proposal. You in my house passing as me.",
 		"char__paola You would be considered, obeyed and respected. You would have a wonderful life, let's say... for a year.",
 		"char__paola At the end of this year I come back, I take my place again and give you a good amount of money, which will solve your future life.",
 		"char__paola Ah, and you will not have to work in a ladies' room any more.",
 		"char__paulina Why do you want me to impersonate you in your own house?",
-		"char__paola To be able to live a year away from all those people I hate.",
+		"char__paola To stay a year away from all those people I hate.",
+		"char__paulina I...",
+		"char__paola Don't you need money?",
+		"char__paulina Yes... a lot. My mother is very sick, and the bank won't lent me any more money to get her medicine.",
+		"char__paola So I do not understand your scruples. What do you say?",
+		"char__paola Will you go to my house to pass as me, for a large sum of money, that can save your mother and your future life?",
+
+	    {
+	        "Choice": {
+	            "wrong_choice": {
+	                "Text": "Accept offer",
+	                "Do": "jump proposal__wrong_choice"
+	            },
+	            "right_choice": {
+	                "Text": "Refuse offer",
+	                "Do": "jump proposal__right_choice"
+	            }
+	        }
+	    }
+    ],
+
+	"proposal__right_choice": [
+
 		"char__paulina Look, Paola, please understand, there's no amount of money that would convince me to commit this type of crime.",
 		"char__paola Please Paulina... Do not be so scrupulous. I guarantee that replacing me will not harm anyone.",
-		"char__paulina The fact of replacing you is already absurd.",
-		"char__paola Don't you need money?",
-		"char__paulina Yes... a lot. My mother is very sick.",
-		"char__paola So I do not understand your scruples.",
-		"char__paulina I'm honored, ma'am.",
+		// "char__paulina The fact of replacing you is already absurd.",
+		// "char__paola Don't you need money?",
+		// "char__paulina Yes... a lot. My mother is very sick.",
+		// "char__paola So I do not understand your scruples.",
+		"char__paulina I'm a honored person, ma'am.",
+		"show char__paola evil-laugh:clube at right",
+		"play sound risadaPaola01",
 		"char__paola Honor is a very skeletal and conventional thing, darling.",
 		"char__paulina Not for me, ma'am. For me, honor is a very important thing.",
+		"show char__paola :clube at right",
 		"char__paola You mean that...",
-		"char__paulina ... you should not count on me for what you want, Mrs. Paola, I will not accept.",
+		"char__paulina ... You should not count on me for what you want, Mrs. Paola, I will not accept.",
 		"char__paola Well, Paulina, I'm not going to push you right now so you can give me a response, but think. Think about my proposal, take your time.",
 		"char__paulina I do not need to think about anything, ma'am. My answer now and always will be no.",
-		"char__paola I'll see you soon, and thanks for everything. You've been great. You deserves even a bonus...",
-		"char__paola No, better not. Better when you decide. You can find me here... (hands out a business card) ...when you decide.",
+		"char__paola I'll see you soon, and thanks for everything. You've been great. You even deserve a bonus... (takes money out of the wallet)",
+		"char__paola No, better not (puts money back). It's better when you decide. You can find me here... (hands out a business card) ... When you decide.",
 		"char__paola I know you'll accept. Have a good evening.",
 
 		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
 		"end"
-	]
+	],
+
+	"proposal__wrong_choice": [
+
+		"char__paulina I think you are crazy... But my mother is very sick and I really need the money to get her medicine.",
+		"char__paulina The bank won't lent me any money. I'm desperate!",
+		"char__paola You mean that...",
+		"char__paulina I accept your offer, madam.",
+		"show char__paola evil-laugh:clube at right",
+		"play sound risadaPaola01",
+		"char__paola Great. You won't regret it, my dear.",
+		"show char__paola :clube at right",
+		"char__paola I'll see you tomorrow, and thanks for everything. You've been great. You deserve a bonus...",
+		"centered + $300",
+		"char__paola You can find me here... (hands out a business card) ... When you decide.",
+		"char__paola Have a good evening.",
+
+		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
+		"end"
+	],
 
 
 	// First "mission": act like Paola Bracho in the club, introducing the dressing min-game concept.

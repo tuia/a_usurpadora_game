@@ -1,7 +1,6 @@
 function showWardrobeMiniGame(characterName, clothes, success){
     return function() {
         return new Promise((resolve, reject) => {
-            debugger;
             initWardrobeMinigame(characterName, clothes, (selectedClothing) => {
                 success(selectedClothing);
                 resolve("Success");
