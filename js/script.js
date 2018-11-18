@@ -170,7 +170,7 @@ let script = {
 		"char__paulina Of course I care about you. I love you and you're everything to me.",
 		"char__mae But there's your boyfriend, Osvaldo. You like him more than me for sure.",
 		"show char__paulina smiling:praia at left",
-		"char__paulina:smiling Don't say that, Mom. don't like Osvaldo more than you.",
+		"char__paulina:smiling Don't say that, Mom. Of course I don't like Osvaldo more than you.",
 		"char__mae Paulina...",
 
 		"show char__paulina :praia at left",
@@ -586,7 +586,7 @@ let script = {
 		"char__paulina No, Luciano. I'm sorry, I didn't. I should have, but unfortunately I could not...",
 		"char__luciano Come on, Paola. I was counting on it! What will I get from this business?",
 		"char__paulina I'm terribly sorry, I will defitely do it, I am so sorry for making you upset.",
-		"char__luciano Don't mention is. Are you planning to go home soon?",
+		"char__luciano Don't mention it. Are you planning to go home soon?",
 		"char__paulina I don't know, I will stay a bit more if you want me.",
 		"char__luciano Let's stay and discuss your divorce papers.",
 		"char__paulina I...",
