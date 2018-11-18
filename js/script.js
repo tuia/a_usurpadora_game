@@ -133,7 +133,8 @@ const characters = {
 			  "Directory": "body",
 			  "Images": {
 				"default": "default.png",
-				"evil-laugh": "evil-laugh.png"
+				"evil-laugh": "evil-laugh.png",
+				"kissing": "kissing.png"
 			  }
 			},
 			"Clothes": {
@@ -280,8 +281,8 @@ let script = {
 		"play sound risadaPaola01",
 		"char__paola I have so much fun with you, Luciano.",
 		"show char__luciano clube at left with fadeIn",
-		"show char__paola :clube at right",
 		"char__luciano I also spend with you delightful moments. Unforgettable, Paola.",
+		"show char__paola kissing:clube at right",
 		"play sound kiss",
 		"char__paola I'm going to the restroom.",
 
@@ -373,6 +374,7 @@ let script = {
 		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out... And I realized she's not perfect.",
 		"char__luciano I'm not sure if she can pass as you... It's dangerous.",
 		"char__paulina I told this to Paola, but she insisted on continuing with this joke...",
+		"show char__paola evil-laugh:clube at center",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 
@@ -619,6 +621,7 @@ let script = {
 		"char__paola Isn't it fabulous?",
 		"char__luciano And dangerous, too.",
 		"char__paulina I told it to Paola, but she insisted on continuing this joke...",
+		"show char__paola evil-laugh:clube at center",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 
@@ -649,7 +652,6 @@ let script = {
 		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out...",
 		"char__luciano I had a bad feeling about you... I mean her from the beginning. I'm not sure if she can pass as you... She barely can impersonate you, and she's acting really different. Looks dangerous to me.",
 		"char__paulina I told this to Paola, but she insisted on continuing with this joke...",
-		"play sound risadaPaola01",
 		"char__paola Maybe she is not perfect in her manners, but she still looks perfectly like me! We can have some fun with her!",
 
 		"scene Toalete with fadeIn",
