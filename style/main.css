@@ -236,6 +236,15 @@ button:hover {
 	color: #FFFFFF;
 }
 
+.minigame-status {
+	position: absolute;
+	right: 50px;
+	top: 50px;
+	z-index: 99999;
+	font-size: 24px;
+	color: #FFFFFF;
+}
+
 
 /**
  * ===========================

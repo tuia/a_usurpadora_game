@@ -271,8 +271,6 @@ let script = {
 		"jump club",
 	],
 
-	// Dressing game to change to working clothes
-
 	"club": [
 		"clear",
 		"play music Leda loop",
@@ -377,7 +375,7 @@ let script = {
 		"char__paulina I told this to Paola, but she insisted on continuing with this joke...",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
-		
+
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
@@ -404,22 +402,152 @@ let script = {
 		"char__paulina Someone can come and ask for me and...",
 		"char__paola I'll get you out of the situation. Shall we? Luciano Alcântara is waiting.",
 
-		"clear",
+		"jump club_luciano_dialogue_start"
+	],
+
+	"club_luciano_dialogue_start": [
+		showLucianoSuspicionCounter,
 		"play music Leda loop",
 		"scene Club with fadeIn",
 		"show char__luciano clube at left with fadeIn",
 		"show char__paulina :{{player.outfit}} at right with fadeIn",
 		"char__luciano Look who's back! I didn't expect it to take so long.",
+		{
+	        "Choice": {
+	            "rude": {
+	                "Text": "Apologize",
+	                "Do": "jump club_luciano_1_apologize"
+	            },
+	            "apologize": {
+	                "Text": "Make a rude response",
+	                "Do": "jump club_luciano_1_rude"
+				},
+				"ignore": {
+					"Text": "Pretend you did not hear anything",
+	                "Do": "jump club_luciano_1_ignore"
+				}
+	        }
+	    },
+	],
+
+	"club_luciano_1_apologize": [
 		"char__paulina I'm sorry. Thanks for waiting.",
 		"char__luciano Now that's a surprise! You changed your outfit. I liked it!",
-		"char__luciano Wait... What's the matter with you?",
+		"jump club_luciano_dialogue_part_2"
+	],
+
+	"club_luciano_1_rude": [
+		"char__paulina What the hell are you talking about?",
+		function() {
+			updateLucianoSuspicion(25);
+		},
+		"jump club_luciano_dialogue_part_2"
+	],
+
+	"club_luciano_1_ignore": [
+		"char__paulina ...",
+		"You try to look like you haven't heard his remark",
+		"Luciano looks at you confused.",
+		function() {
+			updateLucianoSuspicion(15);
+		},
+		"jump club_luciano_dialogue_part_2"
+	],
+
+	"club_luciano_dialogue_part_2": [
+		"char__luciano Wait, wait... What's the matter with you?",
+		{
+	        "Choice": {
+	            "rude": {
+	                "Text": "Be polite",
+	                "Do": "jump club_luciano_2_polite"
+	            },
+	            "apologize": {
+	                "Text": "Make a rude response",
+	                "Do": "jump club_luciano_2_rude"
+				},
+				"ignore": {
+					"Text": "Pretend you don't understand",
+	                "Do": "jump club_luciano_2_pretend"
+				}
+	        }
+	    }
+	],
+
+	"club_luciano_2_polite" :[
+		"char__paulina Sorry Luciano, I don't think anything changed since you saw me last time.",
+		"char__luciano Your voice sounds softer.",
+		"char__paulina I don't feel very well today, Luciano.",
+		"char__luciano If you didn't smoke so much you'd have a better voice.",
+		"char__paulina I don't know if I can, this habit is bigger than me.",
+		function() {
+			updateLucianoSuspicion(15);
+		},
+		{
+			"Conditional": {
+				"Condition": function(){
+					return lucianoIsSuspicious();
+				},
+				"True": "jump club_luciano_dialogue_failure",
+				"False": "jump club_luciano_dialogue_part_3"
+			}
+		}
+	],
+
+	"club_luciano_2_rude": [
+		"char__paulina Are you out of your mind Luciano?!",
+		"char__luciano What?! It's just your voice that sounds softer.",
+		"char__paulina My voice sounds exactly like it sounded, must be something with your ears!",
+		"char__luciano What did I say wrong that you are so mean to me all of a sudden?",
+		function() {
+			updateLucianoSuspicion(25);
+		},
+		{
+			"Conditional": {
+				"Condition": function(){
+					return lucianoIsSuspicious();
+				},
+				"True": "jump club_luciano_dialogue_failure",
+				"False": "jump club_luciano_dialogue_part_3"
+			}
+		}
+	],
+
+	"club_luciano_2_pretend": [
 		"char__paulina I don't know what you're talking about.",
 		"char__luciano Your voice sounds softer.",
 		"char__paulina It's because I took pills for the throat.",
 		"char__luciano If you didn't smoke so much you'd have a better voice.",
 		"char__paulina I'll try to quit smoking.",
+
+		function() {
+			updateLucianoSuspicion(-5);
+		},
+		"jump club_luciano_dialogue_part_3"
+	],
+
+	"club_luciano_dialogue_part_3": [
 		"char__luciano Okay. Anyway, what were we talking about before you left, again?",
 		"char__luciano I remember now. Did you schedule a date or something tonight with Alexandre Farina, the millionaire?",
+		{
+	        "Choice": {
+	            "rude": {
+	                "Text": "Be polite",
+	                "Do": "jump club_luciano_3_polite"
+	            },
+	            "apologize": {
+	                "Text": "Make a rude response",
+	                "Do": "jump club_luciano_3_rude"
+				},
+				"ignore": {
+					"Text": "Pretend you don't understand",
+	                "Do": "jump club_luciano_3_pretend"
+				}
+	        }
+	    }
+	],
+
+	"club_luciano_3_polite": [
 		"char__paulina With wh... No, Luciano. I didn't.",
 		"char__luciano Come on, Paola. I was counting on it! What will I get from this business?",
 		"char__paulina ... The usual?",
@@ -432,7 +560,52 @@ let script = {
 		"char__luciano Do you know that we could do great things together, Paola?",
 		"char__paulina What things?",
 		"char__luciano Great things. You are beautiful, and there are many millionaires like Alexandre Farina that we can rip off around the world.",
+		"jump club_luciano_dialog_success"
+	],
 
+	"club_luciano_3_rude": [
+		"char__paulina Why are you asking? It's not your business, Luciano!",
+		"char__luciano Paola, it IS my business. Both you and me live off this, this is how we can live our beautiful lives without bothering about getting money with labor",
+		"char__paulina Oh is that so?! It would not happen if I was not doing everything for you!",
+		"char__luciano Paola, what is wrong with you today? Did a snake bite you and you throw all of the venom at me?!",
+		function() {
+			updateLucianoSuspicion(25);
+		},
+		{
+			"Conditional": {
+				"Condition": function(){
+					return lucianoIsSuspicious();
+				},
+				"True": "jump club_luciano_dialogue_failure",
+				"False": "jump club_luciano_dialog_success"
+			}
+		}
+	],
+
+	"club_luciano_3_polite": [
+		"char__paulina No, Luciano. I'm sorry, I didn't. I should have, but unfortunately I could not...",
+		"char__luciano Come on, Paola. I was counting on it! What will I get from this business?",
+		"char__paulina I'm terribly sorry, I will defitely do it, I am so sorry for making you upset.",
+		"char__luciano Don't mention is. Are you planning to go home soon?",
+		"char__paulina I don't know, I will stay a bit more if you want me.",
+		"char__luciano Let's stay and discuss your divorce papers.",
+		"char__paulina I...",
+		function() {
+			updateLucianoSuspicion(10);
+		},
+		{
+			"Conditional": {
+				"Condition": function(){
+					return lucianoIsSuspicious();
+				},
+				"True": "jump club_luciano_dialogue_failure",
+				"False": "jump club_luciano_dialog_success"
+			}
+		}
+	],
+
+	"club_luciano_dialog_success": [
+		hideLucianoSuspicionCounter,
 		"play sound risadaPaola01",
 		"show char__paola :clube at center with fadeIn",
 		"char__paola Hi, Luciano Alcântara.",
@@ -448,19 +621,55 @@ let script = {
 		"char__paulina I told it to Paola, but she insisted on continuing this joke...",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
-		
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
 		"show char__paola :clube at right with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
-		"char__paola I knew it! I knew it. He did not notice the replacement at all.",
+		{
+			"Conditional": {
+				"Condition": function(){
+					return storage.player.outfit == "golden";
+				},
+				"True": "char__paola By the way, I like your style! With your taste in clothes you can pass as me without making everyone suspicious.",
+				"False": "char__paola I knew it! I knew it he would not notice the replacement at all."
+			}
+		},
 		"jump proposal"
 	],
 
+	"club_luciano_dialogue_failure": [
+		hideLucianoSuspicionCounter,
+		"play sound risadaPaola01",
+		"show char__paola :clube at center with fadeIn",
+		"char__paola Hi, Luciano Alcântara.",
+		"char__luciano Say whaaaa?",
+		"char__paola I'm Paola.",
+		"char__luciano What's going on here?",
+		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out...",
+		"char__luciano I had a bad feeling about you... I mean her from the beginning. I'm not sure if she can pass as you... She barely can impersonate you, and she's acting really different. Looks dangerous to me.",
+		"char__paulina I told this to Paola, but she insisted on continuing with this joke...",
+		"play sound risadaPaola01",
+		"char__paola Maybe she is not perfect in her manners, but she still looks perfectly like me! We can have some fun with her!",
+
+		"scene Toalete with fadeIn",
+		"play music PaolaTheme loop",
+		"show char__paola :clube at right with fadeIn",
+		"show char__paulina :{{player.outfit}} at left with fadeIn",
+		{
+			"Conditional": {
+				"Condition": function(){
+					return storage.player.outfit == "golden";
+				},
+				"True": "char__paola Damn it! Even the dress making you look like me didn't deceive him well! Try to learn what and HOW I say to the people to avoid it in future, my dear.",
+				"False": "char__paola I knew it! It was your dress that made him suspicious! You should be more careful in future in what you wear, my dear."
+			}
+		},
+		"jump proposal"
+	],
 
 	"proposal": [
-
+		"char__paola But back to the business...",
 		"char__paola I know you'll be interested in my proposal.",
 		"char__paola All right, Paulina, tell me how much money you want to go to my house and replace me.",
 		"show char__paulina worried:{{player.outfit}} at left with fadeIn",

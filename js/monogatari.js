@@ -2025,7 +2025,7 @@ $_ready(function () {
 										wearSubDirectory = "clothes";
 
 									imageDirectory = imageDirectory + bodySubDirectory + "/";
-									
+
 									image = characters[parts[1]]["Outfit"]["Body"].Images[bodyType];
 									overlay = directory + wearSubDirectory + "/" + characters[parts[1]]["Outfit"]["Clothes"].Images[wearType]
 								} else {
@@ -2042,19 +2042,19 @@ $_ready(function () {
 								}
 
 								classes = parts.join(" ").replace("show " + parts[1] +" "+ parts[2], "").replace(" at ", "").replace(" with ", " ");
-									
+
 								if (typeof(overlay) != "undefined") {
 									let antiFlickeringStyle =	hasAnimation
 										? ""
 										: "transition: background-image 1s ease-in-out;";
 									let characterHtml = "<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>";
-									
+
 									$_("#game").append(characterHtml);
 									engine.CharacterHistory.push(characterHtml);
 								}
 								else {
 									let characterHtml = "<img src='img/characters/" + imageDirectory + image + "' class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'>";
-									
+
 									$_("#game").append(characterHtml);
 									engine.CharacterHistory.push(characterHtml);
 								}
