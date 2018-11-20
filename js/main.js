@@ -38,7 +38,6 @@ function updateLucianoSuspicion(suspicionCounter) {
 function showLucianoSuspicionCounter() {
     var element = "<div id='minigame-status' class='minigame-status'></div>"
     $_("body").append(element);
-    debugger;
     updateLucianoSuspicion(0);
 }
 

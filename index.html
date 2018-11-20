@@ -87,6 +87,7 @@
 	<script src="js/options.js"></script>
 	<script src="js/wardrobe.js"></script>
 	<script src="js/storage.js"></script>
+	<script src="js/journal.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/monogatari.js"></script>
@@ -162,6 +163,12 @@
 					<button data-action="submit">Ok</button>
 				</div>
 			</div>
+			<div data-component="modal" data-ui="journal" class="middle">
+				<h1 data-ui="journal-header">Journal</h1>
+				<div id="journal-content">
+
+				</div>
+			</div>
 		</div>
 
 		<div data-ui="choices" class="vertical align-center middle"></div>
@@ -172,6 +179,7 @@
 		</div>
 		<div data-ui="quick-menu" class="align-right">
 			<span data-action="back"><span class="fa fa-arrow-left"></span> <span data-string="Back">Back</span></span>
+			<span data-action="open-journal"><span class="fa fa-eye" data-action="open-journal"></span> <span data-string="Journal" data-action="open-journal">Journal</span></span>
 			<span data-action="distraction-free"><span class="fa fa-eye" data-action="distraction-free"></span> <span data-string="Hide" data-action="distraction-free">Hide</span></span>
 			<span data-action="auto-play"><span class="fa fa-play-circle" data-action="auto-play"></span> <span data-string="AutoPlay" data-action="auto-play">Auto</span></span>
 			<span data-action="open-menu" data-open="save"><span class="fa fa-save" data-action="open-menu" data-open="save"></span> <span data-string="Save" data-action="open-menu" data-open="save">Save</span></span>

@@ -232,7 +232,8 @@ let script = {
 	    {
 	        "Function": {
 	            "Apply": function () {
-	                storage.player.respect_osvaldo += 5;
+					storage.player.respect_osvaldo += 5;
+					journal().saveCharacterMilestoneProgress("Osvaldo", "wedding", true);
 	                displayUpdateStats();
 	                return true;
 	            }
@@ -257,7 +258,8 @@ let script = {
 	    {
 	        "Function": {
 	            "Apply": function () {
-	                storage.player.respect_osvaldo -= 5;
+					storage.player.respect_osvaldo -= 5;
+					journal().saveCharacterMilestoneProgress("Osvaldo", "wedding", false);
 	                displayUpdateStats();
 	                return true;
 	            }

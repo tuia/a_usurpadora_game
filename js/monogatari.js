@@ -1149,6 +1149,15 @@ $_ready(function () {
 			case "end":
 				$_("[data-notice='exit']").addClass("active");
 				break;
+			case "open-journal":
+				let $journal = $_("[data-ui='journal']");
+				if ($journal.hasClass("active"))
+					$journal.removeClass("active");
+				else {
+					journal().update();
+					$journal.addClass("active");
+				}
+
 
 			case "distraction-free":
 				if ($_(this).hasClass("fa-eye")) {
