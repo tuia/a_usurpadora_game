@@ -1,0 +1,19 @@
+.journal-container {
+	display: flex;
+}
+
+.journal-container .journal-sidebar {
+	flex: 1;
+}
+
+.journal-container .journal-sidebar .sidebar-item:hover {
+	background-color: darkgrey;
+}
+
+.journal-container .journal-main {
+	flex: 4;
+}
+
+.journal-big {
+	height: 80%;
+}

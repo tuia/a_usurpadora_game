@@ -1,5 +1,13 @@
 function journal() {
 	const milestones = {
+		"Paulina": (progress) => {
+			return ["This is our heroine. What things wait for her in future?"];
+		},
+
+		"Mae": (progress) => {
+			return ["Paulina's sick mother. Nobody knows what she is sick with, but her health is declining fast", "Will she live to see Paulina happily married?"]
+		},
+
 		"Osvaldo": (progress) => {
 			let result = ["Osvaldo is a decent young man in love with Paulina."];
 
@@ -24,7 +32,47 @@ function journal() {
 		return storage.journal[character];
 	};
 
+	let updateJournalSidebar = () => {
+		let sidebarHtml = "";
+		let idx = 0;
+		for (var character in storage.journal) {
+			sidebarHtml += "<div data-journal-character='";
+			sidebarHtml += character;
+			sidebarHtml += "' ";
+			sidebarHtml += "class='sidebar-item";
+			if (idx++ == 0)
+				sidebarHtml += " active";
+			sidebarHtml += "'>";
+			sidebarHtml += character;
+			sidebarHtml += "</div>";
+		}
+
+		$_("#journal-characters").html(sidebarHtml);
+
+		$_(".sidebar-item").on("click", (e) => {
+			let character = $(e.target).data("journal-character");
+			updateJournalCharacter(character);
+		});
+	}
+
+	let updateJournalCharacter = (character) => {
+
+		let journalHtml = "";
+
+		journal().getCharacterJournal(character).forEach(progressLine => journalHtml += "<p>" + progressLine + "</p>");
+
+		if (journalHtml == "")
+			journalHtml = "No records in the journal for this character yet! \n As the progress of the story goes, new records will appear in the journal.";
+
+		$_("#journal-content").html(journalHtml);
+	}
+
 	return {
+		init() {
+			this.saveCharacterMilestoneProgress("Paulina", "Started", true);
+			this.saveCharacterMilestoneProgress("Mae", "Started", true);
+		},
+
 		saveCharacterMilestoneProgress: (character, progress, value) => {
 			if (typeof(storage.journal[character]) == 'undefined')
 				storage.journal[character] = {};
@@ -33,18 +81,8 @@ function journal() {
 		},
 
 		update() {
-			let journalHtml = "";
-			for (var character in storage.journal) {
-				let html = "<h4>" + character + "</h4>";
-
-				this.getCharacterJournal(character).forEach(progressLine => html += "<p>" + progressLine + "</p>");
-				journalHtml += html;
-			};
-
-			if (journalHtml == "")
-				journalHtml = "No records in the journal yet! \n As the progress of the story goes, new records will appear in the journal.";
-
-			$_("#journal-content").html(journalHtml);
+			updateJournalSidebar();
+			$_("#journal-content").text("Select character");
 		},
 
 		getCharacterJournal: (character) => {
@@ -55,3 +93,5 @@ function journal() {
 		}
 	};
 }
+
+journal().init();

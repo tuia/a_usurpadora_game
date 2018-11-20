@@ -78,6 +78,7 @@
 	<link rel="stylesheet" href="style/monogatari.css">
 	<link rel="stylesheet" href="style/main.css">
 	<link rel="stylesheet" href="style/wardrobe.css">
+	<link rel="stylesheet" href="style/journal.css">
 
 	<script src="js/polyfill.min.js"></script>
 	<script src="js/jquery.min.js"></script>
@@ -163,10 +164,15 @@
 					<button data-action="submit">Ok</button>
 				</div>
 			</div>
-			<div data-component="modal" data-ui="journal" class="middle">
-				<h1 data-ui="journal-header">Journal</h1>
-				<div id="journal-content">
+			<div data-component="modal" data-ui="journal" class="middle journal-big">
+				<h3 data-ui="journal-header">Journal</h1>
+				<div class="journal-container">
+					<div id="journal-characters" class="journal-sidebar">
 
+					</div>
+					<div id="journal-content" class="journal-main">
+
+					</div>
 				</div>
 			</div>
 		</div>
