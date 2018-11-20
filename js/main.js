@@ -38,11 +38,15 @@ function updateLucianoSuspicion(suspicionCounter) {
 function showLucianoSuspicionCounter() {
     var element = "<div id='minigame-status' class='minigame-status'></div>"
     $_("body").append(element);
-    updateLucianoSuspicion(0);
+	updateLucianoSuspicion(0);
+
+	return true;
 }
 
 function hideLucianoSuspicionCounter() {
-    $_("#minigame-status").remove();
+	$_("#minigame-status").remove();
+
+	return true;
 }
 
 function lucianoIsSuspicious() {

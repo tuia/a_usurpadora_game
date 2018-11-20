@@ -444,6 +444,7 @@ let script = {
 		"char__paulina What the hell are you talking about?",
 		function() {
 			updateLucianoSuspicion(25);
+			return true;
 		},
 		"jump club_luciano_dialogue_part_2"
 	],
@@ -454,6 +455,7 @@ let script = {
 		"Luciano looks at you confused.",
 		function() {
 			updateLucianoSuspicion(15);
+			return true;
 		},
 		"jump club_luciano_dialogue_part_2"
 	],
@@ -486,6 +488,7 @@ let script = {
 		"char__paulina I don't know if I can, this habit is bigger than me.",
 		function() {
 			updateLucianoSuspicion(15);
+			return true;
 		},
 		{
 			"Conditional": {
@@ -505,6 +508,7 @@ let script = {
 		"char__luciano What did I say wrong that you are so mean to me all of a sudden?",
 		function() {
 			updateLucianoSuspicion(25);
+			return true;
 		},
 		{
 			"Conditional": {
@@ -526,6 +530,7 @@ let script = {
 
 		function() {
 			updateLucianoSuspicion(-5);
+			return true;
 		},
 		"jump club_luciano_dialogue_part_3"
 	],
@@ -574,6 +579,7 @@ let script = {
 		"char__luciano Paola, what is wrong with you today? Did a snake bite you and you throw all of the venom at me?!",
 		function() {
 			updateLucianoSuspicion(25);
+			return true;
 		},
 		{
 			"Conditional": {
@@ -596,6 +602,7 @@ let script = {
 		"char__paulina I...",
 		function() {
 			updateLucianoSuspicion(10);
+			return true;
 		},
 		{
 			"Conditional": {
