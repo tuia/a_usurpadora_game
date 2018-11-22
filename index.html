@@ -164,14 +164,20 @@
 					<button data-action="submit">Ok</button>
 				</div>
 			</div>
-			<div data-component="modal" data-ui="journal" class="middle journal-big">
-				<h3 data-ui="journal-header">Journal</h1>
-				<div class="journal-container">
-					<div id="journal-characters" class="journal-sidebar">
 
+			<div data-component="modal" data-ui="journal" class="middle modal--journal">
+				<div class="journal">
+					<div class="journal__header">
+						<h3 class="journal__header__title">Journal</h3>
+						<a class="journal__header__close" data-action="close" data-close="journal"><i class="fa fa-close"></i></a>
 					</div>
-					<div id="journal-content" class="journal-main">
+					<div class="journal__body">
+						<div class="journal__body__sidebar js-journal-characters">
 
+						</div>
+						<div class="journal__body__content js-journal-content">
+
+						</div>
 					</div>
 				</div>
 			</div>

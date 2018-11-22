@@ -1,10 +1,10 @@
 function journal() {
 	const milestones = {
-		"Paulina": (progress) => {
+		"Paulina Martins": (progress) => {
 			return ["This is our heroine. What things wait for her in future?"];
 		},
 
-		"Mae": (progress) => {
+		"Paula Martins": (progress) => {
 			return ["Paulina's sick mother. Nobody knows what she is sick with, but her health is declining fast", "Will she live to see Paulina happily married?"]
 		},
 
@@ -36,20 +36,20 @@ function journal() {
 		let sidebarHtml = "";
 		let idx = 0;
 		for (var character in storage.journal) {
-			sidebarHtml += "<div data-journal-character='";
+			sidebarHtml += "<a data-journal-character='";
 			sidebarHtml += character;
 			sidebarHtml += "' ";
-			sidebarHtml += "class='sidebar-item";
+			sidebarHtml += "class='journal__body__sidebar__item js-journal-character";
 			if (idx++ == 0)
 				sidebarHtml += " active";
 			sidebarHtml += "'>";
 			sidebarHtml += character;
-			sidebarHtml += "</div>";
+			sidebarHtml += "</a>";
 		}
 
-		$_("#journal-characters").html(sidebarHtml);
+		$(".js-journal-characters").html(sidebarHtml);
 
-		$_(".sidebar-item").on("click", (e) => {
+		$(".js-journal-character").on("click", (e) => {
 			let character = $(e.target).data("journal-character");
 			updateJournalCharacter(character);
 		});
@@ -64,13 +64,13 @@ function journal() {
 		if (journalHtml == "")
 			journalHtml = "No records in the journal for this character yet! \n As the progress of the story goes, new records will appear in the journal.";
 
-		$_("#journal-content").html(journalHtml);
+		$(".js-journal-content").html(journalHtml);
 	}
 
 	return {
 		init() {
-			this.saveCharacterMilestoneProgress("Paulina", "Started", true);
-			this.saveCharacterMilestoneProgress("Mae", "Started", true);
+			this.saveCharacterMilestoneProgress("Paulina Martins", "Started", true);
+			this.saveCharacterMilestoneProgress("Paula Martins", "Started", true);
 		},
 
 		saveCharacterMilestoneProgress: (character, progress, value) => {
@@ -82,7 +82,7 @@ function journal() {
 
 		update() {
 			updateJournalSidebar();
-			$_("#journal-content").text("Select character");
+			$(".js-journal-content").text("Select character");
 		},
 
 		getCharacterJournal: (character) => {

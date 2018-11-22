@@ -1,19 +1,41 @@
-.journal-container {
+
+.modal--journal {
+	height: 75vh;
+	width: 75vw;
+	padding: 0;
+}
+.journal {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+.journal__header {
+	padding: 20px 0;
+	border-bottom: 1px solid #dddddd;
+}
+.journal__header__close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+}
+.journal__body {
+	flex-grow: 1;
 	display: flex;
 }
-
-.journal-container .journal-sidebar {
-	flex: 1;
+.journal__body__sidebar {
+	border-right: 1px solid #dddddd;
 }
-
-.journal-container .journal-sidebar .sidebar-item:hover {
+.journal__body__sidebar__item {
+	padding: 20px;
+	border-bottom: 1px solid #dddddd;
+	display: block;
+}
+.journal__body__sidebar__item:hover {
 	background-color: darkgrey;
 }
-
-.journal-container .journal-main {
-	flex: 4;
-}
-
-.journal-big {
-	height: 80%;
+.journal__body__content {
+	padding: 20px;
+	flex: 3;
+	text-align: left;
 }
