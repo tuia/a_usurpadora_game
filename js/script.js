@@ -593,7 +593,7 @@ let script = {
 		}
 	],
 
-	"club_luciano_3_polite": [
+	"club_luciano_3_pretend": [
 		"char__paulina No, Luciano. I'm sorry, I didn't. I should have, but unfortunately I could not...",
 		"char__luciano Come on, Paola. I was counting on it! What will I get from this business?",
 		"char__paulina I'm terribly sorry, I will defitely do it, I am so sorry for making you upset.",
