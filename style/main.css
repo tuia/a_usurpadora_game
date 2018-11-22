@@ -243,7 +243,6 @@ button:hover {
 	    top: 2vh;
 	    max-width: 70vw;
 	    max-height: none;
-	    z-index: 1;
 	}
 	@media screen and (max-width: 1023px) {
 		#game [data-character].left-zoom,
@@ -258,7 +257,6 @@ button:hover {
 	    top: 2vh;
 	    max-width: 70vw;
 	    max-height: none;
-	    z-index: 1;
 	}
 	@media screen and (max-width: 1023px) {
 		#game [data-character].right-zoom,
