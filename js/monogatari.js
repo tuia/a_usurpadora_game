@@ -2056,7 +2056,7 @@ $_ready(function () {
 									let antiFlickeringStyle =	hasAnimation
 										? ""
 										: "transition: background-image 1s ease-in-out;";
-									let characterHtml = "<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image + ")'><img src='img/characters/" + overlay + "'></div>";
+									let characterHtml = "<div class='animated " + classes + "' data-character='" + parts[1] + "' data-sprite='" + parts[2] + "'style='" + antiFlickeringStyle + ")'><img src='img/characters/" + imageDirectory + image + "'><img src='img/characters/" + overlay + "'></div>";
 
 									$_("#game").append(characterHtml);
 									engine.CharacterHistory.push(characterHtml);

@@ -383,7 +383,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola :clube at right with fadeIn",
+		"show char__paola :clube at right-zoom with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola I knew it! Although you chose a cheap dress... He barely noticed the replacement.",
 		"jump proposal"
@@ -636,7 +636,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola :clube at right with fadeIn",
+		"show char__paola :clube at right-zoom with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		{
 			"Conditional": {
@@ -665,7 +665,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola :clube at right with fadeIn",
+		"show char__paola :clube at right-zoom with fadeIn",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		{
 			"Conditional": {
@@ -731,11 +731,11 @@ let script = {
 		// "char__paulina Yes... a lot. My mother is very sick.",
 		// "char__paola So I don't understand your scruples.",
 		"char__paulina I'm a honored person, ma'am.",
-		"show char__paola evil-laugh:clube at right",
+		"show char__paola evil-laugh:clube at right-zoom",
 		"play sound risadaPaola01",
 		"char__paola Honor is a very flexible and conventional thing, darling.",
 		"char__paulina Not for me, ma'am. For me, honor is a very important thing.",
-		"show char__paola :clube at right",
+		"show char__paola :clube at right-zoom",
 		"char__paola You mean that...",
 		"char__paulina ... You should not count on me for what you want, Mrs. Paola, I will not accept.",
 		"char__paola Well, Paulina, I'm not going to push you right now so you can give me a response, but think. Think about my proposal, take your time.",
@@ -763,10 +763,10 @@ let script = {
 		"char__paulina I think you are crazy... But my mother is very sick and I really need the money to get her medicine. I'm desperate!",
 		"char__paola You mean that...",
 		"char__paulina I accept your offer, ma'am.",
-		"show char__paola evil-laugh:clube at right",
+		"show char__paola evil-laugh:clube at right-zoom",
 		"play sound risadaPaola01",
 		"char__paola Great. You won't regret it, my dear.",
-		"show char__paola :clube at right",
+		"show char__paola :clube at right-zoom",
 		"show char__paulina :{{player.outfit}} at left",
 		"char__paola I'll see you tomorrow, and thanks for everything. You've been great. You deserve a bonus...",
 		"centered + $300",
