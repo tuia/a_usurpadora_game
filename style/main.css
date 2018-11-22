@@ -207,15 +207,22 @@ button:hover {
 
 
 
-/* CHARACTERS WITH OUTFIT */
+
+/* CHARACTERS */
+#game [data-character],
+#game [data-character] img {
+	max-height: 80vh;
+}
 #game [data-character] img {
     bottom: 0;
     position: absolute;
     max-width: 100%;
-    max-height: 80vh;
-
 }
 
+#game [data-character],
+#game [data-character] img {
+	transition: all .2s ease;
+}
 	/* Positions */
 	#game [data-character].left img {
 		left: 0
@@ -233,9 +240,10 @@ button:hover {
 	#game [data-character].left-zoom,
 	#game [data-character].left-zoom img {
 	    left: -5vw;
-	    top: 5vh;
+	    top: 2vh;
 	    max-width: 70vw;
 	    max-height: none;
+	    z-index: 1;
 	}
 	@media screen and (max-width: 1023px) {
 		#game [data-character].left-zoom,
@@ -247,9 +255,10 @@ button:hover {
 	#game [data-character].right-zoom,
 	#game [data-character].right-zoom img {
 	    right: -5vw;
-	    top: 5vh;
+	    top: 2vh;
 	    max-width: 70vw;
 	    max-height: none;
+	    z-index: 1;
 	}
 	@media screen and (max-width: 1023px) {
 		#game [data-character].right-zoom,

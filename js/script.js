@@ -158,6 +158,8 @@ const characters = {
 
 let script = {
 	// The game starts here.
+
+	// "scene black with fadeIn",
 	"Start": [
 		"play music Piano loop",
 		"scene Cancun with fadeIn",
@@ -187,14 +189,13 @@ let script = {
 	"on_the_way_to_club": [
 
 		"play sound stepsAndDoor",
-		"scene black with fadeIn",
 		"scene BeachCabinOut with FadeIn",
 
 		"scene BusStop",
 
 		"show char__osvaldo smiling:praia at right with fadeIn",
 		"char__osvaldo Paulina?",
-		"show char__paulina smiling:praia at left with fadeIn",
+		"show char__paulina smiling:praia at left-zoom with fadeIn",
 		"char__paulina:smiling Osvaldo, my love!",
 
 		"char__osvaldo Where are you going in such a hurry?",
@@ -202,17 +203,17 @@ let script = {
 		"char__paulina:smiling I'm going to work earlier at the club today, since my colleague is sick.",
 
 		"show char__osvaldo default:praia at right",
-		"show char__paulina :praia at left",
+		"show char__paulina :praia at left-zoom",
 
 		"char__osvaldo How is Dona Paula?",
 		"char__paulina Getting worse every day. Now she only talks about death...",
 
 		"char__osvaldo You have to accept that she's going to die, Paulina.",
-		"show char__paulina worried:praia at left",
+		"show char__paulina worried:praia at left-zoom",
 		"char__paulina:worried I can't, Osvaldo. It's not easy. It's just so sad to see her like this, destroyed, almost... without any strength left.",
-		"show char__paulina :praia at left",
+		"show char__paulina :praia at left-zoom",
 		"char__paulina Sometimes I think what's keeping her alive is the fear of leaving me alone.",
-		"show char__paulina worried:praia at left",
+		"show char__paulina worried:praia at left-zoom",
 		"char__paulina:worried Do you know what she said? That she can only die in peace after we get married.",
 
 	    {
@@ -240,17 +241,17 @@ let script = {
 	        }
 	    },
 
-		"show char__paulina :praia at left",
+		"show char__paulina :praia at left-zoom",
 		"char__paulina I want us to get married before... the moment comes.",
 		"char__paulina Can we marry to give this joy to my mother, Osvaldo?",
 		"show char__osvaldo smiling:praia at right",
-		"show char__paulina smiling:praia at left",
+		"show char__paulina smiling:praia at left-zoom",
 		"char__osvaldo Yes, yes, of course, my love.",
 
 		"char__paulina Can you take me to the club?",
 		"show char__osvaldo :praia at right",
 		"char__osvaldo No, no... I can not. I have to do some things, but I'll show up later at the club.",
-		"show char__paulina :praia at left",
+		"show char__paulina :praia at left-zoom",
 		"char__paulina Ok.",
 		"jump club",
 	],
@@ -266,11 +267,10 @@ let script = {
 	        }
 	    },
 
-		"show char__paulina :praia at left",
+		"show char__paulina :praia at left-zoom",
 		"char__paulina I have to go now, can you take me to the club?",
 		"char__osvaldo No... I can't. I have to do some things, but I'll show up later at the club.",
 		"char__paulina Ok.",
-		"scene black with fadeIn",
 		"jump club",
 	],
 
@@ -317,6 +317,7 @@ let script = {
 		"char__paulina I don't understant, ma'am.",
 		"char__paola I'll be clearer, then. I would like you to dress like me to prove how much we look alike.",
 
+		"show char__paulina worried:clube at left",
 		"char__paulina That's nonsense!",
 		"char__paola I would call it a caprice.",
 		"char__paulina I'm sorry but working at the moment, ma'am!",
