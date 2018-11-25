@@ -109,6 +109,7 @@ let script = {
 
 		"show char__osvaldo smiling:praia at right with fadeIn",
 		"char__osvaldo Paulina?",
+		"milestone char__osvaldo known",
 		"show char__paulina smiling:praia at left-zoom with fadeIn",
 		"char__paulina:smiling Osvaldo, my love!",
 
@@ -184,6 +185,8 @@ let script = {
 		"show char__paola kissing:clube at right",
 		"play sound kiss",
 		"char__paola I'm going to the restroom.",
+		"milestone char__paola known",
+		"milestone char__luciano known",
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme",
@@ -196,6 +199,7 @@ let script = {
 		"char__paulina What's the matter, ma'am? I don't get it.",
 		"char__paola Haven't you noticed yet? You look like my twin sister.",
 		"char__paola We look exactly the same.",
+		"milestone char__paulina met_paola",
 		"char__paulina I don't find ourselves so alike, ma'am.",
 		"char__paola I do.",
 		"char__paulina You are a very rich lady, while I am nothing but a humble girl from the countryside.",
@@ -204,6 +208,7 @@ let script = {
 		"char__paulina No, I would not know how to wear those, or act like you, I'm not used to it.",
 
 		"show char__paola evil-laugh:clube at right",
+		"milestone char__paola laughter",
 		"play sound risadaPaola01",
 		"char__paola We get used to everything in life, my darling, especially to what is very good!",
 		"show char__paola :clube at right",
@@ -269,6 +274,7 @@ let script = {
 		"show char__paola evil-laugh:clube at center",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
+		"milestone char__paulina luciano_wrong_dress",
 
 
 		"scene Toalete with fadeIn",
@@ -287,6 +293,7 @@ let script = {
 		"char__paola Do not be afraid, my dear.",
 		"char__paulina Someone can come and ask for me and...",
 		"char__paola I'll get you out of the situation. Shall we? Luciano Alcântara is waiting.",
+		"milestone char__paulina luciano_right_dress",
 
 		"jump club_luciano_dialogue_start"
 	],
@@ -368,6 +375,7 @@ let script = {
 		"char__paulina I don't feel very well today, Luciano.",
 		"char__luciano If you didn't smoke so much you'd have a better voice.",
 		"char__paulina I don't know if I can, this habit is bigger than me.",
+		"milestone char__paola smokes",
 		function() {
 			updateLucianoSuspicion(15);
 			return true;
@@ -409,6 +417,7 @@ let script = {
 		"char__paulina It's because I took pills for the throat.",
 		"char__luciano If you didn't smoke so much you'd have a better voice.",
 		"char__paulina I'll try to quit smoking.",
+		"milestone char__paola smokes",
 
 		function() {
 			updateLucianoSuspicion(-5);
@@ -420,6 +429,7 @@ let script = {
 	"club_luciano_dialogue_part_3": [
 		"char__luciano Okay. Anyway, what were we talking about before you left, again?",
 		"char__luciano I remember now. Did you schedule a date or something tonight with Alexandre Farina, the millionaire?",
+		"milestone char__paola deals_with_millionaires",
 		{
 	        "Choice": {
 	            "rude": {
@@ -441,11 +451,14 @@ let script = {
 	"club_luciano_3_polite": [
 		"char__paulina With wh... No, Luciano. I didn't.",
 		"char__luciano Come on, Paola. I was counting on it! What will I get from this business?",
+		"milestone char__paola shady_business",
+		"milestone char__luciano shady_business",
 		"char__paulina ... The usual?",
 		"char__luciano And when do you plan to return home?",
 		"char__paulina I don't know, probably soon.",
 		"char__luciano I still don't get why you don't go in with a divorce proceeding.",
 		"char__paulina Divorce? It's not that easy.",
+		"milestone char__paola divorce",
 		"char__luciano You just don't want to. You want to keep being Mrs. Bracho because you dream of the inheritance, but I'm sure that your husband's children will get it all.",
 		"char__paulina It is possible.",
 		"char__luciano Do you know that we could do great things together, Paola?",
@@ -457,6 +470,10 @@ let script = {
 	"club_luciano_3_rude": [
 		"char__paulina Why are you asking? It's not your business, Luciano!",
 		"char__luciano Paola, it IS my business. Both you and me live off this, this is how we can live our beautiful lives without bothering about getting money with labor",
+		"milestone char__paola shady_business",
+		"milestone char__luciano shady_business",
+		"milestone char__paola shady_business_money",
+		"milestone char__luciano shady_business_money",
 		"char__paulina Oh is that so?! It would not happen if I was not doing everything for you!",
 		"char__luciano Paola, what is wrong with you today? Did a snake bite you and you throw all of the venom at me?!",
 		function() {
@@ -477,10 +494,13 @@ let script = {
 	"club_luciano_3_pretend": [
 		"char__paulina No, Luciano. I'm sorry, I didn't. I should have, but unfortunately I could not...",
 		"char__luciano Come on, Paola. I was counting on it! What will I get from this business?",
+		"milestone char__paola shady_business",
+		"milestone char__luciano shady_business",
 		"char__paulina I'm terribly sorry, I will defitely do it, I am so sorry for making you upset.",
 		"char__luciano Don't mention it. Are you planning to go home soon?",
 		"char__paulina I don't know, I will stay a bit more if you want me.",
 		"char__luciano Let's stay and discuss your divorce papers.",
+		"milestone char__paola divorce",
 		"char__paulina I...",
 		function() {
 			updateLucianoSuspicion(10);
@@ -515,6 +535,7 @@ let script = {
 		"show char__paola evil-laugh:clube at center",
 		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
+		"milestone char__paola shady_business_swap",
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
@@ -570,6 +591,7 @@ let script = {
 		"char__paola Exactly. In exchange for a large sum of money. What do you think?",
 		"char__paulina Ma'am, you are delirious!",
 		"char__paola But it's a good proposal. You, in my house passing as me.",
+		"milestone char__paola shady_business_swap",
 		"char__paola You will be valued, obeyed and respected. You will have a wonderful life, let's say... for a year.",
 		"char__paola At the end of this year I come back, I take my place back and pay you a good amount of money, which will solve your future life.",
 		"char__paola Ah, and you will not have to work cleaning a ladies' room any more.",

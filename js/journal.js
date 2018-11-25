@@ -11,6 +11,11 @@ let updateJournalCharacter = (characterId) => {
 
 	if (journalHtml == "")
 		journalHtml = "No records in the journal for this character yet! \n As the progress of the story goes, new records will appear in the journal.";
+	else {
+		let score = reputation.get(characterId);
+		if (typeof(score) != "undefined")
+			journalHtml = "<div class='reputation-bar' data-reputation='"+ score +"'>Reputation: " + score + "</div>" + journalHtml;
+	}
 
 	$(".js-journal-content").html(journalHtml);
 };

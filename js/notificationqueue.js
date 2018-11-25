@@ -18,6 +18,7 @@ let addNotification = (notification) => {
 let handler = () => {
     if (notificationQueue.length == 0) {
         clearInterval(timer);
+        timer = 0;
     }
 
     if (notificationQueue.length > 0 && nextRun < new Date()) {
@@ -30,7 +31,12 @@ let handler = () => {
 
         let character = characters[characterId];
         if (typeof(character) == undefined) {
-            console.error("Unknown character for reputation change: " + characterId);
+            console.error("Unknown character for notification: " + characterId);
+            return;
+        }
+
+        if (typeof(metadata.format) == undefined) {
+            console.error("Unknown format for notification.");
             return;
         }
 
