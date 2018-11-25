@@ -37,7 +37,6 @@ let updateJournalSidebar = () => {
 	$(".js-journal-characters").html(sidebarHtml);
 
 	$(".js-journal-character").on("click", (e) => {
-		debugger;
 		let characterId = $(e.target).data("journal-character");
 		updateJournalCharacter(characterId);
 	});
