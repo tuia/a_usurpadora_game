@@ -16,7 +16,6 @@ let addNotification = (notification) => {
 }
 
 let handler = () => {
-    debugger;
     if (notificationQueue.length == 0) {
         clearInterval(timer);
     }
