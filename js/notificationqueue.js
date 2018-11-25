@@ -1,5 +1,6 @@
 
 let notificationQueue = [];
+let timer = 0;
 
 function format(fmt, ...args){
     return fmt
@@ -8,7 +9,18 @@ function format(fmt, ...args){
             aggregate + chunk + (args[i] || ""), "");
 }
 
-setInterval(() => {
+let addNotification = (notification) => {
+    notificationQueue.push(notification);
+    if (timer == 0)
+        timer = setInterval(handler, 100);
+}
+
+let handler = () => {
+    debugger;
+    if (notificationQueue.length == 0) {
+        clearInterval(timer);
+    }
+
     if (notificationQueue.length > 0 && nextRun < new Date()) {
         nextRun = new Date();
         nextRun.setSeconds(nextRun.getSeconds() + 2);
@@ -33,4 +45,4 @@ setInterval(() => {
         });
 
     }
-}, 1000);
+};

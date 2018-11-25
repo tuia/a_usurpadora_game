@@ -15,7 +15,7 @@ const progress = {
 let nextRun = new Date();
 
 function notifyProgressChanged(characterId) {
-    notificationQueue.push({
+    addNotification({
         characterId: characterId,
         format: "Journal record updated for %%."
     });
