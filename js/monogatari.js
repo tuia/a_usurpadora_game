@@ -1154,7 +1154,7 @@ $_ready(function () {
 				if ($journal.hasClass("active"))
 					$journal.removeClass("active");
 				else {
-					journal().update();
+					journal.update();
 					$journal.addClass("active");
 				}
 
@@ -1986,6 +1986,25 @@ $_ready(function () {
 							if (advance) {
 								next ();
 							}
+							break;
+
+
+						case "milestone":
+							// milestone [character] [action]:[value]
+							//		0		  1			 2		 3
+							if (typeof characters[parts[1]] != "undefined" || typeof(parts[2]) =="undefined" || parts[2].length == 0) {
+								let character = parts[1];
+
+								let splitPart = parts[2].split(":");
+								let action = splitPart[0];
+								let value = splitPart.length > 1 ? splitPart[1] : true;
+
+								progress.update(character, action, value);
+							}
+							else {
+								console.error("Could not analyze milestone tag: character or action is missing: " + parts);
+							}
+							next ();
 							break;
 
 						case "show":

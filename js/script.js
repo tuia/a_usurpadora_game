@@ -68,94 +68,6 @@ const scenes = {
 };
 
 // Define the Characters
-const characters = {
-	"char__paulina": {
-		"Name": "Paulina Martins",
-		"Color": "#f99dad",
-		"Directory": "paulina",
-		"Outfit": {
-			"Body": {
-			  "Directory": "body",
-			  "Images": {
-				"default": "default.png",
-				"smiling": "smiling.png",
-				"worried": "worried.png"
-			  }
-			},
-			"Clothes": {
-			  "Directory": "clothing",
-			  "Images": {
-				"default": "praia.png",
-				"praia": "praia.png",
-				"clube": "clube.png",
-				"golden": "golden.png"
-			  }
-			}
-		}
-	},
-	"char__mae": {
-		"Name": "Paula Martins",
-		"Color": "#5bcaff",
-		"Images":{
-			"default": "paula/default.png",
-		}
-	},
-	// "char__dona-filo": {
-	// 	"Name": "Dona Filó",
-	// 	"Color": "#5bcaff"
-	// },
-	"char__osvaldo": {
-		"Name": "Osvaldo",
-		"Color": "#5bcaff",
-		"Directory": "osvaldo",
-		"Outfit": {
-			"Body": {
-			  "Directory": "body",
-			  "Images": {
-				"default": "default.png",
-				"smiling": "smiling.png"
-			  }
-			},
-			"Clothes": {
-			  "Directory": "clothing",
-			  "Images": {
-				"praia": "praia.png"
-			  }
-			}
-		}
-	},
-	"char__paola": {
-		"Name": "Paola Bracho",
-		"Color": "#5bcaff",
-		"Directory": "paola",
-		"Outfit": {
-			"Body": {
-			  "Directory": "body",
-			  "Images": {
-				"default": "default.png",
-				"evil-laugh": "evil-laugh.png",
-				"kissing": "kissing.png"
-			  }
-			},
-			"Clothes": {
-			  "Directory": "clothing",
-			  "Images": {
-				"default": "red.png",
-				"clube": "clube.png"
-			  }
-			}
-		}
-	},
-	"char__luciano": {
-		"Name": "Luciano Alcântara",
-		"Color": "#5bcaff",
-		"Directory": "luciano",
-		"Images":{
-			"clube": "luciano.png",
-		}
-	}
-};
-
 let script = {
 	// The game starts here.
 
@@ -167,6 +79,8 @@ let script = {
 		"scene BeachCabin with fadeIn",
 		"show char__paulina :praia at left with fadeIn",
 		"show char__mae default at right with fadeIn",
+		"milestone char__paulina known",
+		"milestone char__mae known",
 		"play sound cough",
 		"char__paulina Don't forget to take your medicine on time, Mom.",
 		"char__mae Don't worry about me. Now hurry up because you're late for work.",
@@ -234,12 +148,12 @@ let script = {
 	        "Function": {
 	            "Apply": function () {
 					storage.player.respect_osvaldo += 5;
-					journal().saveCharacterMilestoneProgress("Osvaldo", "wedding", true);
 	                displayUpdateStats();
 	                return true;
 	            }
 	        }
-	    },
+		},
+		"milestone char__osvaldo wedding",
 
 		"show char__paulina :praia at left-zoom",
 		"char__paulina I want us to get married before... the moment comes.",
@@ -260,13 +174,13 @@ let script = {
 	        "Function": {
 	            "Apply": function () {
 					storage.player.respect_osvaldo -= 5;
-					journal().saveCharacterMilestoneProgress("Osvaldo", "wedding", false);
 	                displayUpdateStats();
 	                return true;
 	            }
 	        }
 	    },
 
+		"milestone char__osvaldo wedding false",
 		"show char__paulina :praia at left-zoom",
 		"char__paulina I have to go now, can you take me to the club?",
 		"char__osvaldo No... I can't. I have to do some things, but I'll show up later at the club.",

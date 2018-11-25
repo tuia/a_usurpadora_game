@@ -1,97 +1,51 @@
-function journal() {
-	const milestones = {
-		"Paulina Martins": (progress) => {
-			return ["This is our heroine. What things wait for her in future?"];
-		},
+let updateJournalCharacter = (characterId) => {
+	let character = characters[characterId];
+	if (typeof(character) == "undefined")
+		return;
 
-		"Paula Martins": (progress) => {
-			return ["Paulina's sick mother. Nobody knows what she is sick with, but her health is declining fast", "Will she live to see Paulina happily married?"]
-		},
+	let journalHtml = "";
 
-		"Osvaldo": (progress) => {
-			let result = ["Osvaldo is a decent young man in love with Paulina."];
+	let characterProgress = progress.get(characterId);
 
-			if (progress.wedding) {
-				result.push("Osvaldo has really strong feeling towards our heroine, and is ready to marry her, when the time comes.");
-				result.push("Though life is hard, it's good to have someone to rely on");
-			}
-			else {
-				result.push("Who knows what feeling he has to her? Is it serious enough to become her husband? Only the time will show.");
-			}
+	character.Milestones(characterProgress).forEach(progressLine => journalHtml += "<p>" + progressLine + "</p>");
 
-			return result;
-		}
-	}
+	if (journalHtml == "")
+		journalHtml = "No records in the journal for this character yet! \n As the progress of the story goes, new records will appear in the journal.";
 
-	if (typeof(storage.journal) == 'undefined')
-		storage.journal = {};
+	$(".js-journal-content").html(journalHtml);
+};
 
-	let getCharacterProgress = (character) => {
-		if (typeof(storage.journal[character]) == 'undefined')
-			return {};
-		return storage.journal[character];
-	};
-
-	let updateJournalSidebar = () => {
-		let sidebarHtml = "";
-		let idx = 0;
-		for (var character in storage.journal) {
+let updateJournalSidebar = () => {
+	let sidebarHtml = "";
+	let idx = 0;
+	for(var characterId in characters) {
+		let character = characters[characterId];
+		if (progress.get(characterId))
+		{
 			sidebarHtml += "<a data-journal-character='";
-			sidebarHtml += character;
+			sidebarHtml += characterId;
 			sidebarHtml += "' ";
 			sidebarHtml += "class='journal__body__sidebar__item js-journal-character";
 			if (idx++ == 0)
 				sidebarHtml += " active";
 			sidebarHtml += "'>";
-			sidebarHtml += character;
+			sidebarHtml += character.Name;
 			sidebarHtml += "</a>";
 		}
-
-		$(".js-journal-characters").html(sidebarHtml);
-
-		$(".js-journal-character").on("click", (e) => {
-			let character = $(e.target).data("journal-character");
-			updateJournalCharacter(character);
-		});
-	}
-
-	let updateJournalCharacter = (character) => {
-
-		let journalHtml = "";
-
-		journal().getCharacterJournal(character).forEach(progressLine => journalHtml += "<p>" + progressLine + "</p>");
-
-		if (journalHtml == "")
-			journalHtml = "No records in the journal for this character yet! \n As the progress of the story goes, new records will appear in the journal.";
-
-		$(".js-journal-content").html(journalHtml);
-	}
-
-	return {
-		init() {
-			this.saveCharacterMilestoneProgress("Paulina Martins", "Started", true);
-			this.saveCharacterMilestoneProgress("Paula Martins", "Started", true);
-		},
-
-		saveCharacterMilestoneProgress: (character, progress, value) => {
-			if (typeof(storage.journal[character]) == 'undefined')
-				storage.journal[character] = {};
-
-			storage.journal[character][progress] = value;
-		},
-
-		update() {
-			updateJournalSidebar();
-			$(".js-journal-content").text("Select character");
-		},
-
-		getCharacterJournal: (character) => {
-			var progress = getCharacterProgress(character);
-			if (typeof(milestones[character]) != 'undefined')
-				return milestones[character](progress);
-			return [];
-		}
 	};
-}
 
-journal().init();
+	$(".js-journal-characters").html(sidebarHtml);
+
+	$(".js-journal-character").on("click", (e) => {
+		debugger;
+		let characterId = $(e.target).data("journal-character");
+		updateJournalCharacter(characterId);
+	});
+};
+
+let journal = {
+	update: () => {
+		updateJournalSidebar();
+		$(".js-journal-content").text("Select character");
+	}
+};
