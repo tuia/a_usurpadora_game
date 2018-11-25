@@ -2001,6 +2001,7 @@ $_ready(function () {
 								console.error("Could not analyze reputation tag: character or value is missing: " + parts);
 							}
 
+							next ();
 							break;
 						case "milestone":
 							// milestone [character] [action]:[value]
@@ -2011,6 +2012,11 @@ $_ready(function () {
 								let splitPart = parts[2].split(":");
 								let action = splitPart[0];
 								let value = splitPart.length > 1 ? splitPart[1] : true;
+
+								if (value == "false")
+									value = false;
+								else if ((value ^ 0) === value)
+									value = parseInt(value);
 
 								progress.update(character, action, value);
 								if (typeof(notifyProgressChanged) == "function")

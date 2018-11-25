@@ -4,5 +4,11 @@
 let storage = {
 	player: {
 		name: ""
+	},
+	reputation: {
+
+	},
+	progress: {
+
 	}
 };

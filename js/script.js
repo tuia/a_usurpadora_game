@@ -163,7 +163,7 @@ let script = {
 	],
     "on_the_way_to_club__wrong_choice": [
 		"reputation char__osvaldo -5",
-		"milestone char__osvaldo wedding false",
+		"milestone char__osvaldo wedding:false",
 		"show char__paulina :praia at left-zoom",
 		"char__paulina I have to go now, can you take me to the club?",
 		"char__osvaldo No... I can't. I have to do some things, but I'll show up later at the club.",
@@ -617,7 +617,7 @@ let script = {
 		"char__paola No, better not (puts money back). It's better when you decide. You can find me here... (hands out a business card)... When you decide.",
 		"char__paola I know you'll accept. Have a good evening.",
 
-		"centered Your score: Osvaldo: {{storage.reputation.char__osvaldo}}, Paola: {{storage.reputation.char__paola }}",
+		"centered Your score: Osvaldo: {{reputation.char__osvaldo}}, Paola: {{reputation.char__paola}}",
 		"end"
 	],
 
@@ -637,7 +637,7 @@ let script = {
 		"char__paola You can find me here...  (hands out a business card) tomorrow at 10.",
 		"char__paola Have a good evening.",
 
-		"centered Your score: Osvaldo: {{storage.reputation.char__osvaldo}}, Paola: {{storage.reputation.char__paola }}",
+		"centered Your score: Osvaldo: {{reputation.char__osvaldo}}, Paola: {{reputation.char__paola}}",
 		"end"
 	],
 

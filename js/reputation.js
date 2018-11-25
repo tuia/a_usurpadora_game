@@ -1,8 +1,5 @@
 const reputation = {
 	update(characterId, value) {
-		if (typeof(storage.reputation) == "undefined")
-			storage.reputation = {};
-
 		if (typeof(storage.reputation[characterId]) == "undefined")
 		    storage.reputation[characterId] = 0;
 
@@ -10,9 +7,6 @@ const reputation = {
 	},
 
 	get(characterId) {
-		if (typeof(storage.reputation) == "undefined")
-			return undefined;
-
 		return storage.reputation[characterId]
 	}
 }
