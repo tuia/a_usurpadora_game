@@ -3,8 +3,6 @@
 
 let storage = {
 	player: {
-		name: "",
-		respect_osvaldo: 0,
-		respect_paola: 0,
+		name: ""
 	}
 };

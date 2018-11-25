@@ -4,7 +4,7 @@ const progress = {
 			storage.progress = {};
 
 		if (typeof(storage.progress[characterId]) == "undefined")
-		storage.progress[characterId] = {};
+		    storage.progress[characterId] = {};
 
 		storage.progress[characterId][milestone] = value;
 	},
@@ -15,4 +15,13 @@ const progress = {
 
 		return storage.progress[characterId]
 	}
+}
+
+let nextRun = new Date();
+
+function notifyProgressChanged(characterId) {
+    notificationQueue.push({
+        characterId: characterId,
+        format: "Journal record updated for %%."
+    });
 }

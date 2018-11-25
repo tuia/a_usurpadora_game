@@ -144,15 +144,7 @@ let script = {
 	    }
     ],
     "on_the_way_to_club__right_choice": [
-	    {
-	        "Function": {
-	            "Apply": function () {
-					storage.player.respect_osvaldo += 5;
-	                displayUpdateStats();
-	                return true;
-	            }
-	        }
-		},
+		"reputation char__osvaldo 5",
 		"milestone char__osvaldo wedding",
 
 		"show char__paulina :praia at left-zoom",
@@ -170,16 +162,7 @@ let script = {
 		"jump club",
 	],
     "on_the_way_to_club__wrong_choice": [
-	    {
-	        "Function": {
-	            "Apply": function () {
-					storage.player.respect_osvaldo -= 5;
-	                displayUpdateStats();
-	                return true;
-	            }
-	        }
-	    },
-
+		"reputation char__osvaldo -5",
 		"milestone char__osvaldo wedding false",
 		"show char__paulina :praia at left-zoom",
 		"char__paulina I have to go now, can you take me to the club?",
@@ -253,15 +236,7 @@ let script = {
     ],
 
 	"club__wrong_choice": [
-	    {
-	        "Function": {
-	            "Apply": function () {
-					storage.player.respect_paola -= 5;
-	                displayUpdateStats();
-	                return true;
-	            }
-	        }
-		},
+		"reputation char__paola -5",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola Could you introduce yourself to my friend, with this on? We can do a test, go out and try to pass as me.",
 		"char__paulina This is going to get me in trouble, ma'am.",
@@ -305,15 +280,7 @@ let script = {
 	],
 
 	"club__right_choice": [
-	    {
-	        "Function": {
-	            "Apply": function () {
-					storage.player.respect_paola += 5;
-	                displayUpdateStats();
-	                return true;
-	            }
-	        }
-	    },
+		"reputation char__paola 5",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola Could you introduce yourself to my friend, with this on? We can do a test, go out and try to pass as me.",
 		"char__paulina This is going to get me in trouble, ma'am.",
@@ -629,16 +596,7 @@ let script = {
     ],
 
 	"proposal__right_choice": [
-	    {
-	        "Function": {
-	            "Apply": function () {
-					storage.player.respect_paola += 5;
-	                displayUpdateStats();
-	                return true;
-	            }
-	        }
-	    },
-
+		"reputation char__paola 5",
 		"char__paulina Look, Paola, there's no amount of money that would convince me to commit this kind of crime.",
 		"char__paola Please Paulina... Do not be so scrupulous. I guarantee that replacing me will not harm anyone. I don't understand your scruples.",
 		// "char__paulina The fact of replacing you is already absurd.",
@@ -659,21 +617,12 @@ let script = {
 		"char__paola No, better not (puts money back). It's better when you decide. You can find me here... (hands out a business card)... When you decide.",
 		"char__paola I know you'll accept. Have a good evening.",
 
-		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
+		"centered Your score: Osvaldo: {{storage.reputation.char__osvaldo}}, Paola: {{storage.reputation.char__paola }}",
 		"end"
 	],
 
 	"proposal__wrong_choice": [
-	    {
-	        "Function": {
-	            "Apply": function () {
-					storage.player.respect_paola -= 5;
-	                displayUpdateStats();
-	                return true;
-	            }
-	        }
-	    },
-
+		"reputation char__paola -5",
 		"show char__paulina worried:{{player.outfit}} at left",
 		"char__paulina I think you are crazy... But my mother is very sick and I really need the money to get her medicine. I'm desperate!",
 		"char__paola You mean that...",
@@ -688,7 +637,7 @@ let script = {
 		"char__paola You can find me here...  (hands out a business card) tomorrow at 10.",
 		"char__paola Have a good evening.",
 
-		"centered Your score: Osvaldo: {{player.respect_osvaldo}}, Paola: {{player.respect_paola}}",
+		"centered Your score: Osvaldo: {{storage.reputation.char__osvaldo}}, Paola: {{storage.reputation.char__paola }}",
 		"end"
 	],
 

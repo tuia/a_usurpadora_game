@@ -4,15 +4,6 @@
  * ==============================
  **/
 
-
-function displayUpdateStats() {
-    var element = "<div class='update-stats'>Updating your stats</div>";
-    $_("body").append(element);
-    setTimeout(function(){
-        $_(".update-stats").remove();
-    }, 1000);
-}
-
 function updateLucianoSuspicion(suspicionCounter) {
     if (typeof(storage.luciano) == 'undefined')
         storage.luciano = {

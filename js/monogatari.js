@@ -1988,7 +1988,20 @@ $_ready(function () {
 							}
 							break;
 
+						case "reputation":
+							// milestone [character] [value]
+							//		0		  1		    2
+							if (typeof characters[parts[1]] != "undefined" || typeof(parts[2]) =="undefined" || parts[2].length == 0) {
+								let character = parts[1];
+								let value = parseInt(parts[2]);
+								reputation.update(character, value);
+								if (typeof(notifyReputationChanged) == "function")
+									notifyReputationChanged(character);
+							} else {
+								console.error("Could not analyze reputation tag: character or value is missing: " + parts);
+							}
 
+							break;
 						case "milestone":
 							// milestone [character] [action]:[value]
 							//		0		  1			 2		 3
@@ -2000,6 +2013,8 @@ $_ready(function () {
 								let value = splitPart.length > 1 ? splitPart[1] : true;
 
 								progress.update(character, action, value);
+								if (typeof(notifyProgressChanged) == "function")
+									notifyProgressChanged(character);
 							}
 							else {
 								console.error("Could not analyze milestone tag: character or action is missing: " + parts);
