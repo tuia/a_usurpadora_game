@@ -34,13 +34,12 @@ let handler = () => {
             return;
         }
 
-        let element = "<div class='js-update-progress update-stats' style='display: none;'>" + format(metadata.format, character.Name) + "</div>";
-        $_("body").append(element);
-        let bar = $(".js-update-progress");
-        bar.fadeIn(500, () => {
+        let element = $("<div class='js-update-progress update-stats' style='display: none;'>" + format(metadata.format, character.Name) + "</div>");
+        $("body").append(element);
+        element.fadeIn(500, () => {
             setTimeout(() => {
-                bar.fadeOut(500, () => bar.remove());
-            }, 1000);
+                element.fadeOut(500, () => element.remove());
+            }, 750);
         });
 
     }
