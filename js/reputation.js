@@ -12,7 +12,7 @@ const reputation = {
 }
 
 function notifyReputationChanged(characterId) {
-    addNotification(notificationQueue.push({
+    addNotification({
         characterId: characterId,
         format: "Reputation updated with %%."
     });
