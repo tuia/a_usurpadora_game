@@ -97,6 +97,9 @@ let script = {
 		"char__mae Only this way I will be able to die in peace, daughter.",
 		"show char__paulina worried:praia at left",
 		"char__paulina:worried Stop, mom. Don't talk about death. You'll recover.",
+		"hide char__paulina with fadeOutLeft",
+		"hide char__mae with fadeOutRight",
+		"wait 500",
 		"jump on_the_way_to_club"
 	],
 
@@ -108,9 +111,9 @@ let script = {
 		"scene BusStop",
 
 		"show char__osvaldo smiling:praia at right with fadeIn",
+		"show char__paulina smiling:praia at left with fadeIn",
 		"char__osvaldo Paulina?",
 		"milestone char__osvaldo known",
-		"show char__paulina smiling:praia at left-zoom with fadeIn",
 		"char__paulina:smiling Osvaldo, my love!",
 
 		"char__osvaldo Where are you going in such a hurry?",
@@ -118,13 +121,15 @@ let script = {
 		"char__paulina:smiling I'm going to work earlier at the club today, since my colleague is sick.",
 
 		"show char__osvaldo default:praia at right",
-		"show char__paulina :praia at left-zoom",
+		"show char__paulina :praia at left",
 
 		"char__osvaldo How is Dona Paula?",
 		"char__paulina Getting worse every day. Now she only talks about death...",
 
 		"char__osvaldo You have to accept that she's going to die, Paulina.",
-		"show char__paulina worried:praia at left-zoom",
+		"hide char__paulina with fadeOutLeft",
+		"wait 500",
+		"show char__paulina worried:praia at left-zoom with fadeInLeft",
 		"char__paulina:worried I can't, Osvaldo. It's not easy. It's just so sad to see her like this, destroyed, almost... without any strength left.",
 		"show char__paulina :praia at left-zoom",
 		"char__paulina Sometimes I think what's keeping her alive is the fear of leaving me alone.",
@@ -279,7 +284,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola :clube at right-zoom with fadeIn",
+		"show char__paola :clube at right-zoom with slideInLeft",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		"char__paola I knew it! Although you chose a cheap dress... He barely noticed the replacement.",
 		"jump proposal"
@@ -539,7 +544,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola :clube at right-zoom with fadeIn",
+		"show char__paola :clube at right-zoom with slideInLeft",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		{
 			"Conditional": {
@@ -568,7 +573,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola :clube at right-zoom with fadeIn",
+		"show char__paola :clube at right-zoom with slideInLeft",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		{
 			"Conditional": {

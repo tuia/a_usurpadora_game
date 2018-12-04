@@ -2209,7 +2209,7 @@ $_ready(function () {
 								}
 							}
 							if (advance) {
-								next ();
+								setTimeout(() => next (), 500);
 							}
 							break;
 
