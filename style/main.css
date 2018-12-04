@@ -218,11 +218,6 @@ button:hover {
     position: absolute;
     max-width: 100%;
 }
-
-#game [data-character],
-#game [data-character] img {
-	transition: all .2s ease;
-}
 	/* Positions */
 	#game [data-character].left img {
 		left: 0
