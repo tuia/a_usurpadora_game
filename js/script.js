@@ -254,7 +254,6 @@ let script = {
 		// "char__paulina Someone can come and ask for me and...",
 		// "char__paola I'll get you out of the situation. Shall we? Luciano Alcântara is waiting.",
 
-
 		"clear",
 		"play music Leda loop",
 		"scene Club with fadeIn",
@@ -267,16 +266,16 @@ let script = {
 		"char__luciano There's something different. You hate cheap dresses... And your hair looks...",
 		// "char__paulina Well... I...",
 		"play sound risadaPaola01",
-		"show char__paola :clube at center with fadeIn",
+		"show char__paola evil-laugh:clube at center with fadeIn",
 		"char__paola Hi, Luciano Alcântara.",
 		"char__luciano What the hell?",
 		"char__paola It's me. The real Paola Bracho.",
 		"char__luciano Can you please explain what's going on?",
+		"show char__paola :clube at center",
 		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out... And I realized she's not perfect.",
 		"char__luciano I don't think she can pass as you... It's dangerous.",
 		"char__paulina I told it to Paola Bracho, but she insisted on continuing with this...",
 		"show char__paola evil-laugh:clube at center",
-		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 		"milestone char__paulina luciano_wrong_dress",
 
@@ -334,18 +333,22 @@ let script = {
 			updateLucianoSuspicion(10);
 			return true;
 		},
+		"reputation char__luciano +5",
+
 		"char__luciano Hi, Paola Bracho. I see you changed your outfit.",
 		"jump club_luciano_dialogue_part_2"
 	],
 
 	"club_luciano_1_sexy": [
 		"char__paulina Hey, handsome. Did you miss me?",
+		"reputation char__luciano -5",
 		"char__luciano Yes, gorgeous. So... You changed your outfit to something sexier. I like it.",
 		"jump club_luciano_dialogue_part_2"
 	],
 
 	"club_luciano_1_funny": [
 		"char__paulina It's me - The real Paola Bracho!",
+		"reputation char__luciano 0",
 		function() {
 			updateLucianoSuspicion(15);
 			return true;
@@ -375,6 +378,7 @@ let script = {
 
 	"club_luciano_2_shy" :[
 		"char__paulina Sorry, I just wanted to make a surprise.",
+		"reputation char__luciano +5",
 		function() {
 			updateLucianoSuspicion(+16);
 			return true;
@@ -398,6 +402,7 @@ let script = {
 
 	"club_luciano_2_sexy": [
 		"char__paulina I know you love golden dresses, darling.",
+		"reputation char__luciano -5",
 		function() {
 			updateLucianoSuspicion(-5);
 			return true;
@@ -419,6 +424,7 @@ let script = {
 
 	"club_luciano_2_funny": [
 		"char__paulina I just wanted to look like a Telenovela villain.",
+		"reputation char__luciano -5",
 		function() {
 			updateLucianoSuspicion(+10);
 			return true;
@@ -459,6 +465,7 @@ let script = {
 
 	"club_luciano_3_shy": [
 		"char__paulina I'm sorry, but that's none of your business, Luciano Alcântara.",
+		"reputation char__luciano +5",
 		function() {
 			updateLucianoSuspicion(+15);
 			return true;
@@ -482,6 +489,7 @@ let script = {
 
 	"club_luciano_3_sexy": [
 		"char__paulina No, I didn't. But let's focus on the two of us...",
+		"reputation char__luciano -5",
 		function() {
 			updateLucianoSuspicion(-5);
 			return true;
@@ -505,11 +513,12 @@ let script = {
 
 	"club_luciano_3_funny": [
 		"char__paulina I gotta pee.",
+		"reputation char__luciano -5",
 		function() {
 			updateLucianoSuspicion(+20);
 			return true;
 		},
-		"char__luciano EXCUSE-ME? Where are your manners? And You just left the restroom.",
+		"char__luciano EXCUSE-ME? Where are your manners? ... Also, you just left the restroom.",
 		{
 			"Conditional": {
 				"Condition": function(){
@@ -524,11 +533,12 @@ let script = {
 	"club_luciano_dialog_success": [
 		hideLucianoSuspicionCounter,
 		"play sound risadaPaola01",
-		"show char__paola :clube at center with fadeIn",
+		"show char__paola evil-laugh:clube at center with fadeIn",
 		"char__paola Hi, Luciano Alcântara. Looking good!",
 		"char__luciano What the hell?",
 		"char__paola It's me. The real Paola Bracho.",
 		"char__luciano Can you please explain me what's going on?",
+		"show char__paola :clube at center",
 		"char__paola You were talking to my look-alike. Did you not find her voice softer than mine?",
 		"char__luciano I did... But still?",
 		"char__paola I wanted to make a joke to see if you could find out... And I found out she's perfect.",
@@ -537,7 +547,6 @@ let script = {
 		"char__luciano And dangerous, too.",
 		"char__paulina I told it to Paola, but she insisted on continuing this joke...",
 		"show char__paola evil-laugh:clube at center",
-		"play sound risadaPaola01",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 		"milestone char__paola shady_business_swap",
 
@@ -560,16 +569,16 @@ let script = {
 	"club_luciano_dialogue_failure": [
 		hideLucianoSuspicionCounter,
 		"play sound risadaPaola01",
-		"show char__paola :clube at center with fadeIn",
+		"show char__paola evil-laugh:clube at center with fadeIn",
 		"char__paola Hi, Luciano Alcântara.",
 		"char__luciano What the hell?",
 		"char__paola It's me. The real Paola Bracho.",
 		"char__luciano What's going on here?",
+		"show char__paola :clube at center",
 		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out.",
 		"char__luciano I knew something was wrong. I had a bad feeling about you - I mean, her.",
 		"char__paola She is not perfect in her manners, but she still looks exactly like me!",
 		"show char__paola evil-laugh:clube at center",
-		"play sound risadaPaola01",
 		"char__paola You know, I might need her for some of the madness of Paola Bracho's mind.",
 
 		"scene Toalete with fadeIn",
@@ -602,13 +611,15 @@ let script = {
 		"char__paola You will be valued, obeyed and respected. You will have a wonderful life, let's say... for a year.",
 		"char__paola At the end of this year I come back, I take my place back and pay you a good amount of money, which will solve your future life.",
 		"char__paola Ah, and you will not have to work cleaning a ladies' room any more.",
-		"char__paulina Why do you want me to impersonate you in your own house?",
-		"char__paola To stay a year away from all those people I hate.",
-		"char__paulina I...",
-		"char__paola Don't you need money?",
+		// "char__paulina Why do you want me to impersonate you in your own house?",
+		"char__paulina Why do you want me to do that?",
+		// "char__paola To stay a year away from all those people I hate.",
+		// "char__paulina I...",
+		// "char__paola Don't you need money?",
+		"char__paola To stay a year away from all those people I hate. And don't you need money?",
 		"char__paulina Yes... a lot. My mother is sick, and the bank won't lend me any more money to buy her medicine.",
-		"char__paola So I don't understand your scruples. What do you say?",
-		"char__paola Will you go to my house to pass as me, for a large sum of money, that can save your future?",
+		// "char__paola So I don't understand your scruples. What do you say?",
+		"char__paola So, what do you say? Will you go to my house to pass as me, for a large sum of money, that can save your future?",
 
 	    {
 	        "Choice": {
