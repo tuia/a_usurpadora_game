@@ -420,7 +420,7 @@ let script = {
 	"club_luciano_2_funny": [
 		"char__paulina I just wanted to look like a Telenovela villain.",
 		function() {
-			updateLucianoSuspicion(+5);
+			updateLucianoSuspicion(+10);
 			return true;
 		},
 		"char__luciano Jajaja. That's funny. What is up with you today?",
@@ -442,11 +442,11 @@ let script = {
 		{
 	        "Choice": {
 	            "shy": {
-	                "Text": "No, I didn't.",
+	                "Text": "I'm sorry, but that's none of your business, Luciano Alcântara.",
 	                "Do": "jump club_luciano_3_shy"
 	            },
 	            "sexy": {
-	                "Text": "That's none of your business. Let's focus on the two of us.",
+	                "Text": "No, I didn't. But let's focus on the two of us...",
 	                "Do": "jump club_luciano_3_sexy"
 				},
 				"funny": {
@@ -458,7 +458,30 @@ let script = {
 	],
 
 	"club_luciano_3_shy": [
-		"char__paulina With wh... No, Luciano. I didn't.",
+		"char__paulina I'm sorry, but that's none of your business, Luciano Alcântara.",
+		function() {
+			updateLucianoSuspicion(+15);
+			return true;
+		},
+		"char__luciano Paola, it IS my business. We were both planning to get some money from him and other millionaires, this is how we can live beautiful lives without an actual labour.",
+		"milestone char__paola shady_business",
+		"milestone char__luciano shady_business",
+		"milestone char__paola shady_business_money",
+		"milestone char__luciano shady_business_money",
+		"char__paulina I know, but...",
+		{
+			"Conditional": {
+				"Condition": function(){
+					return lucianoIsSuspicious();
+				},
+				"True": "jump club_luciano_dialogue_failure",
+				"False": "jump club_luciano_dialog_success"
+			}
+		}
+	],
+
+	"club_luciano_3_sexy": [
+		"char__paulina No, I didn't. But let's focus on the two of us...",
 		function() {
 			updateLucianoSuspicion(-5);
 			return true;
@@ -480,33 +503,10 @@ let script = {
 		"jump club_luciano_dialog_success"
 	],
 
-	"club_luciano_3_sexy": [
-		"char__paulina That's none of your business. Let's focus on the two of us.",
-		function() {
-			updateLucianoSuspicion(+5);
-			return true;
-		},
-		"char__luciano Paola, it IS my business. We were both planning to get some money from him and other millionaires, this is how we can live beautiful lives without an actual labour.",
-		"milestone char__paola shady_business",
-		"milestone char__luciano shady_business",
-		"milestone char__paola shady_business_money",
-		"milestone char__luciano shady_business_money",
-		"char__paulina I know, but...",
-		{
-			"Conditional": {
-				"Condition": function(){
-					return lucianoIsSuspicious();
-				},
-				"True": "jump club_luciano_dialogue_failure",
-				"False": "jump club_luciano_dialog_success"
-			}
-		}
-	],
-
 	"club_luciano_3_funny": [
 		"char__paulina I gotta pee.",
 		function() {
-			updateLucianoSuspicion(+15);
+			updateLucianoSuspicion(+20);
 			return true;
 		},
 		"char__luciano EXCUSE-ME? Where are your manners? And You just left the restroom.",

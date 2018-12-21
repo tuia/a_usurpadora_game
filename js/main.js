@@ -17,11 +17,11 @@ function updateLucianoSuspicion(suspicionCounter) {
     if (currentSuspicion < 10 )
         text = "looking relaxed";
     else if (currentSuspicion >=10 && currentSuspicion < 20)
-        text = "slightly irritated";
+        text = "slightly suspicious";
     else if (currentSuspicion >=20 && currentSuspicion < 30)
         text = "looking confused";
     else
-        text = "looking suspicious";
+        text = "looking very suspicious";
 
     $_('#minigame-status').text("Luciano is " + text);
 }
