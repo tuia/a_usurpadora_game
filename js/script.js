@@ -78,27 +78,27 @@ let script = {
 		"centered Cancun, Quintana Roo - 1998",
 		"scene BeachCabin with fadeIn",
 		"show char__paulina :praia at left with fadeIn",
-		"show char__mae default at right with fadeIn",
+		"show char__paula default at right with fadeIn",
 		"milestone char__paulina known",
-		"milestone char__mae known",
+		"milestone char__paula known",
 		"char__paulina Don't forget to take your medicine on time, Mom.",
 		"play sound cough",
-		"char__mae Don't worry about me, Paulina. Just hurry up, You're late for work.",
+		"char__paula Don't worry about me, Paulina. Just hurry up, You're late for work.",
 		"char__paulina Of course I worry about you. You're everything to me, mother.",
-		"char__mae But there's your boyfriend, Osvaldo. You like him more than me for sure.",
+		"char__paula But there's your boyfriend, Osvaldo. You like him more than me for sure.",
 		"show char__paulina smiling:praia at left",
 		"char__paulina:smiling Don't say that. Of course I don't like Osvaldo more than you.",
-		"char__mae Paulina...",
+		"char__paula Paulina...",
 
 		"show char__paulina :praia at left",
 		"char__paulina I know, mom. Osvaldo is not much to your liking.",
-		"char__mae But if he is the man you intend to marry, what else can I ask for?",
-		"char__mae Besides leaving you for someone when I die...",
-		"char__mae Only this way I will be able to die in peace, daughter.",
+		"char__paula But if he is the man you intend to marry, what else can I ask for?",
+		"char__paula Besides leaving you for someone when I die...",
+		"char__paula Only this way I will be able to die in peace, daughter.",
 		"show char__paulina worried:praia at left",
 		"char__paulina:worried Stop, mom. Don't talk about death. You'll recover.",
 		"hide char__paulina with fadeOutLeft",
-		"hide char__mae with fadeOutRight",
+		"hide char__paula with fadeOutRight",
 		"wait 500",
 		"jump on_the_way_to_club"
 	],
@@ -502,8 +502,8 @@ let script = {
 		"char__paulina I don't know, probably soon.",
 		"char__luciano I still don't get why you don't go in with a divorce proceeding.",
 		"char__paulina Divorce? It's not that easy.",
-		"milestone char__paola divorce",
 		"char__luciano You just don't want to. You want to keep being Mrs. Bracho because you dream of the inheritance, but I'm sure that your husband's children will get it all.",
+		"milestone char__paola divorce",
 		"char__paulina It is possible.",
 		"char__luciano Do you know that we could do great things together, Paola?",
 		"char__paulina What things?",
@@ -559,7 +559,7 @@ let script = {
 				"Condition": function(){
 					return storage.player.outfit == "golden";
 				},
-				"True": "char__paola By the way, I like your style! With your taste in clothes you can pass as me without making everyone suspicious.",
+				"True": "char__paola By the way, I like your style! With your taste in clothes you can pass as me without making anyone suspicious.",
 				"False": "char__paola I knew it! I knew it he would not notice the replacement at all."
 			}
 		},
@@ -618,6 +618,7 @@ let script = {
 		// "char__paola Don't you need money?",
 		"char__paola To stay a year away from all those people I hate. And don't you need money?",
 		"char__paulina Yes... a lot. My mother is sick, and the bank won't lend me any more money to buy her medicine.",
+		"milestone char__paula medicine",
 		// "char__paola So I don't understand your scruples. What do you say?",
 		"char__paola So, what do you say? Will you go to my house to pass as me, for a large sum of money, that can save your future?",
 
@@ -657,7 +658,7 @@ let script = {
 		"char__paola No, better not (puts money back). It's better when you decide. You can find me here... (hands out a business card)... When you decide.",
 		"char__paola I know you'll accept. Have a good evening.",
 
-		"centered Your score: Osvaldo: {{reputation.char__osvaldo}}, Paola: {{reputation.char__paola}}",
+		"centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
 		"end"
 	],
 
@@ -677,7 +678,7 @@ let script = {
 		"char__paola You can find me here...  (hands out a business card) tomorrow at 10.",
 		"char__paola Have a good evening.",
 
-		"centered Your score: Osvaldo: {{reputation.char__osvaldo}}, Paola: {{reputation.char__paola}}",
+		"centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
 		"end"
 	],
 

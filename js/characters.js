@@ -1,6 +1,6 @@
 const characters = {
 	"char__paulina": {
-		"Name": "Paulina Martins",
+		"Name": "Paulina Martinez",
 		"Color": "#f99dad",
 		"Directory": "paulina",
 		"Outfit": {
@@ -23,28 +23,32 @@ const characters = {
 			}
         },
         "Milestones": (progress) => {
-            let result = ["This is our heroine. What things wait for her in future?"];
+            let result = ["This is our heroine. What things await for her in future?"];
 
             if (progress.met_paola)
-                result.push("What a surprise! Our dearest Paulina has a twin sister, looking exactly like her! Except, twin sister is much richer, has a bit lower voice and a lot of style!");
+                result.push("What a surprise! This lady called Paola Bracho looks exactly like Paulina Martinez! However, she's much richer, more confident, and seductive. She's also got has a harsher voice and a lot of style!");
 
             if (progress.luciano_right_dress)
-                result.push("Paulina has a very keen eye, and when Paola asked her to dress to look more like she, managed to really nail it and chose the right dress to make a small joke with her friend, Luciano Alcantara! Or is it the feeling of style, that our heroine had from the beginning?");
+                result.push("Paulina has a very keen eye: not only did she chose the perfect dress to look like Paola Bracho, but she did a great impersonation to Luciano Alcantara!");
             else if (progress.luciano_wrong_dress)
-                result.push("Paulina is a bit sloppy and when Paola asked her to dress to look more like she, failed the task miserably. Even a blind old man who saw her coming to the restroom, could see the difference from miles away.");
+                result.push("Paulina is a bit sloppy and didn't manage to dress up like Paola Bracho in the Yacht Club. Even a blind old man who saw her coming to the restroom, could see the difference from miles away.");
 
             return result;
         }
     },
 
-	"char__mae": {
-		"Name": "Paula Martins",
+	"char__paula": {
+		"Name": "Paula Martinez",
 		"Color": "#5bcaff",
 		"Images":{
 			"default": "paula/default.png",
         },
         "Milestones": (progress) => {
-            return ["Paulina's sick mother. Nobody knows what she is sick with, but her health is declining fast", "Will she live to see Paulina happily married?"]
+            return ["Paulina's sick mother. No one mentions her desease, but her health is declining fast", "Will she live to see Paulina happily married?"]
+
+            if (progress.deals_with_millionaires)
+                result.push("Her medicine is expensive and the banks refuse to lend Paulina Martinez money. What a tragedy!")
+
         }
     },
 
@@ -104,28 +108,28 @@ const characters = {
 			}
 		},
         "Milestones": (progress) => {
-            let result = ["Paola is an excentric young lady looking exactly like our beloved Paulina, what a miracle!"];
+            let result = ["Paola Bracho is a rich lady that looks exactly like our beloved Paulina, what a miracle!"];
 
             if (progress.laughter)
-                result.push("Though her laughter makes me feel chilly.");
+                result.push("Her laughter gives me the creeps.");
 
             if (progress.smokes)
-                result.push("Although this lady is rich and stylish, she has a small bad habit she cannot get rid of - smoking. She smokes really hard and it had a great effect on her, back in the days really soft, voice.");
+                result.push("She has a small bad habit she cannot get rid of - smoking. Which made her voice harsher than Paulina's.");
 
             if (progress.deals_with_millionaires)
                 result.push("No wonder she's rich - she has some business with millionaires, what could it be? Real estate?")
 
             if (progress.divorce)
-                result.push("Looks like there's a divorce happening in her life. Poor thing, she must be destroyed by this process, a decent lady losing a loving husband. What did go wrong in her family?");
+                result.push("Luciano Alcântara thinks Paola Bracho is considering a divorce because of the inheritance, but the kids might get it. What kind of problems sorround the Bracho Family?");
 
             if (progress.shady_business)
-                result.push("Looks like she is involved into something quite shady, but you are not sure what in. Money laundering? Drug business? All you can do is wonder.");
+                result.push("Looks like she is involved into something quite shady. Is it Money laundering? Drug business? All you can do is wonder.");
 
             if (progress.shady_business_money)
-                result.push("Looks like this shady business is not stealing coins from beggars - all that she has she owes to this unknown business that she does and really enjoys doing.");
+                result.push("Looks like this shady business is not stealing coins from beggars - it envolves millionaires.");
 
             if (progress.shady_business_swap)
-                result.push("This lady is out of her mind! She want me to live her life for a year, fully replacing her in her house. This is total madness! Although, she proposed good money for it. Is it a good chance to save Paulina's beloved mother?");
+                result.push("This lady is out of her mind! She wants Paulina Martinez to live her life for a year, fully replacing her in her house for a large sum of money.");
 
             return result;
         }
@@ -139,14 +143,14 @@ const characters = {
 			"clube": "luciano.png",
 		},
         "Milestones": (progress) => {
-            let result = ["A stylish and rich young man. He looks like a man who is really hard working to make his dreams come true."];
+            let result = ["A stylish and rich young man."];
 
             if (progress.shady_business == true) {
-                result.push("Or not. Looks like he's involved into some kind of shady business that he gets some benefit from.");
+                result.push("Looks like he's involved into some kind of shady business that he gets some money from.");
             }
 
             if (progress.shady_business_money == false) {
-                result.push("Or not. He and Paola do something together and get piles of money from it. This involves some kind of tricks with millionaires to make them give Luciano and Paola all their money. What an ass!");
+                result.push("He's together with Paola Bracho in some scheme to trick millionaires to make them give them money. What an ass!");
             }
 
             return result;

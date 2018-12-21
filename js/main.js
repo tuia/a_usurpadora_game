@@ -41,5 +41,5 @@ function hideLucianoSuspicionCounter() {
 }
 
 function lucianoIsSuspicious() {
-    return storage.luciano.dialog_suspicion >= 30;
+    return storage.luciano.dialog_suspicion >= 25;
 }
