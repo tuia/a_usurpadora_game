@@ -24,8 +24,6 @@ function updateLucianoSuspicion(suspicionCounter) {
         text = "looking suspicious";
 
     $_('#minigame-status').text("Luciano is " + text);
-
-    console.log('updateLucianoSuspicion:' updateLucianoSuspicion)
 }
 
 function showLucianoSuspicionCounter() {
