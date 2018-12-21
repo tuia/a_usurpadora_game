@@ -93,7 +93,7 @@ let script = {
 		"show char__paulina :praia at left",
 		"char__paulina I know, mom. Osvaldo is not much to your liking.",
 		"char__mae But if he is the man you intend to marry, what else can I ask for?",
-		"char__mae Rather than leaving you for someone when I die...",
+		"char__mae Besides leaving you for someone when I die...",
 		"char__mae Only this way I will be able to die in peace, daughter.",
 		"show char__paulina worried:praia at left",
 		"char__paulina:worried Stop, mom. Don't talk about death. You'll recover.",
@@ -291,7 +291,7 @@ let script = {
 	"club__right_choice": [
 		"reputation char__paola 5",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
-		// "char__paola Now introduce yourself to my friend Luciano Alcântara, with these on. We can do a test, go out and try to pass as me.",
+		"char__paola Now introduce yourself to my friend Luciano Alcântara, with these on. We can do a test, go out and try to pass as me.",
 		// "char__paulina This is going to get me in trouble, ma'am.",
 		// "char__paola Do not be afraid, my dear.",
 		// "char__paulina Someone can come and ask for me and...",
