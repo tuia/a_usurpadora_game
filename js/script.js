@@ -445,6 +445,7 @@ let script = {
 	"club_luciano_dialogue_part_3": [
 		"char__luciano Anyway... Have you scheduled a date tonight with Alexandre Farina, the millionaire?",
 		"milestone char__paola deals_with_millionaires",
+		"milestone char__paula expensive_medicine",
 		{
 	        "Choice": {
 	            "shy": {
