@@ -44,7 +44,7 @@ const characters = {
 			"default": "paula/default.png",
         },
         "Milestones": (progress) => {
-            return ["Paulina's sick mother. No one mentions her desease, but her health is declining fast", "Will she live to see Paulina happily married?"]
+            return ["Paulina's sick mother. No one mentions her desease, but her health is declining fast.", "Will she live to see Paulina happily married?"]
 
             if (progress.deals_with_millionaires)
                 result.push("Her medicine is expensive and the banks refuse to lend Paulina Martinez money. What a tragedy!")
@@ -72,14 +72,14 @@ const characters = {
 			}
         },
         "Milestones": (progress) => {
-            let result = ["Osvaldo is a decent young man in love with Paulina."];
+            let result = ["Osvaldo is a decent young man in love with Paulina Martinez."];
 
             if (progress.wedding == true) {
-                result.push("Osvaldo has really strong feeling towards our heroine, and is ready to marry her, when the time comes.");
-                result.push("Though life is hard, it's good to have someone to rely on");
+                result.push("He says he is ready to marry her, when the time comes.");
+                result.push("Though life is hard, it's good to have someone to rely on.");
             }
             else if (progress.wedding == false) {
-                result.push("Who knows what feeling he has to her? Is it serious enough to become her husband? Only the time will show.");
+                result.push("Who knows how he feels about her? Is it serious enough to become her husband? Only the time will show.");
             }
 
             return result;
@@ -114,16 +114,16 @@ const characters = {
                 result.push("Her laughter gives me the creeps.");
 
             if (progress.smokes)
-                result.push("She has a small bad habit she cannot get rid of - smoking. Which made her voice harsher than Paulina's.");
+                result.push("She has a bad habit she cannot get rid of - smoking. Which made her voice harsher than Paulina's.");
 
             if (progress.deals_with_millionaires)
                 result.push("No wonder she's rich - she has some business with millionaires, what could it be? Real estate?")
 
             if (progress.divorce)
-                result.push("Luciano Alcântara thinks Paola Bracho is considering a divorce because of the inheritance, but the kids might get it. What kind of problems sorround the Bracho Family?");
+                result.push("Luciano Alcântara thinks Paola Bracho doesn't want to get a divorce because she wants money from the inheritance. What kind of problems sorround the Bracho Family?");
 
             if (progress.shady_business)
-                result.push("Looks like she is involved into something quite shady. Is it Money laundering? Drug business? All you can do is wonder.");
+                result.push("Looks like Paola Bracho is involved into something quite shady. Is it Money laundering? Drug business? All you can do is wonder.");
 
             if (progress.shady_business_money)
                 result.push("Looks like this shady business is not stealing coins from beggars - it envolves millionaires.");
@@ -146,7 +146,7 @@ const characters = {
             let result = ["A stylish and rich young man."];
 
             if (progress.shady_business == true) {
-                result.push("Looks like he's involved into some kind of shady business that he gets some money from.");
+                result.push("Looks like he's involved into some kind of shady business that he gets money from.");
             }
 
             if (progress.shady_business_money == false) {

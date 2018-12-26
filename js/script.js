@@ -65,6 +65,7 @@ const scenes = {
 	"BeachCabinOut": "beachCabinOut.jpg",
 	"Club": "club.jpg",
 	"Toalete": "toalete.jpg",
+	"DressingRoom": "dressing-room.jpg",
 };
 
 // Define the Characters
@@ -358,6 +359,7 @@ let script = {
 	],
 
 	"club_luciano_dialogue_part_2": [
+		"show char__paulina worried:{{player.outfit}} at right",
 		{
 	        "Choice": {
 	            "shy": {
@@ -377,6 +379,7 @@ let script = {
 	],
 
 	"club_luciano_2_shy" :[
+		"show char__paulina :{{player.outfit}} at right",
 		"char__paulina Sorry, I just wanted to make a surprise.",
 		"reputation char__luciano +5",
 		function() {
@@ -396,11 +399,13 @@ let script = {
 	],
 	"club_luciano_2_shy_failiure" :[
 		"char__luciano But why are you acting so strange? And why is your voice softer?",
+		"show char__paulina worried:{{player.outfit}} at right",
 		"char__luciano Are you really... Paola Bracho?",
 		"jump club_luciano_dialogue_failure",
 	],
 
 	"club_luciano_2_sexy": [
+		"show char__paulina smiling:{{player.outfit}} at right",
 		"char__paulina I know you love golden dresses, darling.",
 		"reputation char__luciano -5",
 		function() {
@@ -423,6 +428,7 @@ let script = {
 	],
 
 	"club_luciano_2_funny": [
+		"show char__paulina smiling:{{player.outfit}} at right",
 		"char__paulina I just wanted to look like a Telenovela villain.",
 		"reputation char__luciano -5",
 		function() {
@@ -443,6 +449,7 @@ let script = {
 	],
 
 	"club_luciano_dialogue_part_3": [
+		"show char__paulina :{{player.outfit}} at right",
 		"char__luciano Anyway... Have you scheduled a date tonight with Alexandre Farina, the millionaire?",
 		"milestone char__paola deals_with_millionaires",
 		{
@@ -475,6 +482,7 @@ let script = {
 		"milestone char__luciano shady_business",
 		"milestone char__paola shady_business_money",
 		"milestone char__luciano shady_business_money",
+		"show char__paulina worried:{{player.outfit}} at right",
 		"char__paulina I know, but...",
 		{
 			"Conditional": {
@@ -488,6 +496,7 @@ let script = {
 	],
 
 	"club_luciano_3_sexy": [
+		"show char__paulina smiling:{{player.outfit}} at right",
 		"char__paulina No, I didn't. But let's focus on the two of us...",
 		"reputation char__luciano -5",
 		function() {
@@ -497,21 +506,26 @@ let script = {
 		"char__luciano Come on, Paola. I was counting on it! What will I get from this business?",
 		"milestone char__paola shady_business",
 		"milestone char__luciano shady_business",
+		"show char__paulina :{{player.outfit}} at right",
 		"char__paulina ... The usual?",
 		"char__luciano And when do you plan to return home?",
+		"show char__paulina worried:{{player.outfit}} at right",
 		"char__paulina I don't know, probably soon.",
 		"char__luciano I still don't get why you don't go in with a divorce proceeding.",
 		"char__paulina Divorce? It's not that easy.",
-		"char__luciano You just don't want to. You want to keep being Mrs. Bracho because you dream of the inheritance, but I'm sure that your husband's children will get it all.",
+		"char__luciano You just don't want to. You want to keep being Mrs. Bracho because you dream of the momey from the inheritance, but I'm sure your husband's children will get it all.",
 		"milestone char__paola divorce",
-		"char__paulina It is possible.",
-		"char__luciano Do you know that we could do great things together, Paola?",
-		"char__paulina What things?",
-		"char__luciano Great things. You are beautiful, and there are many millionaires like Alexandre Farina that we can rip off around the world.",
+		"show char__paulina :{{player.outfit}} at right",
+		// "char__paulina It is possible.",
+		"char__luciano Do you know that we could do great things together, Paola Bracho?",
+		// "char__paulina What things?",
+		// "char__luciano Great things. You are beautiful, and there are many millionaires like Alexandre Farina that we can rip off around the world.",
+		"char__luciano You are beautiful, and there are many millionaires like Alexandre Farina that we can rip off around the world.",
 		"jump club_luciano_dialog_success"
 	],
 
 	"club_luciano_3_funny": [
+		"show char__paulina worried:{{player.outfit}} at right",
 		"char__paulina I gotta pee.",
 		"reputation char__luciano -5",
 		function() {
@@ -542,15 +556,16 @@ let script = {
 		"char__paola You were talking to my look-alike. Did you not find her voice softer than mine?",
 		"char__luciano I did... But still?",
 		"char__paola I wanted to make a joke to see if you could find out... And I found out she's perfect.",
-		"char__luciano She can pass as you without problems... And you can pass as her.",
+		"char__luciano Definitely. She is as fake as you are. She can pass as you without problems... And you can pass as her.",
 		"char__paola Isn't it fabulous?",
 		"char__luciano And dangerous, too.",
 		"char__paulina I told it to Paola, but she insisted on continuing this joke...",
+		"play sound risadaPaola01",
 		"show char__paola evil-laugh:clube at center",
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 		"milestone char__paola shady_business_swap",
 
-		"scene Toalete with fadeIn",
+		"scene DressingRoom with fadeIn",
 		"play music PaolaTheme loop",
 		"show char__paola :clube at right-zoom with slideInLeft",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
@@ -559,8 +574,8 @@ let script = {
 				"Condition": function(){
 					return storage.player.outfit == "golden";
 				},
-				"True": "char__paola By the way, I like your style! With your taste in clothes you can pass as me without making anyone suspicious.",
-				"False": "char__paola I knew it! I knew it he would not notice the replacement at all."
+				"True": "char__paola Girl, I liked your style! With your taste in fashion you can pass as me without making anyone suspicious.",
+				"False": "char__paola I knew it! He didn't notice the replacement at all."
 			}
 		},
 		"jump proposal"
@@ -570,18 +585,18 @@ let script = {
 		hideLucianoSuspicionCounter,
 		"play sound risadaPaola01",
 		"show char__paola evil-laugh:clube at center with fadeIn",
-		"char__paola Hi, Luciano Alcântara.",
+		"char__paola Hello, Luciano Alcântara.",
 		"char__luciano What the hell?",
 		"char__paola It's me. The real Paola Bracho.",
 		"char__luciano What's going on here?",
 		"show char__paola :clube at center",
 		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out.",
-		"char__luciano I knew something was wrong. I had a bad feeling about you - I mean, her.",
+		"char__luciano I knew there was something with you - I mean, with her. She is not as false and venomo... I mean, she is not as sexy as you are.",
 		"char__paola She is not perfect in her manners, but she still looks exactly like me!",
 		"show char__paola evil-laugh:clube at center",
 		"char__paola You know, I might need her for some of the madness of Paola Bracho's mind.",
 
-		"scene Toalete with fadeIn",
+		"scene DressingRoom with fadeIn",
 		"play music PaolaTheme loop",
 		"show char__paola :clube at right-zoom with slideInLeft",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
@@ -591,7 +606,7 @@ let script = {
 					return storage.player.outfit == "golden";
 				},
 				"True": "char__paola Damn it! Your outfit was perfect but your impersonation was pathetic. Try to act confident and seductive like the real Paola Bracho next time, my dear.",
-				"False": "char__paola Your outfit made him suspicious, my dear! You should wear something fancier next time."
+				"False": "char__paola Your outfit made him suspicious, dear! You should wear something fancier next time."
 			}
 		},
 		"jump proposal"
@@ -601,12 +616,12 @@ let script = {
 		"char__paola But back to the business...",
 		"char__paola I know you'll be interested in my proposal.",
 		// "char__paola All right, Paulina, tell me how much money you want to go to my house and replace me.",
-		"char__paola All right, Paulina, tell me how much money you want to go to my house and replace me, in exchange for a large sum of money.",
+		"char__paola All right, Paulina, tell me how much money you want to go to my house and pretend to be me.",
 		"show char__paulina worried:{{player.outfit}} at left with fadeIn",
 		// "char__paulina Are you proposing that I replace you in your own house?",
 		// "char__paola Exactly. In exchange for a large sum of money. What do you think?",
 		"char__paulina Ma'am, you are delirious!",
-		"char__paola But it's a good proposal. You, in my house passing as me.",
+		"char__paola But it's a good proposal. You, in my house, replacing me.",
 		"milestone char__paola shady_business_swap",
 		"char__paola You will be valued, obeyed and respected. You will have a wonderful life, let's say... for a year.",
 		"char__paola At the end of this year I come back, I take my place back and pay you a good amount of money, which will solve your future life.",
@@ -616,8 +631,8 @@ let script = {
 		// "char__paola To stay a year away from all those people I hate.",
 		// "char__paulina I...",
 		// "char__paola Don't you need money?",
-		"char__paola To stay a year away from all those people I hate. And don't you need money?",
-		"char__paulina Yes... a lot. My mother is sick, and the bank won't lend me any more money to buy her medicine.",
+		"char__paola To stay a year away from all those people I hate. Don't you need money, my dear?",
+		"char__paulina Yes... My mother is sick, and the bank refuses to loan me money for her medicine.",
 		"milestone char__paula medicine",
 		// "char__paola So I don't understand your scruples. What do you say?",
 		"char__paola So, what do you say? Will you go to my house to pass as me, for a large sum of money, that can save your future?",
@@ -658,8 +673,8 @@ let script = {
 		"char__paola No, better not (puts money back). It's better when you decide. You can find me here... (hands out a business card)... When you decide.",
 		"char__paola I know you'll accept. Have a good evening.",
 
-		"centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
-		"end"
+		// "centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
+		"jump score__osvaldo"
 	],
 
 	"proposal__wrong_choice": [
@@ -678,7 +693,75 @@ let script = {
 		"char__paola You can find me here...  (hands out a business card) tomorrow at 10.",
 		"char__paola Have a good evening.",
 
-		"centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
+		// "centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
+		"jump score__osvaldo"
+	],
+
+
+	//******************//
+	//		 SCORE		//
+	//******************//
+
+	"score__osvaldo": [
+		"scene black with fadeIn",
+		{
+			"Conditional": {
+				"Condition": function(){
+					return reputation.char__osvaldo >= 5;
+				},
+				"True": "jump score__osvaldo--positive",
+				"False": "jump score__osvaldo--negative",
+			}
+		},
+	],
+	"score__osvaldo--positive": [
+		"centered Osvaldo may not be the best person, but he appreciated that you asked him in marriage.",
+		"jump score__paola"
+	],
+	"score__osvaldo--negative": [
+		"centered Osvaldo didn't really love you, and you noticed that. You two followed different paths in life.",
+		"jump score__paola"
+	],
+
+
+	"score__paola": [
+		{
+			"Conditional": {
+				"Condition": function(){
+					return reputation.char__paola >= 5;
+				},
+				"True": "jump score__paola--positive",
+				"False": "jump score__paola--negative",
+			}
+		}
+	],
+	"score__paola--positive": [
+		"centered You dress and act just like Paola. You are becoming more and more like her - will you become as evil as Paola Bracho too?",
+		"jump score__paola"
+	],
+	"score__paola--negative": [
+		"centered Paola doesn't like you, but you are showing her some principles like honor and simplicity. Will she change for better?",
+		"jump score__luciano"
+	],
+
+
+	"score__luciano": [
+		{
+			"Conditional": {
+				"Condition": function(){
+					return reputation.char__luciano >= 5;
+				},
+				"True": "jump score__luciano--positive",
+				"False": "jump score__luciano--negative",
+			}
+		}
+	],
+	"score__luciano--positive": [
+		"centered You may not be as confident as Paola towards Luciano Alcântara, but you are showing him some decency that is inspiring him to be a better person.",
+		"end"
+	],
+	"score__luciano--negative": [
+		"centered Luciano Alcântara thinks you are as sexy and shallow as Paola Bracho. Whatch out: he might try to rip you off!",
 		"end"
 	],
 
