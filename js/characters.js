@@ -44,8 +44,11 @@ const characters = {
 			"default": "paula/default.png",
         },
         "Milestones": (progress) => {
-        	
-            let result = ["Paulina's sick mother. No one mentions her desease, but her health is declining fast", "Will she live to see Paulina happily married?"]
+
+            let result = ["Paulina Martinez's sick mother. No one mentions her desease, but her health is declining fast."]
+
+            if (progress.marriage)
+                result.push("She doesn't like your boyfriend Osvaldo, but she really wants you to get married before she dies.", "Will she live to see it?")
 
             if (progress.expensive_medicine)
                 result.push("Her medicine is expensive and the banks refuse to lend Paulina Martinez money. What a tragedy!")

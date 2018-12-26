@@ -96,6 +96,7 @@ let script = {
 		"char__paula But if he is the man you intend to marry, what else can I ask for?",
 		"char__paula Besides leaving you for someone when I die...",
 		"char__paula Only this way I will be able to die in peace, daughter.",
+		"milestone char__paula marriage",
 		"show char__paulina worried:praia at left",
 		"char__paulina:worried Stop, mom. Don't talk about death. You'll recover.",
 		"hide char__paulina with fadeOutLeft",
