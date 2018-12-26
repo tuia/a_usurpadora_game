@@ -29,6 +29,7 @@ let notifications = {
 
 // Define the music used in the game.
 const music = {
+	"Opening": "Opening.mp3",
 	"Piano": "Piano.mp3",
 	"Leda": "Leda.mp3",
 	"PaolaTheme": "PaolaTheme.mp3"
@@ -263,6 +264,7 @@ let script = {
 		"char__luciano Look who's back.",
 		"show char__paulina :{{player.outfit}} at right with fadeIn",
 		"char__luciano Now that's a surprise! You put on a simpler dress.",
+		"reputation char__luciano +5",
 		"char__luciano Actually... What's the matter with you?",
 		"char__paulina ... What do you mean?",
 		"char__luciano There's something different. You hate cheap dresses... And your hair looks...",
@@ -695,6 +697,7 @@ let script = {
 	//******************//
 
 	"score__osvaldo": [
+		"play music Opening loop",
 		"scene black with fadeIn",
 		{
 			"Conditional": {
@@ -707,7 +710,7 @@ let script = {
 		},
 	],
 	"score__osvaldo--positive": [
-		"centered Osvaldo may not be the best person, but he appreciated that you asked him in marriage.",
+		"centered Osvaldo may not be a good boyfriend, but he appreciated that you asked him in marriage and he knows you are a good, honoured person.",
 		"jump score__paola"
 	],
 	"score__osvaldo--negative": [
@@ -728,11 +731,11 @@ let script = {
 		}
 	],
 	"score__paola--positive": [
-		"centered You dress and act just like Paola. You are becoming more and more like her - will you become as evil as Paola Bracho too?",
+		"centered You dress and act just like Paola. You are becoming more and more like her - will you become as evil as Paola Bracho, too?",
 		"jump score__paola"
 	],
 	"score__paola--negative": [
-		"centered Paola doesn't like you, but you are showing her some principles like honor and simplicity. Will she change for better?",
+		"centered Paola Bracho doesn't like you, but you are showing her some principles like honor and simplicity. Will she change for better?",
 		"jump score__luciano"
 	],
 
@@ -749,7 +752,7 @@ let script = {
 		}
 	],
 	"score__luciano--positive": [
-		"centered You may not be as confident as Paola towards Luciano Alcântara, but you are showing him some decency that is inspiring him to be a better person.",
+		"centered Luciano Alcântara seems to only care about money, but you are showing him some decency that is inspiring him to be a better person.",
 		"end"
 	],
 	"score__luciano--negative": [
