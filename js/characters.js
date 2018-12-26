@@ -44,11 +44,13 @@ const characters = {
 			"default": "paula/default.png",
         },
         "Milestones": (progress) => {
-            return ["Paulina's sick mother. No one mentions her desease, but her health is declining fast.", "Will she live to see Paulina happily married?"]
+        	
+            let result = ["Paulina's sick mother. No one mentions her desease, but her health is declining fast", "Will she live to see Paulina happily married?"]
 
-            if (progress.deals_with_millionaires)
+            if (progress.expensive_medicine)
                 result.push("Her medicine is expensive and the banks refuse to lend Paulina Martinez money. What a tragedy!")
 
+			return result;
         }
     },
 

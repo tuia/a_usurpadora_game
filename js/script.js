@@ -389,9 +389,7 @@ let script = {
 		"char__luciano I am quite surprised, actually.",
 		{
 			"Conditional": {
-				"Condition": function(){
-					return lucianoIsSuspicious();
-				},
+				"Condition": lucianoIsSuspicious,
 				"True": "jump club_luciano_2_shy_failiure",
 				"False": "jump club_luciano_dialogue_part_3"
 			}
@@ -418,9 +416,7 @@ let script = {
 		"milestone char__paola smokes",
 		{
 			"Conditional": {
-				"Condition": function(){
-					return lucianoIsSuspicious();
-				},
+				"Condition": lucianoIsSuspicious,
 				"True": "jump jump club_luciano_dialogue_failure",
 				"False": "jump club_luciano_dialogue_part_3"
 			}
@@ -439,9 +435,7 @@ let script = {
 		"char__luciano You are making jokes... And your voice sounds softer...",
 		{
 			"Conditional": {
-				"Condition": function(){
-					return lucianoIsSuspicious();
-				},
+				"Condition": lucianoIsSuspicious,
 				"True": "jump jump club_luciano_dialogue_failure",
 				"False": "jump club_luciano_dialogue_part_3"
 			}
@@ -452,6 +446,7 @@ let script = {
 		"show char__paulina :{{player.outfit}} at right",
 		"char__luciano Anyway... Have you scheduled a date tonight with Alexandre Farina, the millionaire?",
 		"milestone char__paola deals_with_millionaires",
+		"milestone char__paula expensive_medicine",
 		{
 	        "Choice": {
 	            "shy": {
@@ -486,9 +481,7 @@ let script = {
 		"char__paulina I know, but...",
 		{
 			"Conditional": {
-				"Condition": function(){
-					return lucianoIsSuspicious();
-				},
+				"Condition": lucianoIsSuspicious,
 				"True": "jump club_luciano_dialogue_failure",
 				"False": "jump club_luciano_dialog_success"
 			}
@@ -535,9 +528,7 @@ let script = {
 		"char__luciano EXCUSE-ME? Where are your manners? ... Also, you just left the restroom.",
 		{
 			"Conditional": {
-				"Condition": function(){
-					return lucianoIsSuspicious();
-				},
+				"Condition": lucianoIsSuspicious,
 				"True": "jump club_luciano_dialogue_failure",
 				"False": "jump club_luciano_dialog_success"
 			}
