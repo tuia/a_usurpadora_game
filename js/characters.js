@@ -101,7 +101,9 @@ const characters = {
 			  "Images": {
 				"default": "default.png",
 				"evil-laugh": "evil-laugh.png",
-				"kissing": "kissing.png"
+				"kissing": "kissing.png",
+				"shocked": "shocked.png",
+				"smiling": "smiling.png",
 			  }
 			},
 			"Clothes": {

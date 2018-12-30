@@ -94,9 +94,8 @@ let script = {
 
 		"show char__paulina :praia at left",
 		"char__paulina I know, mom. Osvaldo is not much to your liking.",
-		"char__paula But if he is the man you intend to marry, what else can I ask for?",
-		"char__paula Besides leaving you for someone when I die...",
-		"char__paula Only this way I will be able to die in peace, daughter.",
+		"char__paula But if he is the man you intend to marry, what else can I ask for? Besides leaving you for someone when I die...",
+		"char__paula Only this way I will be able to die in peace.",
 		"milestone char__paula marriage",
 		"show char__paulina worried:praia at left",
 		"char__paulina:worried Stop, mom. Don't talk about death. You'll recover.",
@@ -198,10 +197,10 @@ let script = {
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme",
 		"show char__paulina :clube at left with fadeIn",
-		"show char__paola :clube at right with fadeIn",
+		"show char__paola smiling:clube at right with fadeIn",
 		"char__paola ...",
 		"char__paulina Are you feeling bad, ma'am?",
-
+		"show char__paola shocked:clube at right",
 		"char__paola No... I think I drank too much.",
 		// "char__paulina What's the matter, ma'am? I don't get it.",
 		"char__paulina ...",
@@ -210,21 +209,26 @@ let script = {
 		"milestone char__paulina met_paola",
 		"char__paulina I don't find ourselves so alike, ma'am.",
 		// "char__paola I do.",
+		"show char__paulina worried:clube at left",
+		"show char__paola :clube at right",
 		"char__paulina You are a very rich lady, while I am nothing but a humble girl from the countryside.",
+		"show char__paulina :clube at left",
+		"show char__paola smiling:clube at right",
 		"char__paola Do not be modest, girl. The way look are now, with no makeup on, in that dull uniform... Even this way, your resemblance to me is extraordinary.",
 		"char__paola If you dressed up, if you wore clothes like mine... I guarantee people would mistake you for me.",
+		"show char__paulina worried:clube at left",
 		"char__paulina No, I would not know how to wear those, or act like you, I'm not used to it.",
+		"show char__paola evil-laugh:clube at right-zoom with slideInRight",
 
-		"show char__paola evil-laugh:clube at right",
 		"milestone char__paola laughter",
 		"play sound risadaPaola01",
 		"char__paola We get used to everything in life, my darling, especially to what is very good!",
-		"show char__paola :clube at right",
 		// "char__paola You've impressed me, Paulina, I never imagined that on the face of the earth there would be a woman just like me.",
 		// "char__paola You know, maybe someday I might need you for some of the madness of Paola Bracho's head.",
-
+		"show char__paola smiling:clube at right-zoom",
 		"char__paola Do you know what came to my mind? What would happen if we changed our personalities for a moment?",
 		"char__paulina I don't understant, ma'am.",
+		"show char__paulina :clube at left",
 		"char__paola I'll be clearer, then. I would like you to dress like me to prove how much we look alike.",
 
 		"show char__paulina worried:clube at left",
@@ -301,11 +305,6 @@ let script = {
 		// "char__paulina Someone can come and ask for me and...",
 		// "char__paola I'll get you out of the situation. Shall we? Luciano Alcântara is waiting.",
 		"milestone char__paulina luciano_right_dress",
-
-		"jump club_luciano_dialogue_start"
-	],
-
-	"club_luciano_dialogue_start": [
 		"play music Leda loop",
 		"scene Club with fadeIn",
 		"show char__luciano clube at left with fadeIn",
@@ -479,7 +478,6 @@ let script = {
 		"milestone char__paola shady_business",
 		"milestone char__luciano shady_business",
 		"milestone char__paola shady_business_money",
-		"milestone char__luciano shady_business_money",
 		"show char__paulina worried:{{player.outfit}} at right",
 		"char__paulina I know, but...",
 		{
@@ -509,7 +507,7 @@ let script = {
 		"char__paulina I don't know, probably soon.",
 		"char__luciano I still don't get why you don't go in with a divorce proceeding.",
 		"char__paulina Divorce? It's not that easy.",
-		"char__luciano You just don't want to. You want to keep being Mrs. Bracho because you dream of the momey from the inheritance, but I'm sure your husband's children will get it all.",
+		"char__luciano You just don't want to. You want to keep being Mrs. Bracho because you dream of the money from the inheritance, but I'm sure your husband's children will get it all.",
 		"milestone char__paola divorce",
 		"show char__paulina :{{player.outfit}} at right",
 		// "char__paulina It is possible.",
@@ -517,6 +515,7 @@ let script = {
 		// "char__paulina What things?",
 		// "char__luciano Great things. You are beautiful, and there are many millionaires like Alexandre Farina that we can rip off around the world.",
 		"char__luciano You are beautiful, and there are many millionaires like Alexandre Farina that we can rip off around the world.",
+		"milestone char__paola shady_business_money",
 		"jump club_luciano_dialog_success"
 	],
 
@@ -549,8 +548,9 @@ let script = {
 		"show char__paola :clube at center",
 		"char__paola You were talking to my look-alike. Did you not find her voice softer than mine?",
 		"char__luciano I did... But still?",
+		"show char__paola smiling:clube at center",
 		"char__paola I wanted to make a joke to see if you could find out... And I found out she's perfect.",
-		"char__luciano Definitely. She is as fake as you are. She can pass as you without problems... And you can pass as her.",
+		"char__luciano Definitely. She is as fake... I mean, as confident as you are. She can pass as you without problems... And you can pass as her.",
 		"char__paola Isn't it fabulous?",
 		"char__luciano And dangerous, too.",
 		"char__paulina I told it to Paola, but she insisted on continuing this joke...",
