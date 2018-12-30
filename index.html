@@ -68,7 +68,6 @@
 
 	<link rel="manifest" href="manifest.json">
 
-	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Oranienbaum" rel="stylesheet">
 
 	<link rel="stylesheet" href="style/animate.min.css">
@@ -265,6 +264,19 @@
 		<div class="align-left padded-1">
 			<iframe src="wardrobe/wardrobe.html"></iframe>
 		</div>
+	</section>
+
+	<!--Dressing minigame Screen -->
+	<section id="wardrobe" class="wardrobe-background" style="display: none;">
+		<div id="wardrobe-header" class="header">Please select the clothes you want to wear</div>
+		<div id="wardrobe-container" class="container">
+			<div class="arrow-container js-left-arrow disabled"><i class="fa fa-arrow-left"></i></div>
+			<div id="wardrobe-character-div" class="wardrobe-character js-wardrobe-character">
+				<img src='' class="js-chosen-outfit">
+			</div>
+			<div class="arrow-container js-right-arrow"><i class="fa fa-arrow-right"></i></div>
+		</div>
+		<div id="wardrobe-footer" class="footer"><div class="btn btn-choose" id="select-button">Select</div></div>
 	</section>
 
 	<!-- Settings Screen -->

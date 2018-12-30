@@ -1,4 +1,5 @@
 function showWardrobeMiniGame(characterName, clothes, success){
+    console.log()
     return function() {
         return new Promise((resolve, reject) => {
             initWardrobeMinigame(characterName, clothes, (selectedClothing) => {
@@ -51,46 +52,33 @@ function initWardrobeMinigame(characterName, clothes, success) {
 
     let selectedClothingIdx = 0;
 
-    function displayBackground() {
-        let backgroundDiv = "<div id='wardrobe' class='wardrobe-background'></div>";
-        $_("#game").append(backgroundDiv);
-
-        let header = "<div id='wardrobe-header' class='header'>Please select the clothes you want to wear.</div>";
-        let container = "<div id='wardrobe-container' class='container'></div>";
-        let footer = "<div id='wardrobe-footer' class='footer'><div class='btn btn-choose' id='select-button'>Select</div></div>";
-
-        $_("#wardrobe").append(header);
-        $_("#wardrobe").append(container);
-        $_("#wardrobe").append(footer);
-    }
-
     function triggerClothingUpdate(selectedClothingIdx) {
         let clothing = clothes[selectedClothingIdx];
         let overlay = directory + wearSubDirectory + "/" + character["Outfit"]["Clothes"].Images[clothing];
-        $_("#wardrobe-character-div img").attribute("src", "img/characters/" + overlay);
+        $(".js-chosen-outfit").attr("src", "img/characters/" + overlay);
     }
 
     function hookEvents() {
-        $_("#wardrobe-left-arrow").on("click", () => {
+        $(".js-left-arrow").on("click", () => {
             if (selectedClothingIdx > 0) {
                 selectedClothingIdx -= 1;
                 triggerClothingUpdate(selectedClothingIdx);
             }
             if (selectedClothingIdx == 0)
-                hideLeftArrow();
+                $(".js-left-arrow").addClass('disabled');
 
-            showRightArrow();
+            $(".js-right-arrow").removeClass('disabled');
         });
 
-        $_("#wardrobe-right-arrow").on("click", () => {
+        $(".js-right-arrow").on("click", () => {
             if (selectedClothingIdx < clothes.length){
                 selectedClothingIdx += 1;
                 triggerClothingUpdate(selectedClothingIdx);
             }
             if (selectedClothingIdx == clothes.length - 1)
-                hideRightArrow();
+                $(".js-right-arrow").addClass('disabled');
 
-            showLeftArrow();
+            $(".js-left-arrow").removeClass('disabled');
         });
 
         $_("#select-button").on("click", () => {
@@ -104,52 +92,17 @@ function initWardrobeMinigame(characterName, clothes, success) {
         });
     }
 
-    function displayOverlay(defaultClothing) {
-        let leftArrowOverlay = "<div id='wardrobe-left-arrow' class='arrow-container hidden'><i class='left-arrow'/></div>";
-        let rightArrowOverlay = "<div id='wardrobe-right-arrow' class='arrow-container hidden'><i class='right-arrow'/></div>";
-        let characterOverlay = buildCharacterDisplay();
+    function updateClothing(defaultClothing) {
+        const bodyType = "default";
 
-        $_("#wardrobe-container").append(leftArrowOverlay);
-        $_("#wardrobe-container").append(characterOverlay);
-        $_("#wardrobe-container").append(rightArrowOverlay);
+        let image = character["Outfit"]["Body"].Images[bodyType]
+
+        $('.js-wardrobe-character').attr('style', antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image)
 
         triggerClothingUpdate(0);
     }
 
-    function buildCharacterDisplay() {
-        const bodyType = "default";
-
-        let image = character["Outfit"]["Body"].Images[bodyType];
-
-        let characterHtml = "<div id='wardrobe-character-div' class='wardrobe-character" +
-            "'style='" +
-            antiFlickeringStyle +
-            "background-image: url(img/characters/" +
-            imageDirectory +
-            image +
-            ")'><img src=''></div>";
-
-        return characterHtml;
-    }
-
-    function showRightArrow() {
-        $_("#wardrobe-right-arrow").removeClass("hidden");
-    }
-
-    function showLeftArrow() {
-        $_("#wardrobe-left-arrow").removeClass("hidden");
-    }
-
-    function hideRightArrow() {
-        $_("#wardrobe-right-arrow").addClass("hidden");
-    }
-
-    function hideLeftArrow() {
-        $_("#wardrobe-left-arrow").addClass("hidden");
-    }
-
-    displayBackground();
-    displayOverlay(clothes[0]);
+    $('#wardrobe').show()
+    updateClothing(clothes[0]);
     hookEvents();
-    showRightArrow();
 };

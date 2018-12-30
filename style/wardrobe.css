@@ -70,32 +70,19 @@
 
 .wardrobe-background .container .arrow-container {
     flex: 1;
+    font-size: 3em;
     height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hidden {
-    visibility: hidden;
+.wardrobe-background .container .arrow-container.disabled {
+    opacity: .1;
+    pointer-events: none;
 }
 
-i.left-arrow {
-    width: 200px;
-    height: 200px;
-    
-    margin-top:40%;
-
-    float: right;
-    background: url("../img/ui/arrow-left.png");
-}
-
-i.right-arrow {
-    width: 200px;
-    height: 200px;
-    
-    margin-top:40%;
-
-    float: left;
-    background: url("../img/ui/arrow-right.png");
-}
 
 .arrow-container:hover {
     filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
