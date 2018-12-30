@@ -241,12 +241,6 @@ let script = {
 		"char__paulina But, ma'am...",
 		"char__paola Come on, it wouldn't hurt to do that. I told you already: I just want to prove how much alike we are.",
 		showWardrobeMiniGame("char__paulina", ["praia", "golden"], (clothes) => { storage.player.outfit = clothes }),
-		"show char__paulina :{{player.outfit}} at left with fadeIn",
-		"char__paola Now introduce yourself to my friend Luciano Alcântara, with these on. We can do a test, go out and try to pass as me.",
-		// "char__paulina This is going to get me in trouble, ma'am.",
-		// "char__paola Do not be afraid, my dear.",
-		// "char__paulina Someone can come and ask for me and...",
-		// "char__paola I'll get you out of the situation. Shall we? Luciano Alcântara is waiting.",
 		{
 			"Conditional": {
 				"Condition": function(){
@@ -260,6 +254,12 @@ let script = {
 
 	"club__wrong_choice": [
 		"reputation char__paola -5",
+		"show char__paulina :{{player.outfit}} at left with fadeIn",
+		"char__paola Now introduce yourself to my friend Luciano Alcântara, with these on. We can do a test, go out and try to pass as me.",
+		// "char__paulina This is going to get me in trouble, ma'am.",
+		// "char__paola Do not be afraid, my dear.",
+		// "char__paulina Someone can come and ask for me and...",
+		// "char__paola I'll get you out of the situation. Shall we? Luciano Alcântara is waiting.",
 		"play music Leda loop",
 		"scene Club with fadeIn",
 		"show char__luciano clube at left with fadeInLeft",
@@ -295,6 +295,12 @@ let script = {
 
 	"club__right_choice": [
 		"reputation char__paola 5",
+		"show char__paulina :{{player.outfit}} at left with fadeIn",
+		"char__paola Now introduce yourself to my friend Luciano Alcântara, with these on. We can do a test, go out and try to pass as me.",
+		// "char__paulina This is going to get me in trouble, ma'am.",
+		// "char__paola Do not be afraid, my dear.",
+		// "char__paulina Someone can come and ask for me and...",
+		// "char__paola I'll get you out of the situation. Shall we? Luciano Alcântara is waiting.",
 		"milestone char__paulina luciano_right_dress",
 		"play music Leda loop",
 		"scene Club with fadeIn",
