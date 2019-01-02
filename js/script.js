@@ -240,7 +240,7 @@ let script = {
 		"char__paulina Go take off your clothes and dress like me.",
 		"char__paulina But, ma'am...",
 		"char__paola Come on, it wouldn't hurt to do that. I told you already: I just want to prove how much alike we are.",
-		showWardrobeMiniGame("char__paulina", ["praia", "golden"], (clothes) => { storage.player.outfit = clothes }),
+		showDressMiniGame("char__paulina", ["praia", "golden"], (clothes) => { storage.player.outfit = clothes }),
 		{
 			"Conditional": {
 				"Condition": function(){
@@ -556,7 +556,7 @@ let script = {
 		"char__paola You've seen nothing yet, honey. I intend to go much further.",
 		"milestone char__paola shady_business_swap",
 
-		"scene DressingRoom with fadeIn",
+		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
 		"show char__paola :clube at right-zoom with slideInLeft",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",

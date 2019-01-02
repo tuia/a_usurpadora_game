@@ -15,7 +15,7 @@ const characters = {
 			"Clothes": {
 			  "Directory": "clothing",
 			  "Images": {
-				"default": "praia.png",
+				// "default": "praia.png",
 				"praia": "praia.png",
 				"clube": "clube.png",
 				"golden": "golden.png"
@@ -109,7 +109,7 @@ const characters = {
 			"Clothes": {
 			  "Directory": "clothing",
 			  "Images": {
-				"default": "red.png",
+				"default": "default.png",
 				"clube": "clube.png"
 			  }
 			}

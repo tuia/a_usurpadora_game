@@ -1,89 +1,48 @@
-.wardrobe-background {
-    position: absolute;
-    top: 0px;
-    left:0px;
+.wardrobe {
+	background: url('../img/scenes/dressing-room.jpg') center center no-repeat;
+	background-size: cover; 
+}
+
+.wardrobe__header {
+
+}
+
+.wardrobe__flex-wrapper {
+	display: flex;
+	justify-content: space-around;
+}
+
+.wardrobe__menu {
+	background: rgba(0,0,0,.5);
+	padding: 15px;
+	flex: 1;
+	align-self: flex-start;
+}
+.wardrobe__menu label{
+	display: block;
+	color: white;
+}
+.wardrobe__menu select{
+	width: calc(100% - 30px);
+}
+
+
+.wardrobe__content {
+	flex: 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.wardrobe__content-character {
+    position: relative;
     width: 100%;
-    height:100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 1337;
+    height: 80vh;
 }
-
-.wardrobe-background .header {
-    color: white;
-    padding: 20px 0px;
-}
-
-.wardrobe-background .container {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    height:80%;
-}
-
-.wardrobe-background  .footer {
-    color: white;
-    height: 50px;
-}
-
-.wardrobe-background  .footer .btn {
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    background-color: #e7e7e7; 
-    color: black;
-}
-
-.wardrobe-background  .footer .btn:hover {
-    cursor: pointer;
-}
-
-.wardrobe-background .footer .btn-choose {    
-    background-color: #FCAF50;
-    color: white;
-}
-
-.wardrobe-background .footer .btn-choose:hover {    
-    background-color: #4CAF50;
-    color: white;
-}
-
-.wardrobe-background .container .wardrobe-character {
-    position: initial;
-    max-height: none;
-    background-size: cover !important;
-    height:100%;
-    width: fit-content;
-    background-repeat: no-repeat;
-}
-
-.wardrobe-background .container .wardrobe-character img {
-    position: initial !important;
-    max-height: 100% !important;
-    max-width: 100% !important;
-    height: 100%;
-}
-
-.wardrobe-background .container .arrow-container {
-    flex: 1;
-    font-size: 3em;
-    height: 100%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.wardrobe-background .container .arrow-container.disabled {
-    opacity: .1;
-    pointer-events: none;
-}
-
-
-.arrow-container:hover {
-    filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
+.wardrobe__content-character img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    transform: translateX(-50%);
 }

@@ -1,0 +1,89 @@
+.dress-minigame-background {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width: 100%;
+    height:100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1337;
+}
+
+.dress-minigame-background .header {
+    color: white;
+    padding: 20px 0px;
+}
+
+.dress-minigame-background .container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    height:80%;
+}
+
+.dress-minigame-background  .footer {
+    color: white;
+    height: 50px;
+}
+
+.dress-minigame-background  .footer .btn {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: #e7e7e7; 
+    color: black;
+}
+
+.dress-minigame-background  .footer .btn:hover {
+    cursor: pointer;
+}
+
+.dress-minigame-background .footer .btn-choose {    
+    background-color: #FCAF50;
+    color: white;
+}
+
+.dress-minigame-background .footer .btn-choose:hover {    
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dress-minigame-background .container .dress-minigame-character {
+    position: initial;
+    max-height: none;
+    background-size: cover !important;
+    height:100%;
+    width: fit-content;
+    background-repeat: no-repeat;
+}
+
+.dress-minigame-background .container .dress-minigame-character img {
+    position: initial !important;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    height: 100%;
+}
+
+.dress-minigame-background .container .arrow-container {
+    flex: 1;
+    font-size: 3em;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dress-minigame-background .container .arrow-container.disabled {
+    opacity: .1;
+    pointer-events: none;
+}
+
+
+.arrow-container:hover {
+    filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
+}

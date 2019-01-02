@@ -1,108 +1,62 @@
-function showWardrobeMiniGame(characterName, clothes, success){
-    console.log()
-    return function() {
-        return new Promise((resolve, reject) => {
-            initWardrobeMinigame(characterName, clothes, (selectedClothing) => {
-                success(selectedClothing);
-                resolve("Success");
-            });
-        }).then(() => {
-            return true;
-        });
-    };
-};
+$(document).ready( function() {
 
-function initWardrobeMinigame(characterName, clothes, success) {
-    const antiFlickeringStyle = "transition: background-image 1s ease-in-out;";
+	// Mount default character - still hardcoded
+	$('.js-wardrobe-face').attr('src', 'img/characters/' + characters[Object.keys(characters)[0]].Directory + '/body/' + characters[Object.keys(characters)[0]].Outfit.Body.Images.default )
+	$('.js-wardrobe-outfit').attr('src', 'img/characters/' + characters[Object.keys(characters)[0]].Directory + '/clothing/' + characters[Object.keys(characters)[0]].Outfit.Clothes.Images.praia )
 
-    let character = characters[characterName];
-    if (typeof(character["Outfit"]) == "undefined")
-        throw new Error("Outfit must be defined for character " + characterName);
 
-    if (typeof(character["Outfit"]["Body"]) == "undefined")
-        throw new Error("Outfit.Body must be defined for character " + characterName);
+	$('[data-open="wardrobe"]').on( 'click', function() {
+		// Build Character select
+		for (let key of Object.keys(characters)) { 
+			if ( typeof(characters[key].Outfit) != 'undefined' ) {
+				let option = '<option value="'+ key +'">' + (characters[key].Name) + '</option>';
+				$('.js-wardrobe-char-select').append(option)
+			}
+		}	
+	})
 
-    if (typeof(character["Outfit"]["Clothes"]) == "undefined")
-        throw new Error("Outfit.Clothes must be defined for character " + characterName);
 
-    if (typeof(clothes) == "undefined" || !clothes.length) {
-        throw new Error("clothes were not specified");
-    }
+	$('.js-wardrobe-char-select').on( 'change', function() {
 
-    if (typeof(success) != "function") {
-        throw new Error("success callback was not specified");
-    }
+		// Get Selected Character Variables
+		var selectedCharacter = $(this).find("option:selected").text()
+		for (let key of Object.keys(characters)) {  
+			if ( characters[key].Name == selectedCharacter ) {
+				var selectedCharacterDirectory = characters[key].Directory
+				var selectedCharacterFaces = Object.keys(characters[key].Outfit.Body.Images)
+				var selectedCharacterOutfits = Object.keys(characters[key].Outfit.Clothes.Images)
+			}
+		}
 
-    let directory = character.Directory;
-    if (typeof directory == "undefined") {
-        directory = "";
-    } else {
-        directory += "/";
-    }
+		$('.js-wardrobe-face-select, .js-wardrobe-outfit-select').find('option').remove()
+		$('.js-wardrobe-face').attr('src', 'img/characters/' + selectedCharacterDirectory + '/body/' + selectedCharacterFaces[0] + '.png')
+		$('.js-wardrobe-outfit').attr('src', 'img/characters/' + selectedCharacterDirectory + '/clothing/' + selectedCharacterOutfits[0] + '.png')
 
-    let bodySubDirectory = character["Outfit"]["Body"]["Directory"];
-    if (typeof(bodySubDirectory) == "undefined")
-        bodySubDirectory = "body";
+		// Build Face Selected
+		for (var i = 0; i < selectedCharacterFaces.length; i++) {
+			let imageSource = 'img/characters/' + selectedCharacterDirectory + '/body/' + selectedCharacterFaces[i] + '.png'
+			let option = '<option value="'+ imageSource +'">' + (selectedCharacterFaces[i]) + '</option>'
 
-    let imageDirectory = directory + bodySubDirectory + "/";
+			$('.js-wardrobe-face-select').append(option)
+	    }
 
-    let wearSubDirectory = character["Outfit"]["Clothes"]["Directory"];
-    if (typeof(wearSubDirectory) == "undefined")
-        wearSubDirectory = "clothes";
+		// Build Outfit Selected
+		for (var i = 0; i < selectedCharacterOutfits.length; i++) {
+			let imageSource = 'img/characters/' + selectedCharacterDirectory + '/clothing/' + selectedCharacterOutfits[i] + '.png'
+			let option = '<option value="'+ imageSource +'">' + (selectedCharacterOutfits[i]) + '</option>'
 
-    let selectedClothingIdx = 0;
+			$('.js-wardrobe-outfit-select').append(option)
+	    }
+	})
 
-    function triggerClothingUpdate(selectedClothingIdx) {
-        let clothing = clothes[selectedClothingIdx];
-        let overlay = directory + wearSubDirectory + "/" + character["Outfit"]["Clothes"].Images[clothing];
-        $(".js-chosen-outfit").attr("src", "img/characters/" + overlay);
-    }
+	$('.js-wardrobe-face-select').on( 'change', function() {
+		let selectedCharacterFace = $(this).find("option:selected").val()
+		$('.js-wardrobe-face').attr('src', selectedCharacterFace)
+	})
 
-    function hookEvents() {
-        $(".js-left-arrow").on("click", () => {
-            if (selectedClothingIdx > 0) {
-                selectedClothingIdx -= 1;
-                triggerClothingUpdate(selectedClothingIdx);
-            }
-            if (selectedClothingIdx == 0)
-                $(".js-left-arrow").addClass('disabled');
-
-            $(".js-right-arrow").removeClass('disabled');
-        });
-
-        $(".js-right-arrow").on("click", () => {
-            if (selectedClothingIdx < clothes.length){
-                selectedClothingIdx += 1;
-                triggerClothingUpdate(selectedClothingIdx);
-            }
-            if (selectedClothingIdx == clothes.length - 1)
-                $(".js-right-arrow").addClass('disabled');
-
-            $(".js-left-arrow").removeClass('disabled');
-        });
-
-        $_("#select-button").on("click", () => {
-            let clothing = clothes[selectedClothingIdx];
-            if (typeof(clothing) == "undefined") {
-                throw new Error("Something went wrong - there are not selected clothing, selectedClothingIdx = " + selectedClothingIdx + ", but array contains " + clothes.length + "elements.");
-            }
-
-            $_("#wardrobe").remove();
-            success(clothing);
-        });
-    }
-
-    function updateClothing(defaultClothing) {
-        const bodyType = "default";
-
-        let image = character["Outfit"]["Body"].Images[bodyType]
-
-        $('.js-wardrobe-character').attr('style', antiFlickeringStyle + "background-image: url(img/characters/" + imageDirectory + image)
-
-        triggerClothingUpdate(0);
-    }
-
-    $('#wardrobe').show()
-    updateClothing(clothes[0]);
-    hookEvents();
-};
+	$('.js-wardrobe-outfit-select').on( 'change', function() {
+		let selectedCharacterOutfit = $(this).find("option:selected").val()
+		$('.js-wardrobe-outfit').attr('src', selectedCharacterOutfit)
+	})
+	
+})
