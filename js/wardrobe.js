@@ -1,21 +1,19 @@
 $(document).ready( function() {
 
-	// Mount default character - still hardcoded
+	// Display default character - still hardcoded
 	$('.js-wardrobe-face').attr('src', 'img/characters/' + characters[Object.keys(characters)[0]].Directory + '/body/' + characters[Object.keys(characters)[0]].Outfit.Body.Images.default )
 	$('.js-wardrobe-outfit').attr('src', 'img/characters/' + characters[Object.keys(characters)[0]].Directory + '/clothing/' + characters[Object.keys(characters)[0]].Outfit.Clothes.Images.praia )
 
 
-	$('[data-open="wardrobe"]').on( 'click', function() {
-		// Build Character select
-		for (let key of Object.keys(characters)) { 
-			if ( typeof(characters[key].Outfit) != 'undefined' ) {
-				let option = '<option value="'+ key +'">' + (characters[key].Name) + '</option>';
-				$('.js-wardrobe-char-select').append(option)
-			}
-		}	
-	})
+	// Build Character select
+	for (let key of Object.keys(characters)) { 
+		if ( typeof(characters[key].Outfit) != 'undefined' ) {
+			let option = '<option value="'+ key +'">' + (characters[key].Name) + '</option>';
+			$('.js-wardrobe-char-select').append(option)
+		}
+	}
 
-
+	// Change character
 	$('.js-wardrobe-char-select').on( 'change', function() {
 
 		// Get Selected Character Variables
@@ -28,9 +26,12 @@ $(document).ready( function() {
 			}
 		}
 
-		$('.js-wardrobe-face-select, .js-wardrobe-outfit-select').find('option').remove()
+		// Display default selected character
 		$('.js-wardrobe-face').attr('src', 'img/characters/' + selectedCharacterDirectory + '/body/' + selectedCharacterFaces[0] + '.png')
 		$('.js-wardrobe-outfit').attr('src', 'img/characters/' + selectedCharacterDirectory + '/clothing/' + selectedCharacterOutfits[0] + '.png')
+
+
+		$('.js-wardrobe-face-select, .js-wardrobe-outfit-select').find('option').remove()
 
 		// Build Face Selected
 		for (var i = 0; i < selectedCharacterFaces.length; i++) {
@@ -49,11 +50,13 @@ $(document).ready( function() {
 	    }
 	})
 
+	// Change face
 	$('.js-wardrobe-face-select').on( 'change', function() {
 		let selectedCharacterFace = $(this).find("option:selected").val()
 		$('.js-wardrobe-face').attr('src', selectedCharacterFace)
 	})
 
+	// Change outfit
 	$('.js-wardrobe-outfit-select').on( 'change', function() {
 		let selectedCharacterOutfit = $(this).find("option:selected").val()
 		$('.js-wardrobe-outfit').attr('src', selectedCharacterOutfit)
