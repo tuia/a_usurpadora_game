@@ -699,7 +699,7 @@ let script = {
 		{
 			"Conditional": {
 				"Condition": function(){
-					return reputation.char__osvaldo >= 5;
+					return reputation.get("char__osvaldo") >= 5;
 				},
 				"True": "jump score__osvaldo--positive",
 				"False": "jump score__osvaldo--negative",
@@ -720,7 +720,7 @@ let script = {
 		{
 			"Conditional": {
 				"Condition": function(){
-					return reputation.char__paola >= 5;
+					return reputation.get("char__paola") >= 5;
 				},
 				"True": "jump score__paola--positive",
 				"False": "jump score__paola--negative",
@@ -729,7 +729,7 @@ let script = {
 	],
 	"score__paola--positive": [
 		"centered You dress and act just like Paola. You are becoming more and more like her - will you become as evil as Paola Bracho, too?",
-		"jump score__paola"
+		"jump score__luciano"
 	],
 	"score__paola--negative": [
 		"centered Paola Bracho doesn't like you, but you are showing her some principles like honor and simplicity. Will she change for better?",
@@ -741,7 +741,7 @@ let script = {
 		{
 			"Conditional": {
 				"Condition": function(){
-					return reputation.char__luciano >= 5;
+					return reputation.get("char__luciano") >= 5;
 				},
 				"True": "jump score__luciano--positive",
 				"False": "jump score__luciano--negative",
