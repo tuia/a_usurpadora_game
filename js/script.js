@@ -119,8 +119,7 @@ let script = {
 		"char__paulina:smiling Osvaldo, my love!",
 
 		"char__osvaldo Where are you going in such a hurry?",
-
-		"char__paulina:smiling I'm going to work earlier at the club today, since my colleague is sick.",
+		"char__paulina:smiling I'm going to work earlier at the club today.",
 
 		"show char__osvaldo default:praia at right",
 		"show char__paulina :praia at left",
@@ -165,7 +164,7 @@ let script = {
 		"show char__osvaldo :praia at right",
 		"char__osvaldo No, no... I can not. I have to do some things, but I'll show up later at the club.",
 		"show char__paulina :praia at left-zoom",
-		"char__paulina Ok.",
+		"char__paulina Ok... See you later, then.",
 		"jump club",
 	],
     "on_the_way_to_club__wrong_choice": [
@@ -174,7 +173,7 @@ let script = {
 		"show char__paulina :praia at left-zoom",
 		"char__paulina I have to go now, can you take me to the club?",
 		"char__osvaldo No... I can't. I have to do some things, but I'll show up later at the club.",
-		"char__paulina Ok.",
+		"char__paulina Ok... See you later, then.",
 		"jump club",
 	],
 
@@ -212,13 +211,13 @@ let script = {
 		"show char__paulina worried:clube at left",
 		"show char__paola :clube at right",
 		"char__paulina You are a very rich lady, while I am nothing but a humble girl from the countryside.",
+		"show char__paola smiling:clube at right-zoom with slideInRight",
 		"show char__paulina :clube at left",
-		"show char__paola smiling:clube at right",
 		"char__paola Do not be modest, girl. The way look are now, with no makeup on, in that dull uniform... Even this way, your resemblance to me is extraordinary.",
 		"char__paola If you dressed up, if you wore clothes like mine... I guarantee people would mistake you for me.",
 		"show char__paulina worried:clube at left",
 		"char__paulina No, I would not know how to wear those, or act like you, I'm not used to it.",
-		"show char__paola evil-laugh:clube at right-zoom with slideInRight",
+		"show char__paola evil-laugh:clube at right-zoom",
 
 		"milestone char__paola laughter",
 		"play sound risadaPaola01",
@@ -239,7 +238,7 @@ let script = {
 		// "char__paulina Ma'am, please...",
 		"char__paulina Go take off your clothes and dress like me.",
 		"char__paulina But, ma'am...",
-		"char__paola Come on, it wouldn't hurt to do that. I told you already: I just want to prove how much alike we are.",
+		"char__paola Come on! I just want to prove how much alike we are.",
 		showDressMiniGame("char__paulina", ["praia", "golden"], (clothes) => { storage.player.outfit = clothes }),
 		{
 			"Conditional": {
@@ -334,7 +333,7 @@ let script = {
 			return true;
 		},
 		"reputation char__luciano +5",
-
+		"reputation char__paola -2",
 		"char__luciano Hi, Paola Bracho. I see you changed your outfit.",
 		"jump club_luciano_dialogue_part_2"
 	],
@@ -342,6 +341,7 @@ let script = {
 	"club_luciano_1_sexy": [
 		"char__paulina Hey, handsome. Did you miss me?",
 		"reputation char__luciano -5",
+		"reputation char__paola +2",
 		"char__luciano Yes, gorgeous. So... You changed your outfit to something sexier. I like it.",
 		"jump club_luciano_dialogue_part_2"
 	],
@@ -380,6 +380,7 @@ let script = {
 	"club_luciano_2_shy" :[
 		"show char__paulina :{{player.outfit}} at right",
 		"char__paulina Sorry, I just wanted to make a surprise.",
+		"reputation char__paola -2",
 		"reputation char__luciano +5",
 		function() {
 			updateLucianoSuspicion(+16);
@@ -405,6 +406,7 @@ let script = {
 		"show char__paulina smiling:{{player.outfit}} at right",
 		"char__paulina I know you love golden dresses, darling.",
 		"reputation char__luciano -5",
+		"reputation char__paola +2",
 		function() {
 			updateLucianoSuspicion(-5);
 			return true;
@@ -445,7 +447,6 @@ let script = {
 		"show char__paulina :{{player.outfit}} at right",
 		"char__luciano Anyway... Have you scheduled a date tonight with Alexandre Farina, the millionaire?",
 		"milestone char__paola deals_with_millionaires",
-		"milestone char__paula expensive_medicine",
 		{
 	        "Choice": {
 	            "shy": {
@@ -503,8 +504,8 @@ let script = {
 		"show char__paulina worried:{{player.outfit}} at right",
 		"char__paulina I don't know, probably soon.",
 		"char__luciano I still don't get why you don't go in with a divorce proceeding.",
-		"char__paulina Divorce? It's not that easy.",
-		"char__luciano You just don't want to. You want to keep being Mrs. Bracho because you dream of the money from the inheritance, but I'm sure your husband's children will get it all.",
+		// "char__paulina Divorce? It's not that easy.",
+		"char__luciano I think you just don't want to. You want to keep being Mrs. Bracho because you dream of the money from the inheritance, but I'm sure your husband's children will get it all.",
 		"milestone char__paola divorce",
 		"show char__paulina :{{player.outfit}} at right",
 		// "char__paulina It is possible.",
@@ -541,10 +542,10 @@ let script = {
 		"char__paola Hi, Luciano Alcântara. Looking good!",
 		"char__luciano What the hell?",
 		"char__paola It's me. The real Paola Bracho.",
-		"char__luciano Can you please explain me what's going on?",
+		"char__luciano What's going on here?",
 		"show char__paola :clube at center",
-		"char__paola You were talking to my look-alike. Did you not find her voice softer than mine?",
-		"char__luciano I did... But still?",
+		"char__paola You were talking to my look-alike. Didn't you find her voice softer than mine?",
+		"char__luciano Yeah... But still?",
 		"show char__paola smiling:clube at center",
 		"char__paola I wanted to make a joke to see if you could find out... And I found out she's perfect.",
 		"char__luciano Definitely. She is as fake... I mean, as confident as you are. She can pass as you without problems... And you can pass as her.",
@@ -582,7 +583,7 @@ let script = {
 		"char__luciano What's going on here?",
 		"show char__paola :clube at center",
 		"char__paola You were talking to my look-alike. I wanted to make a joke to see if you could find out.",
-		"char__luciano I knew there was something with you - I mean, with her. She is not as false and venomo... I mean, she is not as sexy as you are.",
+		"char__luciano I knew there was something with you - I mean, with her. She is not as fake and venomo... I mean, she is not as sexy as you are.",
 		"char__paola She is not perfect in her manners, but she still looks exactly like me!",
 		"show char__paola evil-laugh:clube at center",
 		"char__paola You know, I might need her for some of the madness of Paola Bracho's mind.",
@@ -597,7 +598,7 @@ let script = {
 					return storage.player.outfit == "golden";
 				},
 				"True": "char__paola Damn it! Your outfit was perfect but your impersonation was pathetic. Try to act confident and seductive like the real Paola Bracho next time, my dear.",
-				"False": "char__paola Your outfit made him suspicious, dear! You should wear something fancier next time."
+				"False": "char__paola Your outfit made him suspicious, my dear! You should wear something fancier next time."
 			}
 		},
 		"jump proposal"
@@ -605,26 +606,26 @@ let script = {
 
 	"proposal": [
 		"char__paola But back to the business...",
+		"show char__paola smiling:clube at right-zoom",
 		"char__paola I know you'll be interested in my proposal.",
-		// "char__paola All right, Paulina, tell me how much money you want to go to my house and replace me.",
-		"char__paola All right, Paulina, tell me how much money you want to go to my house and pretend to be me.",
+		"char__paola All right, Paulina. Tell me how much money you want to go to my house and replace me.",
 		"show char__paulina worried:{{player.outfit}} at left with fadeIn",
 		// "char__paulina Are you proposing that I replace you in your own house?",
 		// "char__paola Exactly. In exchange for a large sum of money. What do you think?",
 		"char__paulina Ma'am, you are delirious!",
-		"char__paola But it's a good proposal. You, in my house, replacing me.",
 		"milestone char__paola shady_business_swap",
-		"char__paola You will be valued, obeyed and respected. You will have a wonderful life, let's say... for a year.",
+		"char__paola But it's a good proposal. You will be valued, obeyed and respected. You will have a wonderful life, let's say... for a year.",
 		"char__paola At the end of this year I come back, I take my place back and pay you a good amount of money, which will solve your future life.",
 		"char__paola Ah, and you will not have to work cleaning a ladies' room any more.",
 		// "char__paulina Why do you want me to impersonate you in your own house?",
+		"show char__paola :clube at right-zoom",
 		"char__paulina Why do you want me to do that?",
 		// "char__paola To stay a year away from all those people I hate.",
 		// "char__paulina I...",
 		// "char__paola Don't you need money?",
 		"char__paola To stay a year away from all those people I hate. Don't you need money, my dear?",
 		"char__paulina Yes... My mother is sick, and the bank refuses to loan me money for her medicine.",
-		"milestone char__paula medicine",
+		"milestone char__paula expensive_medicine",
 		// "char__paola So I don't understand your scruples. What do you say?",
 		"char__paola So, what do you say? Will you go to my house to pass as me, for a large sum of money, that can save your future?",
 
@@ -643,9 +644,9 @@ let script = {
     ],
 
 	"proposal__right_choice": [
-		"reputation char__paola 5",
+		"reputation char__paola -5",
 		"char__paulina Look, Paola, there's no amount of money that would convince me to commit this kind of crime.",
-		"char__paola Please Paulina... Do not be so scrupulous. I guarantee that replacing me will not harm anyone.",
+		"char__paola Please, Paulina. Do not be so scrupulous. I guarantee that replacing me will not harm anyone.",
 		// "char__paulina The fact of replacing you is already absurd.",
 		// "char__paola Don't you need money?",
 		// "char__paulina Yes... a lot. My mother is very sick.",
@@ -653,14 +654,16 @@ let script = {
 		"char__paulina I'm a honored person, ma'am.",
 		"show char__paola evil-laugh:clube at right-zoom",
 		"play sound risadaPaola01",
-		"char__paola Honor is a very flexible and conventional thing, darling.",
-		"char__paulina Not for me, ma'am. For me, honor is a very important thing.",
-		"show char__paola :clube at right-zoom",
+		"char__paola Honour is a very flexible and conventional thing, darling.",
+		"char__paulina Not for me, ma'am. For me, honour is a very important thing.",
+		"show char__paola shocked:clube at right-zoom",
 		"char__paola You mean that...",
 		"char__paulina ... You should not count on me for what you want, Mrs. Paola, I will not accept.",
+		"show char__paola :clube at right-zoom",
 		"char__paola Well, Paulina, I'm not going to push you right now so you can give me a response, but think. Think about my proposal, take your time.",
 		"char__paulina I don't need to think about anything, ma'am. My answer now and always will be no.",
 		"char__paola I'll see you soon, and thanks for everything. You've been great. You even deserve a bonus... (takes money out of the wallet)",
+		"show char__paola smiling:clube at right-zoom",
 		"char__paola No, better not (puts money back). It's better when you decide. You can find me here... (hands out a business card)... When you decide.",
 		"char__paola I know you'll accept. Have a good evening.",
 
@@ -669,7 +672,7 @@ let script = {
 	],
 
 	"proposal__wrong_choice": [
-		"reputation char__paola -5",
+		"reputation char__paola +5",
 		"show char__paulina worried:{{player.outfit}} at left",
 		// "char__paulina I think you are crazy... But my mother is very sick and I really need the money to get her medicine. I'm desperate!",
 		// "char__paola You mean that...",
@@ -677,7 +680,7 @@ let script = {
 		"show char__paola evil-laugh:clube at right-zoom",
 		"play sound risadaPaola01",
 		"char__paola Great. You won't regret it, my dear.",
-		"show char__paola :clube at right-zoom",
+		"show char__paola smiling:clube at right-zoom",
 		"show char__paulina :{{player.outfit}} at left",
 		"char__paola I'll see you tomorrow, and thanks for everything. You've been great. You deserve a bonus...",
 		"centered + $300",
