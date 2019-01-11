@@ -559,7 +559,7 @@ let script = {
 
 		"scene Toalete with fadeIn",
 		"play music PaolaTheme loop",
-		"show char__paola :clube at right-zoom with slideInLeft",
+		"show char__paola smiling:clube at right-zoom with slideInLeft",
 		"show char__paulina :{{player.outfit}} at left with fadeIn",
 		{
 			"Conditional": {
@@ -605,6 +605,7 @@ let script = {
 	],
 
 	"proposal": [
+		"show char__paola :clube at right-zoom",
 		"char__paola But back to the business...",
 		"show char__paola smiling:clube at right-zoom",
 		"char__paola I know you'll be interested in my proposal.",

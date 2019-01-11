@@ -10,7 +10,6 @@ https://monogatari.io/
 
 ## Planned Features
 - The game consists on a visual novel with a dressing mini-game
-- It is currently in brazilian portuguese
 - You play as Paulina Martins
 - Your choices can change the respect each character has for Paulina Martins
 - Each character can depor on court on your favor or against you, depending on the respect they have for you
