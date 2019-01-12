@@ -125,9 +125,8 @@ button:hover {
 }
 
 .main {
-	/*background: #356044;*/
-	/*text-shadow: 2px 2px 10px #B34440;*/
-	background: #771b18;
+	/*background: #771b18;*/
+	background: url(../img/textures/red-fabric.png);
 	position: relative;
 }
 .main__title {
@@ -139,8 +138,9 @@ button:hover {
 	font-weight: lighter;
 	margin-bottom: 0;
 }
-.main__title a {
+.main__title p {
 	color: #c25a56;
+	margin: 0;
 }
 .main__character img {
 	position: absolute;
