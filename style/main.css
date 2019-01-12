@@ -125,8 +125,14 @@ button:hover {
 }
 
 .main {
-	background: #356044;
-	text-shadow: 2px 2px 10px #B34440;
+	/*background: #356044;*/
+	/*text-shadow: 2px 2px 10px #B34440;*/
+	background: #771b18;
+	position: relative;
+}
+.main__title {
+	position: relative;
+	margin-bottom: 10vh;
 }
 .main__title h1 {
 	color: #E8AF00;
@@ -136,10 +142,42 @@ button:hover {
 .main__title a {
 	color: #c25a56;
 }
+.main__character img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 75vw;
+}
+.main__character {
+	position: absolute;
+	bottom: 0;
+	max-height: 75vh;
+}
+.main__character.main__character--paulina {
+	right: 0;
+}
+.main__character.main__character--paola {
+	left: 0;
+}
+
+@media screen and (max-width: 480px) {
+	.main__title {
+		margin-bottom: 20px;
+	}
+	.main__character {
+		max-height: none;
+		max-width: 60vw;
+	}
+}
+
 
 /* Main Menu Buttons Styling */
 [data-menu="main"] button {
-
+	/*background: #a9403d;*/
+	background: rgba(207, 126, 125, 0.4);
+}
+[data-menu="main"] button:hover {
+	background: #c25a56
 }
 
 /**
