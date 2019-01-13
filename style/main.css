@@ -22,15 +22,28 @@ body {
 	font-family: 'Oranienbaum', serif;
 }
 
-/* Simple Button styles*/
-button {
+/* BUTTONS */
+button {}
+button:hover {}
 
+.btn {
+	background: rgba(207, 126, 125, 0.4);
+    border: 1px solid hsla(45, 100%, 27%, 1);
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5), 1px 1px 2px rgba(255,255,255,0.5) inset;
+}
+.btn:hover {
+	background: #c25a56
 }
 
-/* Simple Button Style on Hover */
-button:hover {
-
+.btn.btn--primary {
+	background: #2f4f17;
 }
+.btn.btn--primary:hover {
+	background: #233b11;
+}
+
+
+
 
 /* General Styling for Menu Screens */
 [data-menu] {
@@ -125,7 +138,6 @@ button:hover {
 }
 
 .main {
-	/*background: #771b18;*/
 	background: url(../img/textures/red-fabric.png);
 	position: relative;
 }
@@ -168,16 +180,6 @@ button:hover {
 		max-height: none;
 		max-width: 60vw;
 	}
-}
-
-
-/* Main Menu Buttons Styling */
-[data-menu="main"] button {
-	/*background: #a9403d;*/
-	background: rgba(207, 126, 125, 0.4);
-}
-[data-menu="main"] button:hover {
-	background: #c25a56
 }
 
 /**
@@ -303,10 +305,10 @@ button:hover {
 
 
 
-
-/* Other Images Styles 
-#game [data-image] {
-
+/* Other Images Styles  */
+#game [data-image] {}
+#game [data-image].center{
+	z-index: 1;
 }
 
 /*Update Stats message*/
@@ -374,4 +376,17 @@ button:hover {
 	[data-ui="quick-menu"] span:hover {
 
 	}
+}
+
+
+
+/*Modals*/
+.modal-dialog {
+	background-color: #771b18;
+	background-image: url(../img/textures/red-fabric.png);
+	border: 4px solid hsla(45, 100%, 37%, 1);
+}
+.modal-dialog {
+	/*color: #c25a56;*/
+	color: #FFFFFF;
 }

@@ -29,7 +29,7 @@ const strings = {
 
 		"Cancel": "Cancel",
 		"Close": "Close",
-		"Confirm": "Do you want to quit?",
+		"Confirm": "Do you want to quit? All unsaved progress will be lost.",
 
 		"FullScreen": "Full Screen",
 
@@ -77,7 +77,9 @@ const strings = {
 
 		"Voice": "Voice Volume",
 
-		"Windowed": "Windowed"
+		"Windowed": "Windowed",
+
+		"SelectClothes": "Please select the clothes you want to wear"
 	},
 
 	"Español": {
@@ -139,7 +141,9 @@ const strings = {
 
 		"Voice": "Volumen de la Voz",
 
-		"Windowed": "Ventana"
+		"Windowed": "Ventana",
+
+		"SelectClothes": "Por favor selecciona la ropa que quieres usar"
 	},
 
 	"Français": {
@@ -201,7 +205,9 @@ const strings = {
 
 		"Voice": "Volume de la Voix",
 
-		"Windowed": "Fenêtré"
+		"Windowed": "Fenêtré",
+
+		"SelectClothes": "Please select the clothes you want to wear"
 	},
 
 	"日本語": {
@@ -263,7 +269,8 @@ const strings = {
 
 		"Voice": "ボイスの音量",
 
-		"Windowed": "窓"
+		"Windowed": "窓",
+		"SelectClothes": "Please select the clothes you want to wear"
 	},
 	"Nederlands": {
 		"AdvanceHelp": "Gebruik de spatiebalk of linker muisknop om te spelen.",
@@ -324,6 +331,7 @@ const strings = {
 
 		"Voice": "Stem Volume",
 
-		"Windowed": "Window modus"
+		"Windowed": "Window modus",
+		"SelectClothes": "Please select the clothes you want to wear"
 	}
 };
