@@ -252,11 +252,16 @@ button:hover {}
 #game [data-character],
 #game [data-character] img {
 	max-height: 80vh;
+	width: auto;
 }
 #game [data-character] img {
+    max-width: 100%;
+    position: relative;
+}
+
+#game [data-character] img:last-child {
     bottom: 0;
     position: absolute;
-    max-width: 100%;
 }
 	/* Positions */
 	#game [data-character].left img {

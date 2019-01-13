@@ -199,7 +199,7 @@ let script = {
 		"show char__paola smiling:clube at right with fadeIn",
 		"char__paola ...",
 		"char__paulina Are you feeling bad, ma'am?",
-		"show char__paola shocked:clube at right",
+		"show char__paola shocked:clube at right with shake",
 		"char__paola No... I think I drank too much.",
 		// "char__paulina What's the matter, ma'am? I don't get it.",
 		"char__paulina ...",
