@@ -27,23 +27,37 @@ let updateJournalSidebar = () => {
 		let character = characters[characterId];
 		if (progress.get(characterId))
 		{
-			sidebarHtml += "<a data-journal-character='";
-			sidebarHtml += characterId;
-			sidebarHtml += "' ";
-			sidebarHtml += "class='journal__body__sidebar__item js-journal-character";
+			sidebarHtml += "<a data-journal-character='"
+			sidebarHtml += characterId
+			sidebarHtml += "' "
+			sidebarHtml += "class='journal__body__sidebar__item js-journal-character"
 			if (idx++ == 0)
-				sidebarHtml += " active";
-			sidebarHtml += "'>";
-			sidebarHtml += character.Name;
-			sidebarHtml += "</a>";
+				sidebarHtml += " active"
+			sidebarHtml += "'>"
+
+				// Portrait
+				sidebarHtml += '<span class="journal__body__sidebar__item__portrait">'
+				sidebarHtml += '<img src="img/characters/'
+				sidebarHtml += character.Directory
+				sidebarHtml += '/portrait.png'
+				sidebarHtml += '"/></span>'
+
+				// Name
+				sidebarHtml += '<span class="journal__body__sidebar__item__content">'
+				sidebarHtml += character.Name
+				sidebarHtml += '</span>'
+
+			sidebarHtml += "</a>"
 		}
 	};
 
 	$(".js-journal-characters").html(sidebarHtml);
 
 	$(".js-journal-character").on("click", (e) => {
-		let characterId = $(e.target).data("journal-character");
-		updateJournalCharacter(characterId);
+		$(e.currentTarget).closest('.js-journal-characters').find('.js-journal-character').removeClass('active')
+		$(e.currentTarget).addClass('active')
+		let characterId = $(e.currentTarget).data("journal-character")
+		updateJournalCharacter(characterId)
 	});
 };
 

@@ -40,8 +40,9 @@ const characters = {
 	"char__paula": {
 		"Name": "Paula Martinez",
 		"Color": "#5bcaff",
+		"Directory": "paula",
 		"Images":{
-			"default": "paula/default.png",
+			"default": "default.png",
         },
         "Milestones": (progress) => {
 

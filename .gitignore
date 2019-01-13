@@ -17,4 +17,5 @@ package-lock.json
 .cache
 yarn.lock
 *.ai
+*.psd
 
