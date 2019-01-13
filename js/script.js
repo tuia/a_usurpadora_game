@@ -56,7 +56,7 @@ const videos = {
 
 // Define the images used in the game.
 const images = {
-
+	"card-paola": "card-paola.png"
 };
 
 // Define the backgrounds for each scene.
@@ -666,7 +666,10 @@ let script = {
 		"char__paulina I don't need to think about anything, ma'am. My answer now and always will be no.",
 		"char__paola I'll see you soon, and thanks for everything. You've been great. You even deserve a bonus... (takes money out of the wallet)",
 		"show char__paola smiling:clube at right-zoom",
-		"char__paola No, better not (puts money back). It's better when you decide. You can find me here... (hands out a business card)... When you decide.",
+		"char__paola No, better not (puts money back). It's better when you decide. Then, tou can find me here...",
+		"show card-paola center with fadeIn",
+		"wait 3000",
+		"hide card-paola with fadeOut",
 		"char__paola I know you'll accept. Have a good evening.",
 
 		// "centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
@@ -686,8 +689,13 @@ let script = {
 		"show char__paulina :{{player.outfit}} at left",
 		"char__paola I'll see you tomorrow, and thanks for everything. You've been great. You deserve a bonus...",
 		"centered + $300",
-		"char__paola You can find me here...  (hands out a business card) tomorrow at 10.",
-		"char__paola Have a good evening.",
+		"show char__paola :clube at right-zoom",
+		"char__paola You can find me here...",
+		"show card-paola center with fadeIn",
+		"wait 3000",
+		"hide card-paola with fadeOut",
+		"show char__paola smiling:clube at right-zoom",
+		"char__paola ... tomorrow at 10. Have a good evening.",
 
 		// "centered SCORE: Osvaldo: {{reputation.char__osvaldo}} | Paola Bracho: {{reputation.char__paola}} | Luciano Alcântara: {{reputation.char__luciano}}",
 		"jump score__osvaldo"
