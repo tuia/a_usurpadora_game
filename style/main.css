@@ -324,6 +324,7 @@ button:hover {}
 	z-index: 99999;
 	font-size: 36px;
 	color: #FFFFFF;
+	display: none !important;
 }
 
 .minigame-status {
