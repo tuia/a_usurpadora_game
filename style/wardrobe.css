@@ -7,23 +7,40 @@
 
 }
 
+
+
 .wardrobe__flex-wrapper {
 	display: flex;
-	justify-content: space-around;
+	flex-flow: column-reverse;
 }
-
 .wardrobe__menu {
 	background: rgba(0,0,0,.5);
 	padding: 15px;
 	flex: 1;
-	align-self: flex-start;
 }
 .wardrobe__menu label{
 	display: block;
 	color: white;
 }
+.select-group {
+	display: flex
+}
+.select-group button{
+	width: auto;
+	min-width: 34px;
+}
 .wardrobe__menu select{
-	width: calc(100% - 30px);
+	flex: 1;
+}
+
+@media only screen and (min-width: 768px) {
+	.wardrobe__flex-wrapper {
+		justify-content: space-around;
+		flex-flow: row;
+	}
+	.wardrobe__menu {
+		align-self: flex-start;
+	}
 }
 
 

@@ -147,9 +147,20 @@ const characters = {
 		"Name": "Luciano Alcântara",
 		"Color": "#5bcaff",
 		"Directory": "luciano",
-		"Images":{
-			"clube": "luciano.png",
-		},
+		"Outfit": {
+			"Body": {
+			  "Directory": "body",
+			  "Images": {
+				"default": "default.png"
+			  }
+			},
+			"Clothes": {
+			  "Directory": "clothing",
+			  "Images": {
+				"clube": "clube.png"
+			  }
+			}
+        },
         "Milestones": (progress) => {
             let result = ["A stylish and rich young man."];
 

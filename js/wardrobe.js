@@ -61,5 +61,22 @@ $(document).ready( function() {
 		let selectedCharacterOutfit = $(this).find("option:selected").val()
 		$('.js-wardrobe-outfit').attr('src', selectedCharacterOutfit)
 	})
+
+
+	$(".js-select-nav").click( function() {
+		let action = $(this).attr("data-select-nav"),
+			parent = $(this).closest(".js-select-group"),
+			select = parent.find("select"),
+			selectedOption = select.find("option:selected"),
+			prevSelect = selectedOption.prev(),
+			nextSelect = selectedOption.next()
+
+		if ( prevSelect.length > 0 && action == "prev" ) select.val(prevSelect.val())
+		if ( nextSelect.length > 0 && action == "next" ) select.val(nextSelect.val())
+
+		select.trigger("change")
+	})
+
+	$('.js-wardrobe-char-select').trigger("change")
 	
 })
